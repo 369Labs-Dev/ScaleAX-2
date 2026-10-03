@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+.next/
+
+# Environment files — NEVER commit real credentials
+.env
+.env.local
+!.env.example
+
+# Turbo / TypeScript incremental state
+.turbo/
+
+# Prisma
+**/prisma/*.db
+
+# Misc
+.DS_Store
+*.log
+coverage/
+.DS_Store
+
+# Per-service generated Prisma clients (run `pnpm db:generate`)
+services/*/generated/
+
+# Agent worktrees
+.claude/worktrees/
+*.tsbuildinfo
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/

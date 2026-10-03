@@ -1,0 +1,31 @@
+// The full Part 0.1 sitemap, shared by `app/sitemap.ts` and kept in sync by
+// hand with `scripts/smoke-test.mjs`'s ROUTES (that script is plain JS run
+// pre-build, outside the `src/` TS graph, so it can't import this file).
+export const ROUTES: string[] = [
+  '/',
+  '/about',
+  '/how-we-work/plan',
+  '/how-we-work/build',
+  '/how-we-work/run',
+  '/how-we-work/grow',
+  '/solutions/consulting',
+  '/solutions/real-estate',
+  '/solutions/it-security',
+  '/solutions/talent',
+  '/solutions/hr-payroll',
+  '/solutions/tax-legal-compliance',
+  '/solutions/finance-accounting',
+  '/models',
+  '/gift-city',
+  '/location',
+  '/calculator',
+  '/insights',
+  '/insights/what-it-costs-to-run-a-capability-centre-in-ahmedabad',
+  '/insights/gift-city-for-capability-centres-what-the-2025-gic-regulations-change',
+  '/insights/build-operate-transfer-plan-the-handover-on-day-one',
+  '/news',
+  '/careers',
+  '/contact',
+  '/privacy',
+  '/terms',
+];

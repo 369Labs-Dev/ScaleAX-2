@@ -1,0 +1,681 @@
+@import 'tailwindcss';
+
+/* ScaleAX website design tokens — Website Brief v3, Part C1/C2.
+   Do NOT reuse apps/web's shadcn tokens — this is a separate, product-adapted brand surface. */
+:root {
+  /* W8 — green system, extracted from the approved reference design
+     (https://site-hazel-gamma-44.vercel.app/): one deep forest-green ink on
+     an off-white ground, with every neutral/tint derived from the ink at a
+     fixed alpha. Token names are semantic; there is no second brand hue. */
+  --sx-ink: #0f3b2e; /* primary: headings, dark bands, footer, CTA buttons */
+  --sx-ink-90: #0f3b2ee6;
+  --sx-ink-70: #0f3b2eb8; /* body copy */
+  --sx-ink-50: #0f3b2e80; /* captions, eyebrows, step numbers */
+  --sx-ink-20: #0f3b2e33; /* ghost-button outline */
+  --sx-ink-12: #0f3b2e1f; /* card borders, dividers */
+  --sx-ink-06: #0f3b2e0f; /* grid lines, hover wash */
+  --sx-ink-03: #0f3b2e09; /* section tint */
+  --sx-ink-raised: #164a3b; /* hover state of a tile sitting on an ink band */
+  --sx-ground: #fcfdfc; /* page ground (reference "--white") */
+  --sx-surface: #ffffff; /* cards */
+  --sx-white: #fcfdfc; /* text/buttons on dark bands */
+
+  /* Semantic aliases kept from the Part C architecture. */
+  --sx-body: var(--sx-ink-70);
+  --sx-muted: var(--sx-ink-50);
+  --sx-border: var(--sx-ink-12);
+  --sx-bg-light: #f4f6f5; /* ink-03 flattened onto the ground (solid, for layering) */
+
+  --sx-content-width: 1320px;
+  --sx-radius-card: 16px;
+  --sx-radius-button: 999px; /* pill */
+  --sx-space-section-desktop: 128px;
+  --sx-space-section-mobile: 96px;
+
+  /* W7 — motion tokens, defined once. Every transition/animation on the
+     site uses these (via the Tailwind `ease-sx-*` / `duration-sx-*`
+     utilities below or directly in this file). Transform/opacity only.
+     (The reference uses the same two curves.) */
+  --sx-ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* entrances, hovers */
+  --sx-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); /* on-screen movement */
+  --sx-dur-fast: 160ms; /* press, colour changes */
+  --sx-dur-base: 240ms; /* hovers, menus, accordions */
+  --sx-dur-slow: 400ms; /* card lifts, underline sweeps */
+  --sx-dur-reveal: 700ms; /* scroll reveals */
+  --sx-stagger-step: 70ms; /* delay between staggered children */
+  --sx-reveal-distance: 20px;
+
+  /* Ink-tinted elevation (no new colours — ink at low alpha). */
+  --sx-shadow-lift: 0 30px 50px -32px var(--sx-ink-50);
+  --sx-shadow-button: 0 16px 32px -14px var(--sx-ink-50);
+  --sx-ring: 0 0 0 4px var(--sx-ink-12);
+}
+
+@theme inline {
+  --color-sx-ink: var(--sx-ink);
+  --color-sx-ink-90: var(--sx-ink-90);
+  --color-sx-ink-70: var(--sx-ink-70);
+  --color-sx-ink-50: var(--sx-ink-50);
+  --color-sx-ink-20: var(--sx-ink-20);
+  --color-sx-ink-12: var(--sx-ink-12);
+  --color-sx-ink-06: var(--sx-ink-06);
+  --color-sx-ink-03: var(--sx-ink-03);
+  --color-sx-ground: var(--sx-ground);
+  --color-sx-surface: var(--sx-surface);
+  --color-sx-white: var(--sx-white);
+  --color-sx-body: var(--sx-body);
+  --color-sx-muted: var(--sx-muted);
+  --color-sx-bg-light: var(--sx-bg-light);
+  --color-sx-border: var(--sx-border);
+  --font-sans:
+    var(--font-sans), 'Lato', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
+  --ease-sx-out: var(--sx-ease-out);
+  --ease-sx-in-out: var(--sx-ease-in-out);
+  --shadow-sx-lift: var(--sx-shadow-lift);
+  --color-sx-ink-raised: var(--sx-ink-raised);
+}
+
+/* Part C6 "Where next": 2x2 grid from 480px, 1 column below. */
+@theme {
+  --breakpoint-xs: 30rem;
+}
+
+/* Element defaults live in the base layer so Tailwind utilities (e.g.
+   `text-sx-white` on a heading in a dark band) always win over them. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--sx-ground);
+    color: var(--sx-body);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--sx-ink);
+  }
+
+  /* W8 — display typography (reference scale): heavy grotesque-style
+   headings with tight tracking and balanced line breaks. */
+  h1 {
+    letter-spacing: -0.035em;
+    font-weight: 900;
+    text-wrap: balance;
+  }
+
+  h2 {
+    letter-spacing: -0.03em;
+    font-weight: 900;
+    text-wrap: balance;
+  }
+
+  h3 {
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: var(--sx-ink);
+    color: var(--sx-white);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* W7 — components: buttons, links, cards, form controls, sliders      */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .sx-btn {
+    display: inline-flex;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-radius: var(--sx-radius-button);
+    padding-inline: 26px;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition:
+      transform var(--sx-dur-fast) var(--sx-ease-out),
+      box-shadow var(--sx-dur-slow) var(--sx-ease-out),
+      background-color var(--sx-dur-base) ease,
+      color var(--sx-dur-base) ease;
+  }
+  .sx-btn:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+  .sx-btn:focus-visible {
+    outline: 2px solid var(--sx-ink);
+    outline-offset: 2px;
+  }
+  .sx-btn-primary {
+    background: var(--sx-ink);
+    color: var(--sx-white);
+  }
+  .sx-btn-primary:hover:not(:disabled) {
+    box-shadow: var(--sx-shadow-button);
+  }
+  .sx-btn-ghost {
+    color: var(--sx-ink);
+    box-shadow: inset 0 0 0 1.5px var(--sx-ink-20);
+  }
+  .sx-btn-ghost:hover {
+    box-shadow: inset 0 0 0 1.5px var(--sx-ink);
+  }
+  /* Outline button on dark bands. */
+  .sx-btn-outline-light {
+    color: var(--sx-white);
+    box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.35);
+  }
+  .sx-btn-outline-light:hover {
+    box-shadow: inset 0 0 0 1.5px var(--sx-white);
+  }
+  .sx-btn-outline-light:focus-visible {
+    outline-color: var(--sx-white);
+  }
+  .sx-btn-light {
+    background: var(--sx-white);
+    color: var(--sx-ink);
+  }
+  .sx-btn-light:hover {
+    box-shadow: 0 14px 28px -14px rgb(0 0 0 / 0.45);
+  }
+  .sx-btn-light:focus-visible {
+    outline-color: var(--sx-white);
+  }
+  .sx-btn-arrow {
+    display: inline-block;
+    transition: transform var(--sx-dur-slow) var(--sx-ease-out);
+  }
+  .sx-btn:hover .sx-btn-arrow,
+  .group:hover .sx-btn-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Underline that sweeps in from the left on hover and out to the right. */
+  .sx-link {
+    position: relative;
+  }
+  .sx-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1.5px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: 100% 50%;
+    transition: transform var(--sx-dur-slow) var(--sx-ease-out);
+  }
+  .sx-link:hover::after,
+  .group:hover .sx-link::after {
+    transform: scaleX(1);
+    transform-origin: 0 50%;
+  }
+
+  /* Card lift. Uses `translate` (not `transform`) so it composes with the
+     scroll-reveal animation, which animates `transform`. */
+  .sx-card-hover {
+    transition:
+      translate var(--sx-dur-slow) var(--sx-ease-out),
+      box-shadow var(--sx-dur-slow) var(--sx-ease-out),
+      border-color var(--sx-dur-base) ease,
+      background-color var(--sx-dur-base) ease;
+  }
+  .sx-card-hover:hover {
+    translate: 0 -3px;
+    box-shadow: var(--sx-shadow-lift);
+    border-color: var(--sx-ink-20);
+  }
+
+  /* Eyebrow — small, wide-tracked capitals in ink-50 (reference `.eyebrow`). */
+  .sx-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--sx-ink-50);
+  }
+
+  /* W8 — display scale (reference `.h1`/`.h2`/`.h3`/`.lead`). */
+  .sx-h1 {
+    font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+  .sx-h2 {
+    font-size: clamp(2rem, 4vw, 3.15rem);
+    font-weight: 900;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+  }
+  .sx-h3 {
+    font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .sx-lead {
+    color: var(--sx-ink-70);
+    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+    line-height: 1.55;
+  }
+
+  /* Page container (reference `.container-x`): 1320px, 20/40/56px gutters. */
+  .sx-container {
+    width: 100%;
+    max-width: var(--sx-content-width);
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  @media (min-width: 768px) {
+    .sx-container {
+      padding-inline: 40px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .sx-container {
+      padding-inline: 56px;
+    }
+  }
+
+  /* White card with an ink-12 hairline (reference `.card`). */
+  .sx-card {
+    background: var(--sx-surface);
+    border: 1px solid var(--sx-ink-12);
+    border-radius: var(--sx-radius-card);
+  }
+
+  /* 64px ink grid — the reference's decorative texture. */
+  .sx-grid-lines {
+    background-image:
+      linear-gradient(var(--sx-ink-06) 1px, transparent 1px),
+      linear-gradient(90deg, var(--sx-ink-06) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .sx-grid-lines-light {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Homepage section rhythm — Part C spacing tokens (72px / 120px). */
+  .sx-section {
+    padding-block: var(--sx-space-section-mobile);
+  }
+  @media (min-width: 1024px) {
+    .sx-section {
+      padding-block: var(--sx-space-section-desktop);
+    }
+  }
+
+  /* Big stat figure — tabular so counters don't jitter. */
+  .sx-figure {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+  }
+
+  /* Slider (reference): 3px ink track, filled via --sx-fill (0–100), ink
+     thumb with a ground-coloured ring. */
+  .sx-range {
+    --sx-fill: 50;
+    appearance: none;
+    -webkit-appearance: none;
+    height: 24px;
+    width: 100%;
+    background: transparent;
+    cursor: pointer;
+  }
+  .sx-range::-webkit-slider-runnable-track {
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--sx-ink) calc(var(--sx-fill) * 1%),
+      var(--sx-ink-12) calc(var(--sx-fill) * 1%)
+    );
+  }
+  .sx-range::-moz-range-track {
+    height: 3px;
+    border-radius: 999px;
+    background: var(--sx-ink-12);
+  }
+  .sx-range::-moz-range-progress {
+    height: 3px;
+    border-radius: 999px;
+    background: var(--sx-ink);
+  }
+  .sx-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -9.5px;
+    height: 22px;
+    width: 22px;
+    border-radius: 999px;
+    background: var(--sx-ink);
+    border: 4px solid var(--sx-white);
+    box-shadow: 0 0 0 1.5px var(--sx-ink);
+    transition:
+      transform var(--sx-dur-fast) var(--sx-ease-out),
+      box-shadow var(--sx-dur-base) var(--sx-ease-out);
+  }
+  .sx-range::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 999px;
+    background: var(--sx-ink);
+    border: 4px solid var(--sx-white);
+    box-shadow: 0 0 0 1.5px var(--sx-ink);
+    transition: transform var(--sx-dur-fast) var(--sx-ease-out);
+  }
+  .sx-range:hover::-webkit-slider-thumb {
+    transform: scale(1.12);
+  }
+  .sx-range:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    box-shadow:
+      0 0 0 1.5px var(--sx-ink),
+      var(--sx-ring);
+  }
+  .sx-range:active::-moz-range-thumb {
+    transform: scale(1.2);
+  }
+  .sx-range:focus-visible {
+    outline: none;
+  }
+  .sx-range:focus-visible::-webkit-slider-thumb {
+    box-shadow: var(--sx-ring);
+  }
+  .sx-range:focus-visible::-moz-range-thumb {
+    box-shadow: var(--sx-ring);
+  }
+}
+
+/* Form controls: smooth border/ring feedback on focus, everywhere. */
+@layer base {
+  input:not([type='range']):not([type='checkbox']):not([type='radio']),
+  select,
+  textarea {
+    transition:
+      border-color var(--sx-dur-base) ease,
+      box-shadow var(--sx-dur-base) var(--sx-ease-out);
+  }
+  input:not([type='range']):not([type='checkbox']):not([type='radio']):hover,
+  select:hover,
+  textarea:hover {
+    border-color: var(--sx-ink-50);
+  }
+  input:not([type='range']):not([type='checkbox']):not([type='radio']):focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--sx-ink);
+    box-shadow: var(--sx-ring);
+    outline: none;
+  }
+  input[aria-invalid='true'] {
+    border-color: rgb(220 38 38 / 0.6);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* W7 — motion system                                                  */
+/*                                                                     */
+/* Hidden "before" states only ever apply under html.sx-motion, a class */
+/* set by an inline <head> script ONLY when the visitor has not asked   */
+/* for reduced motion and IntersectionObserver exists (and removed      */
+/* again by a failsafe if the app never hydrates). No JS, reduced       */
+/* motion, or a failed bundle => every element renders fully visible.   */
+/* Animations touch transform/opacity only (no layout shift).           */
+/* ------------------------------------------------------------------ */
+@keyframes sx-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, var(--sx-reveal-distance), 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sx-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sx-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sx-pop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sx-drop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sx-tick {
+  from {
+    opacity: 0.35;
+    transform: translate3d(0, 5px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sx-draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes sx-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Scroll reveal — single element. */
+html.sx-motion [data-reveal]:not([data-revealed]) {
+  opacity: 0;
+}
+html.sx-motion [data-reveal][data-revealed] {
+  animation: sx-rise var(--sx-dur-reveal) var(--sx-ease-out) both;
+}
+html.sx-motion [data-reveal='fade'][data-revealed] {
+  animation-name: sx-fade;
+}
+html.sx-motion [data-reveal='zoom'][data-revealed] {
+  animation-name: sx-zoom;
+}
+/* Horizontal rules/connectors that draw in. */
+html.sx-motion [data-reveal='draw'] {
+  transform-origin: 0 50%;
+}
+html.sx-motion [data-reveal='draw']:not([data-revealed]) {
+  opacity: 1;
+  transform: scaleX(0);
+}
+html.sx-motion [data-reveal='draw'][data-revealed] {
+  animation: sx-draw-x 1100ms var(--sx-ease-in-out) both;
+}
+
+/* Scroll reveal — staggered children. */
+html.sx-motion [data-reveal-stagger]:not([data-revealed]) > * {
+  opacity: 0;
+}
+html.sx-motion [data-reveal-stagger][data-revealed] > * {
+  animation: sx-rise var(--sx-dur-reveal) var(--sx-ease-out) both;
+  animation-delay: calc(var(--sx-i, 0) * var(--sx-stagger-step));
+}
+[data-reveal-stagger] > :nth-child(2) {
+  --sx-i: 1;
+}
+[data-reveal-stagger] > :nth-child(3) {
+  --sx-i: 2;
+}
+[data-reveal-stagger] > :nth-child(4) {
+  --sx-i: 3;
+}
+[data-reveal-stagger] > :nth-child(5) {
+  --sx-i: 4;
+}
+[data-reveal-stagger] > :nth-child(6) {
+  --sx-i: 5;
+}
+[data-reveal-stagger] > :nth-child(7) {
+  --sx-i: 6;
+}
+[data-reveal-stagger] > :nth-child(n + 8) {
+  --sx-i: 7;
+}
+
+/* Above-the-fold entrance: pure CSS, runs at first paint (no JS wait, so
+   it never delays the hero). Delay steps via --sx-d. */
+html.sx-motion .sx-enter {
+  animation: sx-rise 800ms var(--sx-ease-out) both;
+  animation-delay: calc(var(--sx-d, 0) * 90ms);
+}
+
+/* Route entrance — only after a client-side navigation (html.sx-nav),
+   never on first load. Fast, and it never blocks input. */
+html.sx-motion.sx-nav .sx-page {
+  animation: sx-fade 320ms var(--sx-ease-out) both;
+}
+
+/* Sticky header gains a soft ink hairline shadow as the page scrolls — a CSS
+   scroll-driven animation (zero JS); browsers without support keep the
+   plain bordered header. */
+@keyframes sx-header-elevate {
+  to {
+    box-shadow: 0 1px 0 0 var(--sx-ink-12);
+    background-color: rgb(252 253 252 / 0.96);
+  }
+}
+@supports (animation-timeline: scroll()) {
+  .sx-header {
+    animation: sx-header-elevate linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 96px;
+  }
+}
+
+/* Menus / disclosure content mount animations. */
+.sx-pop {
+  animation: sx-pop var(--sx-dur-base) var(--sx-ease-out) both;
+  transform-origin: 50% 0;
+}
+.sx-drop {
+  animation: sx-drop var(--sx-dur-base) var(--sx-ease-out) both;
+}
+/* Result values re-key on change and settle in. */
+.sx-tick {
+  display: inline-block;
+  animation: sx-tick 280ms var(--sx-ease-out) both;
+}
+
+/* Auto-scrolling band — pauses on hover/focus. */
+.sx-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: sx-marquee var(--sx-marquee-duration, 48s) linear infinite;
+}
+.sx-marquee:hover .sx-marquee-track,
+.sx-marquee:focus-within .sx-marquee-track,
+.sx-marquee[data-paused] .sx-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Reduced motion: belt and braces. Even if html.sx-motion were present
+   (e.g. the OS setting changed after load), nothing stays hidden or moves. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+  html.sx-motion [data-reveal],
+  html.sx-motion [data-reveal-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  /* No auto-scroll: the band becomes a normal, swipeable row and the
+     duplicate copy used for the seamless loop is dropped. */
+  .sx-marquee {
+    overflow-x: auto;
+  }
+  .sx-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+  [data-marquee-copy],
+  [data-marquee-toggle] {
+    display: none !important;
+  }
+}
+
+@media print {
+  html.sx-motion [data-reveal],
+  html.sx-motion [data-reveal-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@scaleax/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Playwright end-to-end tests for the website. Lives in its own package (with no dependency on next) so that next never resolves with the @playwright/test peer: that peer-variant of next 15.5.x breaks RSC client-manifest generation at build time under pnpm.",
+  "scripts": {
+    "test:e2e:website": "playwright test --config=playwright.website.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}

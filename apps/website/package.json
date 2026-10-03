@@ -1,0 +1,36 @@
+{
+  "name": "@scaleax/website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ScaleAX public marketing website (separate from apps/web).",
+  "scripts": {
+    "dev": "next dev --port 3200",
+    "build": "next build",
+    "start": "next start --port 3200",
+    "start:e2e": "next start --port ${E2E_WEBSITE_PORT:-43200}",
+    "lint": "next lint",
+    "test": "node scripts/smoke-test.mjs",
+    "test:unit": "vitest run"
+  },
+  "dependencies": {
+    "lucide-react": "^0.511.0",
+    "next": "^15.3.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^15.3.2",
+    "jsdom": "^25.0.1",
+    "tailwindcss": "^4.1.7",
+    "typescript": "^5.8",
+    "vitest": "^2.1.9"
+  }
+}

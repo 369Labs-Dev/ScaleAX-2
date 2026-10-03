@@ -1,0 +1,6 @@
+node_modules
+.next
+coverage
+pnpm-lock.yaml
+# Product source-of-truth documents: never auto-reformat
+docs
