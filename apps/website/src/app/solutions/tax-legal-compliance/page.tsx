@@ -138,6 +138,7 @@ export default function TaxLegalCompliancePage() {
       </section>
 
       <InNumbers
+        figure="towers"
         stats={[
           { figure: '6', label: 'Entity steps', line: 'Structure to registrations' },
           { figure: '5', label: 'Tax areas', line: 'Corporate tax to advisory' },
@@ -149,6 +150,7 @@ export default function TaxLegalCompliancePage() {
       <LifecycleStrip current="build" />
       <WhereNext page="tax-legal-compliance" />
       <ClosingCta
+        figure="man-phone"
         headline="Set up your entity the right way."
         line="Tell us your group structure and we'll recommend the best set-up for India."
       />

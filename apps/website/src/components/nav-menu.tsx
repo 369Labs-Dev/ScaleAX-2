@@ -119,9 +119,7 @@ export function NavMenu({
           setOpen(true);
         }}
         onKeyDown={onButtonKeyDown}
-        className={`flex items-center gap-1 rounded py-2 transition-colors duration-200 hover:text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
-          open ? 'text-sx-ink' : ''
-        }`}
+        className="sx-header-link flex items-center gap-1 rounded-sx py-2"
       >
         {label}
         <ChevronDown
@@ -138,7 +136,7 @@ export function NavMenu({
           onKeyDown={onPanelKeyDown}
           className={`sx-pop ${
             panelClassName ??
-            "absolute left-1/2 top-full z-50 mt-2 w-[300px] -translate-x-1/2 rounded-[16px] border border-sx-border bg-white p-3 shadow-sx-lift before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-['']"
+            "absolute left-1/2 top-full z-50 mt-2 w-[320px] -translate-x-1/2 rounded-sx sx-glass px-6 py-3 text-sx-ink before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-['']"
           }`}
         >
           {children}

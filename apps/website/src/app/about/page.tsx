@@ -74,6 +74,7 @@ export default function AboutPage() {
       <Leadership />
 
       <InNumbers
+        figure="towers"
         stats={[
           { figure: '7', label: 'Founders', line: 'Each running a firm in the ScaleAX group' },
           { figure: '5', label: 'Partner firms', line: 'Building, workspace, IT, finance, tax' },
@@ -88,6 +89,7 @@ export default function AboutPage() {
       <WhereNext page="about" />
 
       <ClosingCta
+        figure="man-suit"
         headline="Meet the team behind your India centre."
         line="Tell us what you are planning and we'll set up a call with the founder closest to your needs."
       />

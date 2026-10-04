@@ -15,9 +15,9 @@ export function PartnerFirms() {
   return (
     <section className="sx-section bg-sx-bg-light">
       <div className="sx-container">
-        <Reveal className="max-w-3xl">
+        <Reveal className="max-w-4xl">
           <div className="sx-eyebrow">Our partner firms</div>
-          <h2 className="sx-h2 mt-3 text-sx-ink">Built by firms that already do this work.</h2>
+          <h2 className="sx-h2 mt-5 text-sx-ink">Built by firms that already do this work.</h2>
           <p className="sx-lead mt-5 max-w-[720px]">
             ScaleAX is a joint venture between Awfficacy Global and DevX, with Savvy Group as its
             construction partner. Between them, they own buildings, run offices, and handle finance
@@ -25,29 +25,39 @@ export function PartnerFirms() {
           </p>
         </Reveal>
 
-        <Reveal stagger className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-3">
+        <Reveal stagger className="mt-14 border-t border-sx-ink md:mt-20">
           {PARTNER_FIRMS.map((firm) => (
-            <div key={firm.name} className="sx-card sx-card-hover flex flex-col p-8">
-              <div className="mb-5 flex h-14 items-center">
-                <Image
-                  src={firm.logo}
-                  alt={`${firm.name} logo`}
-                  width={200}
-                  height={60}
-                  className="w-auto object-contain object-left"
-                  style={{ height: firm.logoHeight }}
-                />
+            <div
+              key={firm.name}
+              className="grid gap-x-10 gap-y-6 border-b border-sx-border py-10 lg:grid-cols-12 lg:items-start lg:py-12"
+            >
+              <div className="lg:col-span-3">
+                <div className="flex h-14 items-center">
+                  <Image
+                    src={firm.logo}
+                    alt={`${firm.name} logo`}
+                    width={200}
+                    height={60}
+                    className="w-auto object-contain object-left"
+                    style={{ height: firm.logoHeight }}
+                  />
+                </div>
               </div>
-              <div className="sx-eyebrow">{firm.role}</div>
-              <h3 className="mt-3 text-[24px] font-black tracking-[-0.02em] text-sx-ink">
-                {firm.name}
-              </h3>
-              <p className="mt-3 flex-1 text-[15px] leading-relaxed text-sx-body">
-                {firm.description}
-              </p>
-              <ul className="mt-8 space-y-2 border-t border-sx-border pt-6">
+              <div className="lg:col-span-5">
+                <div className="text-[13px] font-bold uppercase tracking-[0.12em] text-sx-accent-ink">
+                  {firm.role}
+                </div>
+                <h3 className="mt-3 text-[28px] font-black leading-none tracking-[-0.02em] text-sx-ink">
+                  {firm.name}
+                </h3>
+                <p className="mt-4 text-[17px] leading-relaxed text-sx-body">{firm.description}</p>
+              </div>
+              <ul className="space-y-2 lg:col-span-4">
                 {firm.stats.map((stat) => (
-                  <li key={stat} className="text-[15px] font-bold text-sx-ink">
+                  <li
+                    key={stat}
+                    className="border-l-0 text-[19px] font-black tracking-[-0.015em] text-sx-ink"
+                  >
                     <CountUp value={stat} className="sx-figure" />
                   </li>
                 ))}

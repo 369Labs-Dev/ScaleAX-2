@@ -1,3 +1,5 @@
+import { findImage } from '@/lib/images';
+import { Cutout } from './cutout';
 import { Reveal } from './motion/reveal';
 import { CountUp } from './motion/count-up';
 
@@ -7,28 +9,77 @@ export interface NumberStat {
   line: string;
 }
 
-// Part 0.3 block 6 / Part C6 "In numbers" strip. W8: the reference's stat
-// row — four columns between ink hairlines, heavy tabular figures, left
-// aligned. Numbers must render final values on load; never show "0".
-// W7: figures are server-rendered at their final value, then roll up once
-// on first view (from 30% of the target, never 0) when motion is allowed.
-export function InNumbers({ stats }: { stats: NumberStat[] }) {
-  return (
-    <section className="border-y border-sx-border">
-      <Reveal
-        stagger
-        className="sx-container grid grid-cols-1 divide-y divide-sx-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x"
-      >
-        {stats.map((stat) => (
-          <div key={stat.label} className="py-10 lg:px-8 lg:first:pl-0 lg:last:pr-0">
-            <div className="text-[44px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[56px]">
-              <CountUp value={stat.figure} className="sx-figure" />
+const BARS = ['bg-sx-ink', 'bg-sx-blue', 'bg-sx-yellow', 'bg-sx-ink-20'];
+
+// "In numbers" strip: heavy tabular figures between hairlines. Figures are
+// server-rendered at their final value (never "0"), then roll up once on
+// first view when motion is allowed.
+//
+// With `figure`, the strip becomes a soft tinted band: one large cutout
+// (public/images/cutout-<name>) stands on its bottom edge at the left and
+// rises well above it into the section before, and the four figures sit in a
+// two-by-two block beside it.
+export function InNumbers({ stats, figure }: { stats: NumberStat[]; figure?: string }) {
+  const hasFigure = Boolean(figure && findImage(`cutout-${figure}`));
+
+  if (!hasFigure) {
+    return (
+      <section className="border-y border-sx-border">
+        <Reveal
+          stagger
+          className="sx-container grid grid-cols-1 divide-y divide-sx-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x"
+        >
+          {stats.map((stat, i) => (
+            <div key={stat.label} className="py-12 md:py-16 lg:px-8 lg:first:pl-0 lg:last:pr-0">
+              <Stat stat={stat} index={i} />
             </div>
-            <div className="mt-3 text-[15px] font-bold text-sx-ink">{stat.label}</div>
-            <div className="mt-1 text-[14px] text-sx-muted">{stat.line}</div>
-          </div>
-        ))}
-      </Reveal>
+          ))}
+        </Reveal>
+      </section>
+    );
+  }
+
+  return (
+    <section className="relative bg-sx-tint-blue lg:mt-44">
+      <div
+        aria-hidden="true"
+        className="sx-container pointer-events-none absolute inset-x-0 bottom-0 top-[-10rem] hidden lg:block"
+      >
+        <Cutout
+          name={figure ?? ''}
+          className="absolute bottom-0 left-5 h-full max-w-[32%] object-left-bottom md:left-10 xl:left-14"
+        />
+      </div>
+      <div className="sx-container relative grid lg:grid-cols-12">
+        <Reveal
+          stagger
+          className="grid grid-cols-1 gap-x-14 sm:grid-cols-2 lg:col-span-7 lg:col-start-6"
+        >
+          {stats.map((stat, i) => (
+            <div
+              key={stat.label}
+              className={`border-sx-ink-12 py-10 md:py-12 ${i > 0 ? 'border-t' : ''} ${
+                i === 1 ? 'sm:border-t-0' : ''
+              }`}
+            >
+              <Stat stat={stat} index={i} />
+            </div>
+          ))}
+        </Reveal>
+      </div>
     </section>
+  );
+}
+
+function Stat({ stat, index }: { stat: NumberStat; index: number }) {
+  return (
+    <>
+      <span aria-hidden="true" className={`mb-7 block h-1.5 w-12 ${BARS[index % BARS.length]}`} />
+      <div className="text-[52px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[68px]">
+        <CountUp value={stat.figure} className="sx-figure" />
+      </div>
+      <div className="mt-4 text-[16px] font-bold text-sx-ink">{stat.label}</div>
+      <div className="mt-1 text-[14px] text-sx-muted">{stat.line}</div>
+    </>
   );
 }

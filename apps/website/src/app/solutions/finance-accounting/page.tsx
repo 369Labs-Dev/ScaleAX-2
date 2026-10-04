@@ -78,6 +78,7 @@ export default function FinanceAccountingPage() {
       </section>
 
       <InNumbers
+        figure="tower"
         stats={[
           { figure: '6', label: 'Finance processes', line: 'Purchase to pay to audit' },
           { figure: '3', label: 'Reporting standards', line: 'Ind AS, IFRS, US GAAP' },
@@ -89,6 +90,7 @@ export default function FinanceAccountingPage() {
       <LifecycleStrip current="run" />
       <WhereNext page="finance-accounting" />
       <ClosingCta
+        figure="man-blazer"
         headline="Hand us the books."
         line="Tell us your group reporting needs and we'll set out how we'd run finance for your centre."
       />

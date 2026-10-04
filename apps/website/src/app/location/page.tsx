@@ -37,6 +37,7 @@ export default function LocationPage() {
 
       <WhereNext page="location" />
       <ClosingCta
+        figure="towers"
         headline="Talk to us about your city choice."
         line="We'll walk through the trade-offs for your profile."
       />

@@ -35,7 +35,7 @@ export function MiniEstimator() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-12">
-      <div className="sx-card p-7 lg:col-span-7 lg:p-10">
+      <div className="sx-card p-7 lg:col-span-7 lg:p-12">
         <div className="grid gap-9">
           <Field label="Where is the team today?">
             <ToggleGroup
@@ -99,28 +99,24 @@ export function MiniEstimator() {
       </div>
 
       <div
-        className="relative isolate flex flex-col justify-between overflow-hidden rounded-[20px] bg-sx-ink p-7 text-sx-white lg:col-span-5 lg:p-10"
+        className="relative isolate flex flex-col justify-between overflow-hidden rounded-sx bg-sx-tint-blue p-7 text-sx-ink lg:col-span-5 lg:p-12"
         aria-live="polite"
       >
-        <div
-          aria-hidden="true"
-          className="sx-grid-lines-light absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_80%_70%_at_100%_0%,#000_10%,transparent_70%)]"
-        />
         <div>
-          <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-white/60">
+          <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-sx-ink-70">
             Indicative annual saving
           </p>
-          <p className="mt-3 text-[48px] font-black leading-none tracking-[-0.035em] md:text-[60px]">
+          <p className="mt-4 text-[56px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[84px]">
             <Tick value={formatUsdCompact(estimate.annualSaving)} className="sx-figure" />
           </p>
-          <p className="mt-3 text-[17px] text-white/80">
+          <p className="mt-3 text-[17px] text-sx-ink-70">
             <Tick
               value={`${Math.round(estimate.annualSavingPct)}%`}
               className="sx-figure font-bold"
             />{' '}
             lower than running the same team in {estimate.comparedWith}
           </p>
-          <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-white/15 pt-6">
+          <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-sx-border pt-6">
             <Stat label="Cost in India / yr" value={formatUsdCompact(estimate.indiaAnnualCost)} />
             <Stat
               label={`Cost in ${estimate.comparedWith.replace(/^the /, '')} / yr`}
@@ -132,17 +128,17 @@ export function MiniEstimator() {
         </div>
         <div className="mt-10">
           <div className="flex flex-wrap gap-3">
-            <Link href="/calculator" className="sx-btn sx-btn-light">
+            <Link href="/calculator" className="sx-btn sx-btn-primary">
               Open the full calculator
               <span className="sx-btn-arrow" aria-hidden="true">
                 &rarr;
               </span>
             </Link>
-            <Link href="/contact" className="sx-btn sx-btn-outline-light">
+            <Link href="/contact" className="sx-btn sx-btn-ghost">
               Talk to us
             </Link>
           </div>
-          <p className="mt-4 text-[12px] leading-relaxed text-white/55">
+          <p className="mt-4 text-[12px] leading-relaxed text-sx-ink-70">
             Indicative only, in USD, for a centre in Ahmedabad. Actuals depend on seniority mix,
             city and fit-out. {CALCULATOR_DATA_NOTICE}
           </p>
@@ -166,7 +162,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-[12px] font-bold text-white/55">{label}</dt>
+      <dt className="text-[12px] font-bold text-sx-ink-70">{label}</dt>
       <dd className="mt-1 text-[20px] font-black tracking-[-0.02em]">
         <Tick value={value} className="sx-figure" />
       </dd>
@@ -199,7 +195,7 @@ function ToggleGroup<T extends string>({
             type="button"
             aria-pressed={active}
             onClick={() => onChange(option.id)}
-            className={`min-h-11 rounded-full px-4 py-2 text-[14px] font-bold leading-tight transition-[background-color,color,box-shadow,transform] duration-200 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
+            className={`min-h-11 rounded-sx px-4 py-2 text-[14px] font-bold leading-tight transition-[background-color,color,box-shadow,transform] duration-200 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
               stretch ? 'w-full' : ''
             } ${
               active

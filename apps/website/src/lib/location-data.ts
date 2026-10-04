@@ -800,7 +800,7 @@ export const CITIES: CityData[] = [
     whyThisCity: {
       talent: 'A growing talent pool for operations and support functions.',
       cost: 'The lowest costs of any city on the list.',
-      peerCentres: 'Very few GCCs today — an early-mover opportunity.',
+      peerCentres: 'Very few GCCs today: an early-mover opportunity.',
       officeMarket: 'A small but low-cost Grade A market.',
       policy: 'State incentives for IT and services investment.',
       connectivity: 'Good domestic links; fewer direct international routes.',

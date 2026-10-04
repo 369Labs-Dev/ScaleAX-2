@@ -70,7 +70,7 @@ export function Leadership() {
         <div
           role="tablist"
           aria-label="Team group"
-          className="inline-flex rounded-[10px] bg-sx-bg-light p-1"
+          className="inline-flex rounded-sx bg-sx-bg-light p-1"
         >
           {TABS.map((tab) => (
             <button
@@ -82,7 +82,7 @@ export function Leadership() {
                 setActiveTab(tab.key);
                 setOpenIndex(null);
               }}
-              className={`rounded-[8px] px-4 py-2 text-[14px] font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
+              className={`rounded-sx px-4 py-2 text-[14px] font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
                 activeTab === tab.key
                   ? 'border border-sx-ink/10 bg-white text-sx-ink shadow-sm'
                   : 'text-sx-muted hover:text-sx-ink'
@@ -97,7 +97,7 @@ export function Leadership() {
       <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
         {members.map((member, index) => (
           <div key={member.name} className="text-left">
-            <div className="relative aspect-[5/6] overflow-hidden rounded-[16px] bg-sx-bg-light">
+            <div className="relative aspect-[5/6] overflow-hidden rounded-sx bg-sx-bg-light">
               {member.photo && (
                 <Image
                   src={member.photo}
@@ -115,7 +115,7 @@ export function Leadership() {
                 aria-haspopup="dialog"
                 aria-label={`Read ${member.name}'s biography`}
                 onClick={() => setOpenIndex(index)}
-                className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-[6px] bg-sx-ink text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
+                className="absolute bottom-2 right-2 flex h-7 w-7 items-center justify-center rounded-sx bg-sx-ink text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
               >
                 <ArrowRight className="h-4 w-4" strokeWidth={2} />
               </button>
@@ -144,11 +144,11 @@ export function Leadership() {
               type="button"
               aria-label="Close biography"
               onClick={close}
-              className="ml-auto flex h-9 w-9 items-center justify-center rounded-[8px] text-sx-ink hover:bg-sx-bg-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
+              className="ml-auto flex h-9 w-9 items-center justify-center rounded-sx text-sx-ink hover:bg-sx-bg-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
             >
               <X className="h-5 w-5" strokeWidth={1.5} />
             </button>
-            <div className="relative mt-4 aspect-[5/6] w-full max-w-[220px] overflow-hidden rounded-[16px] bg-sx-bg-light">
+            <div className="relative mt-4 aspect-[5/6] w-full max-w-[220px] overflow-hidden rounded-sx bg-sx-bg-light">
               {openMember.photo && (
                 <Image
                   src={openMember.photo}

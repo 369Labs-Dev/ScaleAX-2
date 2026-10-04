@@ -5,11 +5,14 @@ export interface Crumb {
   url?: string;
 }
 
-// Part C6 — 14px muted text above the page eyebrow: Home › How we work › Build.
-// Current page in navy.
-export function Breadcrumb({ items }: { items: Crumb[] }) {
+// Small trail above the page eyebrow: Home › How we work › Build.
+export function Breadcrumb({ items, tone = 'ink' }: { items: Crumb[]; tone?: 'ink' | 'light' }) {
+  const light = tone === 'light';
   return (
-    <nav className="text-[14px] text-sx-muted" aria-label="Breadcrumb">
+    <nav
+      className={`text-[14px] ${light ? 'text-white/70' : 'text-sx-muted'}`}
+      aria-label="Breadcrumb"
+    >
       {items.map((item, i) => (
         <span key={item.label}>
           {i > 0 && <span className="mx-2">&rsaquo;</span>}
@@ -18,7 +21,7 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
               {item.label}
             </Link>
           ) : (
-            <span className="text-sx-ink">{item.label}</span>
+            <span className={light ? 'text-white' : 'text-sx-ink'}>{item.label}</span>
           )}
         </span>
       ))}

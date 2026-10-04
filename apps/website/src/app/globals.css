@@ -1,53 +1,59 @@
 @import 'tailwindcss';
 
-/* ScaleAX website design tokens — Website Brief v3, Part C1/C2.
-   Do NOT reuse apps/web's shadcn tokens — this is a separate, product-adapted brand surface. */
+/* ScaleAX website design tokens.
+   Do NOT reuse apps/web's shadcn tokens: this is a separate brand surface. */
 :root {
-  /* W8 — green system, extracted from the approved reference design
-     (https://site-hazel-gamma-44.vercel.app/): one deep forest-green ink on
-     an off-white ground, with every neutral/tint derived from the ink at a
-     fixed alpha. Token names are semantic; there is no second brand hue. */
-  --sx-ink: #0f3b2e; /* primary: headings, dark bands, footer, CTA buttons */
-  --sx-ink-90: #0f3b2ee6;
-  --sx-ink-70: #0f3b2eb8; /* body copy */
-  --sx-ink-50: #0f3b2e80; /* captions, eyebrows, step numbers */
-  --sx-ink-20: #0f3b2e33; /* ghost-button outline */
-  --sx-ink-12: #0f3b2e1f; /* card borders, dividers */
-  --sx-ink-06: #0f3b2e0f; /* grid lines, hover wash */
-  --sx-ink-03: #0f3b2e09; /* section tint */
-  --sx-ink-raised: #164a3b; /* hover state of a tile sitting on an ink band */
-  --sx-ground: #fcfdfc; /* page ground (reference "--white") */
-  --sx-surface: #ffffff; /* cards */
-  --sx-white: #fcfdfc; /* text/buttons on dark bands */
+  /* W9: white ground, near-black ink, and three saturated colours used
+     as flat fills (never as gradients, never on text as a gradient).
+     Every neutral is the ink at a fixed alpha. */
+  --sx-ink: #121214; /* headings, primary buttons, footer */
+  --sx-ink-90: #121214e6;
+  --sx-ink-70: #121214c2; /* body copy */
+  --sx-ink-50: #1212148f; /* captions, eyebrows, step numbers */
+  --sx-ink-20: #12121433; /* ghost-button outline */
+  --sx-ink-12: #1212141f; /* hairlines */
+  --sx-ink-06: #1212140f; /* hover wash */
+  --sx-ink-03: #12121409;
+  --sx-ink-raised: #2a2a2f; /* hover on an ink surface, image placeholders */
+  --sx-ink-deep: #0b0b0d; /* behind photography */
+  --sx-ground: #ffffff;
+  --sx-surface: #ffffff;
+  --sx-white: #ffffff;
+  --sx-bg-light: #f7f7f5; /* the one neutral band colour */
 
-  /* Semantic aliases kept from the Part C architecture. */
+  /* Colour. Actions and markers are ink, so nothing shouts; the only colour
+     is a soft tint that sits just off the white page. Blue and yellow are
+     only used for small marks, never as large fills. */
+  --sx-accent: var(--sx-ink);
+  --sx-accent-ink: var(--sx-ink-70);
+  --sx-blue: #8499f0;
+  --sx-yellow: #f0c95f;
+  --sx-tint-orange: #fdf0ea;
+  --sx-tint-blue: #eef2fc;
+  --sx-tint-yellow: #fbf5e1;
+
   --sx-body: var(--sx-ink-70);
   --sx-muted: var(--sx-ink-50);
   --sx-border: var(--sx-ink-12);
-  --sx-bg-light: #f4f6f5; /* ink-03 flattened onto the ground (solid, for layering) */
 
-  --sx-content-width: 1320px;
-  --sx-radius-card: 16px;
-  --sx-radius-button: 999px; /* pill */
-  --sx-space-section-desktop: 128px;
-  --sx-space-section-mobile: 96px;
+  --sx-content-width: 1360px;
+  --sx-radius: 4px; /* one radius for buttons, inputs, chips, cards and media */
+  --sx-radius-card: var(--sx-radius);
+  --sx-radius-button: var(--sx-radius);
+  --sx-header-h: 76px;
+  --sx-space-section-desktop: 144px;
+  --sx-space-section-mobile: 88px;
 
-  /* W7 — motion tokens, defined once. Every transition/animation on the
-     site uses these (via the Tailwind `ease-sx-*` / `duration-sx-*`
-     utilities below or directly in this file). Transform/opacity only.
-     (The reference uses the same two curves.) */
-  --sx-ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* entrances, hovers */
-  --sx-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); /* on-screen movement */
-  --sx-dur-fast: 160ms; /* press, colour changes */
-  --sx-dur-base: 240ms; /* hovers, menus, accordions */
-  --sx-dur-slow: 400ms; /* card lifts, underline sweeps */
-  --sx-dur-reveal: 700ms; /* scroll reveals */
-  --sx-stagger-step: 70ms; /* delay between staggered children */
-  --sx-reveal-distance: 20px;
+  /* Motion tokens, defined once. Transform, clip-path and opacity only. */
+  --sx-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --sx-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --sx-dur-fast: 160ms;
+  --sx-dur-base: 240ms;
+  --sx-dur-slow: 450ms;
+  --sx-dur-reveal: 900ms;
+  --sx-stagger-step: 70ms;
 
-  /* Ink-tinted elevation (no new colours — ink at low alpha). */
-  --sx-shadow-lift: 0 30px 50px -32px var(--sx-ink-50);
-  --sx-shadow-button: 0 16px 32px -14px var(--sx-ink-50);
+  --sx-shadow-lift: 0 28px 48px -32px var(--sx-ink-50);
   --sx-ring: 0 0 0 4px var(--sx-ink-12);
 }
 
@@ -60,6 +66,8 @@
   --color-sx-ink-12: var(--sx-ink-12);
   --color-sx-ink-06: var(--sx-ink-06);
   --color-sx-ink-03: var(--sx-ink-03);
+  --color-sx-ink-raised: var(--sx-ink-raised);
+  --color-sx-ink-deep: var(--sx-ink-deep);
   --color-sx-ground: var(--sx-ground);
   --color-sx-surface: var(--sx-surface);
   --color-sx-white: var(--sx-white);
@@ -67,24 +75,35 @@
   --color-sx-muted: var(--sx-muted);
   --color-sx-bg-light: var(--sx-bg-light);
   --color-sx-border: var(--sx-border);
+  --color-sx-accent: var(--sx-accent);
+  --color-sx-accent-ink: var(--sx-accent-ink);
+  --color-sx-blue: var(--sx-blue);
+  --color-sx-yellow: var(--sx-yellow);
+  --color-sx-tint-orange: var(--sx-tint-orange);
+  --color-sx-tint-blue: var(--sx-tint-blue);
+  --color-sx-tint-yellow: var(--sx-tint-yellow);
+  --radius-sx: var(--sx-radius);
   --font-sans:
-    var(--font-sans), 'Lato', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
-    sans-serif;
+    var(--font-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display:
+    var(--font-display), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --ease-sx-out: var(--sx-ease-out);
   --ease-sx-in-out: var(--sx-ease-in-out);
   --shadow-sx-lift: var(--sx-shadow-lift);
-  --color-sx-ink-raised: var(--sx-ink-raised);
 }
 
-/* Part C6 "Where next": 2x2 grid from 480px, 1 column below. */
 @theme {
   --breakpoint-xs: 30rem;
+  /* Archivo is a variable face: "bold" and "black" land on calmer weights
+     than the old 700/900 so display type reads confident, not shouty. */
+  --font-weight-bold: 600;
+  --font-weight-black: 650;
 }
 
-/* Element defaults live in the base layer so Tailwind utilities (e.g.
-   `text-sx-white` on a heading in a dark band) always win over them. */
 @layer base {
-  html {
+  /* Native smooth scrolling only where Lenis is not driving the scroll
+     (touch devices): the two fight each other when both are active. */
+  html:not(.lenis) {
     scroll-behavior: smooth;
   }
 
@@ -93,7 +112,7 @@
     color: var(--sx-body);
     font-weight: 400;
     font-size: 17px;
-    line-height: 1.65;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -108,55 +127,65 @@
   h2,
   h3 {
     color: var(--sx-ink);
+    font-family: var(--font-display);
+    font-stretch: 86%;
+    text-wrap: balance;
   }
-
-  /* W8 — display typography (reference scale): heavy grotesque-style
-   headings with tight tracking and balanced line breaks. */
   h1 {
-    letter-spacing: -0.035em;
-    font-weight: 900;
-    text-wrap: balance;
+    letter-spacing: -0.022em;
+    font-weight: 650;
   }
-
   h2 {
-    letter-spacing: -0.03em;
-    font-weight: 900;
-    text-wrap: balance;
+    letter-spacing: -0.02em;
+    font-weight: 650;
   }
-
   h3 {
     letter-spacing: -0.015em;
   }
 
   ::selection {
-    background: var(--sx-ink);
-    color: var(--sx-white);
+    background: var(--sx-yellow);
+    color: var(--sx-ink);
+  }
+}
+
+@layer utilities {
+  /* Display weight always comes with the display face, semi-condensed. */
+  .font-black {
+    font-family: var(--font-display);
+    font-stretch: 86%;
   }
 }
 
 /* ------------------------------------------------------------------ */
-/* W7 — components: buttons, links, cards, form controls, sliders      */
+/* Components                                                          */
 /* ------------------------------------------------------------------ */
 @layer components {
+  /* Buttons: square-shouldered and quiet. The hover is a soft change of
+     shade, nothing moves except the arrow, which eases a few pixels. */
   .sx-btn {
     display: inline-flex;
     height: 52px;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    border-radius: var(--sx-radius-button);
-    padding-inline: 26px;
+    gap: 10px;
+    border-radius: var(--sx-radius);
+    padding-inline: 24px;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     white-space: nowrap;
     transition:
-      transform var(--sx-dur-fast) var(--sx-ease-out),
-      box-shadow var(--sx-dur-slow) var(--sx-ease-out),
-      background-color var(--sx-dur-base) ease,
-      color var(--sx-dur-base) ease;
+      background-color 260ms ease,
+      box-shadow 260ms ease,
+      color 260ms ease,
+      transform var(--sx-dur-fast) var(--sx-ease-out);
   }
   .sx-btn:active:not(:disabled) {
-    transform: scale(0.97);
+    transform: scale(0.98);
+  }
+  .sx-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
   }
   .sx-btn:focus-visible {
     outline: 2px solid var(--sx-ink);
@@ -167,43 +196,73 @@
     color: var(--sx-white);
   }
   .sx-btn-primary:hover:not(:disabled) {
-    box-shadow: var(--sx-shadow-button);
+    background: #34343a;
   }
   .sx-btn-ghost {
     color: var(--sx-ink);
-    box-shadow: inset 0 0 0 1.5px var(--sx-ink-20);
+    box-shadow: inset 0 0 0 1px var(--sx-ink-20);
   }
   .sx-btn-ghost:hover {
-    box-shadow: inset 0 0 0 1.5px var(--sx-ink);
-  }
-  /* Outline button on dark bands. */
-  .sx-btn-outline-light {
-    color: var(--sx-white);
-    box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.35);
-  }
-  .sx-btn-outline-light:hover {
-    box-shadow: inset 0 0 0 1.5px var(--sx-white);
-  }
-  .sx-btn-outline-light:focus-visible {
-    outline-color: var(--sx-white);
+    background: var(--sx-ink-03);
+    box-shadow: inset 0 0 0 1px var(--sx-ink);
   }
   .sx-btn-light {
     background: var(--sx-white);
     color: var(--sx-ink);
   }
   .sx-btn-light:hover {
-    box-shadow: 0 14px 28px -14px rgb(0 0 0 / 0.45);
+    background: rgb(255 255 255 / 0.88);
   }
-  .sx-btn-light:focus-visible {
+  .sx-btn-outline-light {
+    color: var(--sx-white);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.45);
+  }
+  .sx-btn-outline-light:hover {
+    background: rgb(255 255 255 / 0.1);
+    box-shadow: inset 0 0 0 1px var(--sx-white);
+  }
+  .sx-btn-light:focus-visible,
+  .sx-btn-outline-light:focus-visible {
     outline-color: var(--sx-white);
   }
-  .sx-btn-arrow {
+
+  /* The one arrow used across the site: a thin drawn line, coloured by the
+     text around it. The character inside the element is hidden; the shape
+     comes from the mask. */
+  .sx-btn-arrow,
+  .sx-go {
+    --sx-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12h15M13.5 6l6 6-6 6'/%3E%3C/svg%3E");
     display: inline-block;
-    transition: transform var(--sx-dur-slow) var(--sx-ease-out);
+    flex: none;
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
+    vertical-align: -0.2em;
+    font-size: 0;
+    background: currentColor;
+    -webkit-mask: var(--sx-arrow) center / contain no-repeat;
+    mask: var(--sx-arrow) center / contain no-repeat;
+    transition: transform 320ms var(--sx-ease-out);
+  }
+  .sx-go-out {
+    --sx-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M8.5 7H17v8.5'/%3E%3C/svg%3E");
+  }
+  .sx-go-sm {
+    width: 16px;
+    height: 16px;
+  }
+  .sx-go-lg {
+    width: 26px;
+    height: 26px;
   }
   .sx-btn:hover .sx-btn-arrow,
-  .group:hover .sx-btn-arrow {
-    transform: translateX(4px);
+  .sx-btn:hover .sx-go,
+  .group:hover .sx-btn-arrow,
+  .group:hover .sx-go {
+    transform: translateX(3px);
+  }
+  .group:hover .sx-go-out {
+    transform: translate(2px, -2px);
   }
 
   /* Underline that sweeps in from the left on hover and out to the right. */
@@ -228,56 +287,84 @@
     transform-origin: 0 50%;
   }
 
-  /* Card lift. Uses `translate` (not `transform`) so it composes with the
-     scroll-reveal animation, which animates `transform`. */
+  /* Hairline card. The hover draws an accent rule along the top edge and
+     lifts the card a few pixels. */
+  .sx-card {
+    position: relative;
+    background: var(--sx-surface);
+    border: 1px solid var(--sx-ink-12);
+    border-radius: var(--sx-radius);
+  }
   .sx-card-hover {
+    position: relative;
     transition:
       translate var(--sx-dur-slow) var(--sx-ease-out),
-      box-shadow var(--sx-dur-slow) var(--sx-ease-out),
       border-color var(--sx-dur-base) ease,
       background-color var(--sx-dur-base) ease;
   }
+  .sx-card-hover::after {
+    content: '';
+    position: absolute;
+    inset: -1px -1px auto -1px;
+    height: 2px;
+    background: var(--sx-accent);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform var(--sx-dur-slow) var(--sx-ease-out);
+  }
   .sx-card-hover:hover {
     translate: 0 -3px;
-    box-shadow: var(--sx-shadow-lift);
     border-color: var(--sx-ink-20);
   }
+  .sx-card-hover:hover::after {
+    transform: scaleX(1);
+  }
 
-  /* Eyebrow — small, wide-tracked capitals in ink-50 (reference `.eyebrow`). */
+  /* Section label: small capitals behind a short accent tick. */
   .sx-eyebrow {
-    font-size: 0.72rem;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.74rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     color: var(--sx-ink-50);
   }
+  .sx-eyebrow::before {
+    content: '';
+    flex: none;
+    width: 20px;
+    height: 2px;
+    background: var(--sx-accent);
+  }
 
-  /* W8 — display scale (reference `.h1`/`.h2`/`.h3`/`.lead`). */
   .sx-h1 {
-    font-size: clamp(2.6rem, 5.6vw, 4.6rem);
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -0.035em;
+    font-size: clamp(2.7rem, 6.2vw, 5.6rem);
+    font-weight: 650;
+    font-stretch: 84%;
+    line-height: 0.98;
+    letter-spacing: -0.022em;
   }
   .sx-h2 {
-    font-size: clamp(2rem, 4vw, 3.15rem);
-    font-weight: 900;
-    line-height: 1.04;
-    letter-spacing: -0.03em;
+    font-size: clamp(2.1rem, 4.4vw, 3.9rem);
+    font-weight: 650;
+    font-stretch: 84%;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
   }
   .sx-h3 {
-    font-size: clamp(1.2rem, 1.7vw, 1.45rem);
-    font-weight: 700;
+    font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+    font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.015em;
   }
   .sx-lead {
     color: var(--sx-ink-70);
-    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+    font-size: clamp(1.05rem, 1.3vw, 1.22rem);
     line-height: 1.55;
   }
 
-  /* Page container (reference `.container-x`): 1320px, 20/40/56px gutters. */
   .sx-container {
     width: 100%;
     max-width: var(--sx-content-width);
@@ -295,28 +382,13 @@
     }
   }
 
-  /* White card with an ink-12 hairline (reference `.card`). */
-  .sx-card {
-    background: var(--sx-surface);
-    border: 1px solid var(--sx-ink-12);
-    border-radius: var(--sx-radius-card);
-  }
-
-  /* 64px ink grid — the reference's decorative texture. */
-  .sx-grid-lines {
-    background-image:
-      linear-gradient(var(--sx-ink-06) 1px, transparent 1px),
-      linear-gradient(90deg, var(--sx-ink-06) 1px, transparent 1px);
-    background-size: 64px 64px;
-  }
+  /* Retired decorative grid textures. The classes stay so existing markup
+     keeps compiling; they paint nothing. */
+  .sx-grid-lines,
   .sx-grid-lines-light {
-    background-image:
-      linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
-    background-size: 64px 64px;
+    background-image: none;
   }
 
-  /* Homepage section rhythm — Part C spacing tokens (72px / 120px). */
   .sx-section {
     padding-block: var(--sx-space-section-mobile);
   }
@@ -326,14 +398,56 @@
     }
   }
 
-  /* Big stat figure — tabular so counters don't jitter. */
   .sx-figure {
     font-variant-numeric: tabular-nums;
     letter-spacing: -0.03em;
   }
 
-  /* Slider (reference): 3px ink track, filled via --sx-fill (0–100), ink
-     thumb with a ground-coloured ring. */
+  /* Image slot: a real photograph when the file exists in public/images,
+     otherwise a labelled wireframe box (see components/image-slot.tsx). */
+  .sx-slot {
+    position: relative;
+    overflow: hidden;
+    background: var(--sx-ink-raised);
+    color: rgb(255 255 255 / 0.7);
+  }
+  .sx-slot[data-tone='light'] {
+    background: var(--sx-bg-light);
+    color: var(--sx-ink-50);
+  }
+  .sx-slot-cross {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.22;
+  }
+  .sx-slot-label {
+    position: absolute;
+    left: 16px;
+    bottom: 14px;
+    max-width: calc(100% - 32px);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.45;
+  }
+  .sx-slot-label[data-pos='top'] {
+    bottom: auto;
+    top: 96px;
+  }
+
+  /* Legibility scrim for copy that sits on photography. */
+  .sx-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgb(11 11 13 / 0.86) 0%, rgb(11 11 13 / 0.42) 50%, transparent 82%),
+      linear-gradient(to bottom, rgb(11 11 13 / 0.55) 0%, transparent 26%), rgb(11 11 13 / 0.2);
+  }
+
+  /* Slider: 3px ink track filled via --sx-fill (0 to 100). */
   .sx-range {
     --sx-fill: 50;
     appearance: none;
@@ -345,7 +459,6 @@
   }
   .sx-range::-webkit-slider-runnable-track {
     height: 3px;
-    border-radius: 999px;
     background: linear-gradient(
       to right,
       var(--sx-ink) calc(var(--sx-fill) * 1%),
@@ -354,12 +467,10 @@
   }
   .sx-range::-moz-range-track {
     height: 3px;
-    border-radius: 999px;
     background: var(--sx-ink-12);
   }
   .sx-range::-moz-range-progress {
     height: 3px;
-    border-radius: 999px;
     background: var(--sx-ink);
   }
   .sx-range::-webkit-slider-thumb {
@@ -407,7 +518,7 @@
   }
 }
 
-/* Form controls: smooth border/ring feedback on focus, everywhere. */
+/* Form controls: border and ring feedback on focus, everywhere. */
 @layer base {
   input:not([type='range']):not([type='checkbox']):not([type='radio']),
   select,
@@ -434,22 +545,132 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* W7 — motion system                                                  */
+/* Header                                                              */
 /*                                                                     */
-/* Hidden "before" states only ever apply under html.sx-motion, a class */
-/* set by an inline <head> script ONLY when the visitor has not asked   */
-/* for reduced motion and IntersectionObserver exists (and removed      */
-/* again by a failsafe if the app never hydrates). No JS, reduced       */
-/* motion, or a failed bundle => every element renders fully visible.   */
-/* Animations touch transform/opacity only (no layout shift).           */
+/* Fixed. Solid white by default; a page whose first section declares   */
+/* data-hero="dark" gets a transparent header with light text until the */
+/* visitor scrolls. Decided in CSS (:has) so the server render is right */
+/* with no flash. components/header-scroll.tsx sets data-scrolled and   */
+/* data-hidden (slides away on scroll down, returns on scroll up).      */
+/* `translate` is only non-none while hidden, so the header never       */
+/* becomes the containing block for the mobile menu's fixed dialog.     */
 /* ------------------------------------------------------------------ */
-@keyframes sx-rise {
+.sx-header {
+  --hd-fg: var(--sx-ink-70);
+  --hd-fg-strong: var(--sx-ink);
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  height: var(--sx-header-h);
+  color: var(--sx-ink);
+  transition: translate var(--sx-dur-slow) var(--sx-ease-out);
+}
+/* Frosted glass. It lives on a pseudo-element because backdrop-filter on the
+   header itself would make it the containing block for the fixed menus. */
+.sx-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(255 255 255 / 0.68);
+  -webkit-backdrop-filter: blur(22px) saturate(1.8);
+  backdrop-filter: blur(22px) saturate(1.8);
+  box-shadow:
+    inset 0 -1px 0 rgb(18 18 20 / 0.08),
+    inset 0 1px 0 rgb(255 255 255 / 0.6);
+  transition:
+    background-color var(--sx-dur-base) ease,
+    box-shadow var(--sx-dur-base) ease,
+    opacity var(--sx-dur-base) ease;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sx-header::before {
+    background: rgb(255 255 255 / 0.96);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .sx-header::before {
+    background: var(--sx-ground);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+.sx-header[data-hidden]:not(:focus-within) {
+  translate: 0 -100%;
+}
+/* Menu panels share the glass. */
+.sx-glass {
+  background: rgb(255 255 255 / 0.86);
+  -webkit-backdrop-filter: blur(26px) saturate(1.8);
+  backdrop-filter: blur(26px) saturate(1.8);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow:
+    0 0 0 1px rgb(18 18 20 / 0.06),
+    0 32px 64px -28px rgb(18 18 20 / 0.45);
+}
+.sx-header-link {
+  color: var(--hd-fg);
+  transition: color var(--sx-dur-base) ease;
+}
+.sx-header-link:hover,
+.sx-header-link[aria-expanded='true'] {
+  color: var(--hd-fg-strong);
+}
+.sx-header-link:focus-visible {
+  outline: 2px solid var(--hd-fg-strong);
+  outline-offset: 4px;
+}
+.sx-logo {
+  /* The supplied wordmark file is green; it is shown in ink until a
+     recoloured file replaces public/scaleax.svg. */
+  filter: brightness(0);
+  transition: filter var(--sx-dur-base) ease;
+}
+html:has([data-hero='dark']) .sx-header:not([data-scrolled]) {
+  --hd-fg: rgb(255 255 255 / 0.88);
+  --hd-fg-strong: #fff;
+  color: #fff;
+}
+/* Over a hero photograph the bar is clear glass: a light blur, no white. */
+html:has([data-hero='dark']) .sx-header:not([data-scrolled])::before {
+  background: rgb(11 11 13 / 0.12);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4);
+  backdrop-filter: blur(10px) saturate(1.4);
+  box-shadow: inset 0 -1px 0 rgb(255 255 255 / 0.14);
+}
+html:has([data-hero='dark']) .sx-header:not([data-scrolled]) .sx-logo {
+  filter: brightness(0) invert(1);
+}
+html:has([data-hero='dark']) .sx-header:not([data-scrolled]) .sx-header-cta {
+  background: var(--sx-white);
+  color: var(--sx-ink);
+}
+
+.sx-main {
+  padding-top: var(--sx-header-h);
+}
+html:has([data-hero='dark']) .sx-main {
+  padding-top: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion                                                              */
+/*                                                                     */
+/* Nothing is hidden unless html.sx-motion is set (inline <head> script, */
+/* never under prefers-reduced-motion, removed again if the app fails   */
+/* to hydrate). Scroll behaviour is GSAP (components/motion/scroll-fx):  */
+/* headline lines rise out of a mask, media wipes open, rules draw.     */
+/* Blocks of content do not fade in on scroll.                          */
+/* ------------------------------------------------------------------ */
+@keyframes sx-unveil {
   from {
     opacity: 0;
-    transform: translate3d(0, var(--sx-reveal-distance), 0);
+    filter: blur(8px);
+    transform: translate3d(0, 22px, 0);
   }
   to {
     opacity: 1;
+    filter: blur(0);
     transform: none;
   }
 }
@@ -460,17 +681,6 @@
   }
   to {
     opacity: 1;
-  }
-}
-
-@keyframes sx-zoom {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: none;
   }
 }
 
@@ -488,7 +698,7 @@
 @keyframes sx-drop {
   from {
     opacity: 0;
-    transform: translate3d(0, -6px, 0);
+    transform: translate3d(0, -8px, 0);
   }
   to {
     opacity: 1;
@@ -507,15 +717,6 @@
   }
 }
 
-@keyframes sx-draw-x {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
 @keyframes sx-marquee {
   from {
     transform: translate3d(0, 0, 0);
@@ -525,106 +726,36 @@
   }
 }
 
-/* Scroll reveal — single element. */
-html.sx-motion [data-reveal]:not([data-revealed]) {
-  opacity: 0;
-}
-html.sx-motion [data-reveal][data-revealed] {
-  animation: sx-rise var(--sx-dur-reveal) var(--sx-ease-out) both;
-}
-html.sx-motion [data-reveal='fade'][data-revealed] {
-  animation-name: sx-fade;
-}
-html.sx-motion [data-reveal='zoom'][data-revealed] {
-  animation-name: sx-zoom;
-}
-/* Horizontal rules/connectors that draw in. */
-html.sx-motion [data-reveal='draw'] {
-  transform-origin: 0 50%;
-}
-html.sx-motion [data-reveal='draw']:not([data-revealed]) {
-  opacity: 1;
-  transform: scaleX(0);
-}
-html.sx-motion [data-reveal='draw'][data-revealed] {
-  animation: sx-draw-x 1100ms var(--sx-ease-in-out) both;
-}
-
-/* Scroll reveal — staggered children. */
-html.sx-motion [data-reveal-stagger]:not([data-revealed]) > * {
-  opacity: 0;
-}
-html.sx-motion [data-reveal-stagger][data-revealed] > * {
-  animation: sx-rise var(--sx-dur-reveal) var(--sx-ease-out) both;
-  animation-delay: calc(var(--sx-i, 0) * var(--sx-stagger-step));
-}
-[data-reveal-stagger] > :nth-child(2) {
-  --sx-i: 1;
-}
-[data-reveal-stagger] > :nth-child(3) {
-  --sx-i: 2;
-}
-[data-reveal-stagger] > :nth-child(4) {
-  --sx-i: 3;
-}
-[data-reveal-stagger] > :nth-child(5) {
-  --sx-i: 4;
-}
-[data-reveal-stagger] > :nth-child(6) {
-  --sx-i: 5;
-}
-[data-reveal-stagger] > :nth-child(7) {
-  --sx-i: 6;
-}
-[data-reveal-stagger] > :nth-child(n + 8) {
-  --sx-i: 7;
-}
-
-/* Above-the-fold entrance: pure CSS, runs at first paint (no JS wait, so
-   it never delays the hero). Delay steps via --sx-d. */
+/* Above-the-fold entrance: pure CSS at first paint. Copy settles into focus
+   (a short rise out of a soft blur). Delay steps via --sx-d. */
 html.sx-motion .sx-enter {
-  animation: sx-rise 800ms var(--sx-ease-out) both;
-  animation-delay: calc(var(--sx-d, 0) * 90ms);
+  animation: sx-unveil 1100ms var(--sx-ease-out) both;
+  animation-delay: calc(var(--sx-d, 0) * 110ms);
 }
 
-/* Route entrance — only after a client-side navigation (html.sx-nav),
-   never on first load. Fast, and it never blocks input. */
+/* Route entrance, only after a client-side navigation (html.sx-nav). */
 html.sx-motion.sx-nav .sx-page {
   animation: sx-fade 320ms var(--sx-ease-out) both;
 }
 
-/* Sticky header gains a soft ink hairline shadow as the page scrolls — a CSS
-   scroll-driven animation (zero JS); browsers without support keep the
-   plain bordered header. */
-@keyframes sx-header-elevate {
-  to {
-    box-shadow: 0 1px 0 0 var(--sx-ink-12);
-    background-color: rgb(252 253 252 / 0.96);
-  }
-}
-@supports (animation-timeline: scroll()) {
-  .sx-header {
-    animation: sx-header-elevate linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0 96px;
-  }
+/* Hairlines marked data-reveal="draw" start collapsed until GSAP draws
+   them; everything else carrying data-reveal stays fully visible. */
+html.sx-motion [data-reveal='draw'] {
+  transform-origin: 0 50%;
 }
 
-/* Menus / disclosure content mount animations. */
 .sx-pop {
   animation: sx-pop var(--sx-dur-base) var(--sx-ease-out) both;
   transform-origin: 50% 0;
 }
 .sx-drop {
-  animation: sx-drop var(--sx-dur-base) var(--sx-ease-out) both;
+  animation: sx-drop var(--sx-dur-slow) var(--sx-ease-out) both;
 }
-/* Result values re-key on change and settle in. */
 .sx-tick {
   display: inline-block;
   animation: sx-tick 280ms var(--sx-ease-out) both;
 }
 
-/* Auto-scrolling band — pauses on hover/focus. */
 .sx-marquee-track {
   display: flex;
   width: max-content;
@@ -636,8 +767,27 @@ html.sx-motion.sx-nav .sx-page {
   animation-play-state: paused;
 }
 
-/* Reduced motion: belt and braces. Even if html.sx-motion were present
-   (e.g. the OS setting changed after load), nothing stays hidden or moves. */
+/* Hero carousel progress: the active tab's rule fills over the slide's
+   dwell time. The duration comes from the component. */
+@keyframes sx-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.sx-progress {
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+[data-active] > .sx-progress-track > .sx-progress {
+  transform: scaleX(1);
+}
+html.sx-motion [data-active][data-playing] > .sx-progress-track > .sx-progress {
+  animation: sx-progress var(--sx-dwell, 6500ms) linear both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -650,14 +800,6 @@ html.sx-motion.sx-nav .sx-page {
     animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
   }
-  html.sx-motion [data-reveal],
-  html.sx-motion [data-reveal-stagger] > * {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-  }
-  /* No auto-scroll: the band becomes a normal, swipeable row and the
-     duplicate copy used for the seamless loop is dropped. */
   .sx-marquee {
     overflow-x: auto;
   }
@@ -671,11 +813,208 @@ html.sx-motion.sx-nav .sx-page {
   }
 }
 
-@media print {
-  html.sx-motion [data-reveal],
-  html.sx-motion [data-reveal-stagger] > * {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
+/* SplitText line masks: room for descenders under tight display leading. */
+.sx-line-mask {
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+/* ------------------------------------------------------------------ */
+/* Why India orbit                                                     */
+/* ------------------------------------------------------------------ */
+/* The photograph is a half-circle on the left edge of the page; the
+   figures are placed on the ring around it by india-orbit.tsx and travel
+   along the arc as the tall track scrolls past the sticky stage. Unlayered
+   on purpose, so it wins over the stacked-list utilities. */
+@media (min-width: 1024px) {
+  html.sx-motion .sx-orbit {
+    --sx-orbit-d: 96vw; /* radius is about half the screen; the stage crops it */
+    --sx-orbit-r: calc(var(--sx-orbit-d) / 2 + 56px);
+    height: 300svh;
+  }
+  html.sx-motion .sx-orbit-stage {
+    position: sticky;
+    top: 0;
+    display: block;
+    height: 100svh;
+    max-width: none;
+    padding: 0;
+    overflow: hidden;
+  }
+  html.sx-motion .sx-orbit-photo {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: calc(var(--sx-orbit-d) / 2);
+    height: var(--sx-orbit-d);
+    translate: 0 -50%;
+    border-radius: 0 999px 999px 0;
+  }
+  html.sx-motion .sx-orbit-photo > * {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: auto;
+    border-radius: 0;
+  }
+  html.sx-motion .sx-orbit-ring {
+    position: absolute;
+    left: calc(var(--sx-orbit-r) * -1);
+    top: 50%;
+    width: calc(var(--sx-orbit-r) * 2);
+    height: calc(var(--sx-orbit-r) * 2);
+    translate: 0 -50%;
+    border: 1px solid var(--sx-ink-12);
+    border-radius: 999px;
+  }
+  html.sx-motion .sx-orbit-list {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border: 0;
+  }
+  html.sx-motion .sx-orbit-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: min(calc(100vw - var(--sx-orbit-r) - 4vw), 560px);
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 18px;
+    border: 0;
+    padding: 0 0 0 48px;
+    will-change: transform, opacity;
+  }
+  html.sx-motion .sx-orbit-item::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    translate: 0 -50%;
+    border-radius: 999px;
+    background: var(--sx-ink);
+    box-shadow: 0 0 0 5px var(--sx-ground);
+  }
+}
+
+/* A lighter scrim for photographs that should stay bright: only the lower
+   part, where the copy sits, is darkened. */
+.sx-scrim-soft {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgb(11 11 13 / 0.78) 0%, rgb(11 11 13 / 0.3) 46%, transparent 72%),
+    rgb(11 11 13 / 0.06);
+}
+
+/* ------------------------------------------------------------------ */
+/* Testimonial notes                                                   */
+/* ------------------------------------------------------------------ */
+/* Brown kraft paper with a little grain, a strip of tape and a slight
+   tilt; the quote is set in a handwriting face. */
+.sx-note {
+  --sx-note-paper: #c8a67c;
+  position: relative;
+  rotate: var(--sx-note-tilt, -1.2deg);
+  border-radius: 2px;
+  background-color: var(--sx-note-paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.25 0 0 0 0 0.16 0 0 0 0 0.08 0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  color: #2a1e12;
+  box-shadow:
+    0 1px 1px rgb(74 52 28 / 0.18),
+    0 18px 34px -18px rgb(74 52 28 / 0.5);
+  transition: rotate var(--sx-dur-slow) var(--sx-ease-out);
+}
+.sx-note:hover {
+  rotate: 0deg;
+}
+.sx-note::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  width: 112px;
+  height: 30px;
+  translate: -50% 0;
+  rotate: -2deg;
+  background: rgb(250 246 234 / 0.72);
+  box-shadow: 0 1px 2px rgb(74 52 28 / 0.2);
+}
+.sx-note-light {
+  --sx-note-paper: #dcc29c;
+}
+.sx-note-hand {
+  font-family: var(--font-hand), 'Segoe Print', 'Bradley Hand', cursive;
+  font-stretch: normal;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-note {
+    transition: none;
+  }
+}
+
+/* Compact button, for rows of several links. */
+.sx-btn-sm {
+  height: 44px;
+  padding-inline: 18px;
+  font-size: 14px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Process timeline (process-steps.tsx)                                */
+/* ------------------------------------------------------------------ */
+/* Stops are filled by default. Once the script arms the list, a stop and
+   its card stay quiet until the line reaches them. */
+.sx-step-node {
+  background: var(--sx-ink);
+  color: var(--sx-white);
+  box-shadow:
+    inset 0 0 0 1.5px var(--sx-ink),
+    0 0 0 6px var(--sx-bg-light);
+  transition:
+    background-color 420ms ease,
+    color 420ms ease,
+    box-shadow 420ms ease;
+}
+.sx-step-card {
+  transition: opacity 600ms ease;
+}
+.sx-steps[data-armed] .sx-step:not([data-on]) .sx-step-node {
+  background: var(--sx-bg-light);
+  color: var(--sx-ink-50);
+  box-shadow:
+    inset 0 0 0 1.5px var(--sx-ink-20),
+    0 0 0 6px var(--sx-bg-light);
+}
+.sx-steps[data-armed] .sx-step:not([data-on]) .sx-step-card {
+  opacity: 0.4;
+}
+/* The line is vertical on small screens and horizontal on large ones; the
+   script writes one progress value and each axis picks it up. */
+.sx-step [data-step-line] {
+  transform: scaleY(var(--sx-p, 1));
+}
+@media (min-width: 1024px) {
+  .sx-step [data-step-line] {
+    transform: scaleX(var(--sx-p, 1));
+  }
+}
+
+/* Skeleton blocks for loading states. */
+.sx-skeleton {
+  border-radius: var(--sx-radius);
+  background-color: var(--sx-skeleton, var(--sx-ink-06));
+  animation: sx-skeleton 1.4s ease-in-out infinite;
+}
+@keyframes sx-skeleton {
+  50% {
+    opacity: 0.45;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-skeleton {
+    animation: none;
   }
 }

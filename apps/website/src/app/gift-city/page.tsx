@@ -72,21 +72,21 @@ export default function GiftCityPage() {
           </h2>
         </div>
         <dl className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          <div className="sx-card-hover rounded-[16px] border border-sx-border bg-white p-6">
+          <div className="sx-card-hover rounded-sx border border-sx-border bg-white p-6">
             <dt className="text-[16px] font-bold text-sx-ink">What a GIC is</dt>
             <dd className="mt-2 text-[14px] leading-[1.55] text-sx-body">
               A unit in the IFSC that provides support services only to entities in its own
               financial services group, under the IFSCA (Global In-House Centres) Regulations, 2025.
             </dd>
           </div>
-          <div className="sx-card-hover rounded-[16px] border border-sx-border bg-white p-6">
+          <div className="sx-card-hover rounded-sx border border-sx-border bg-white p-6">
             <dt className="text-[16px] font-bold text-sx-ink">Who it suits</dt>
             <dd className="mt-2 text-[14px] leading-[1.55] text-sx-body">
               Banks, insurers, asset managers, brokers and other financial groups, subject to
               eligibility under the 2025 regulations.
             </dd>
           </div>
-          <div className="sx-card-hover rounded-[16px] border border-sx-border bg-white p-6">
+          <div className="sx-card-hover rounded-sx border border-sx-border bg-white p-6">
             <dt className="text-[16px] font-bold text-sx-ink">What else is possible</dt>
             <dd className="mt-2 text-[14px] leading-[1.55] text-sx-body">
               Other companies can set up in GIFT City outside the IFSC. We can walk through the
@@ -140,6 +140,7 @@ export default function GiftCityPage() {
       />
 
       <InNumbers
+        figure="tower"
         stats={[
           {
             figure: '2025',
@@ -155,6 +156,7 @@ export default function GiftCityPage() {
       <LifecycleStrip />
       <WhereNext page="gift-city" />
       <ClosingCta
+        figure="man-blazer"
         headline="Find out if GIFT City suits your group."
         line="We'll check eligibility and outline the set-up."
       />

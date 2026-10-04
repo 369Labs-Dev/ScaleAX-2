@@ -123,7 +123,7 @@ export function LocationFinder() {
             <select
               value={industry}
               onChange={(e) => setIndustry(e.target.value as IndustryId)}
-              className="mt-1 h-11 w-full rounded-[12px] border border-sx-border bg-white px-3 text-[15px] text-sx-body"
+              className="mt-1 h-11 w-full rounded-sx border border-sx-border bg-white px-3 text-[15px] text-sx-body"
             >
               {INDUSTRIES.map((i) => (
                 <option key={i.id} value={i.id}>
@@ -138,7 +138,7 @@ export function LocationFinder() {
             <select
               value={hqRegion}
               onChange={(e) => setHqRegion(e.target.value as HqRegionId)}
-              className="mt-1 h-11 w-full rounded-[12px] border border-sx-border bg-white px-3 text-[15px] text-sx-body"
+              className="mt-1 h-11 w-full rounded-sx border border-sx-border bg-white px-3 text-[15px] text-sx-body"
             >
               {HQ_REGIONS.map((r) => (
                 <option key={r.id} value={r.id}>
@@ -228,7 +228,7 @@ export function LocationFinder() {
             className={`mt-2 text-[14px] font-bold ${valid ? 'text-sx-ink' : 'text-red-600'}`}
             role="status"
           >
-            Total weight: {total}% {valid ? '' : '— adjust the sliders to total 100%'}
+            Total weight: {total}% {valid ? '' : 'Adjust the sliders to total 100%'}
           </p>
 
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -260,7 +260,7 @@ export function LocationFinder() {
         </h2>
 
         {!valid ? (
-          <p className="mt-6 rounded-[16px] border border-sx-border bg-sx-bg-light p-6 text-sx-muted">
+          <p className="mt-6 rounded-sx border border-sx-border bg-sx-bg-light p-6 text-sx-muted">
             Set your priority weights to total 100% to see your shortlist.
           </p>
         ) : (
@@ -280,7 +280,7 @@ export function LocationFinder() {
                   {FACTORS.map((factor) => (
                     <div
                       key={factor.id}
-                      className="rounded-[16px] border border-sx-border bg-white p-4"
+                      className="rounded-sx border border-sx-border bg-white p-4"
                     >
                       <div className="sx-eyebrow">{factor.label}</div>
                       <p className="mt-1 text-[13px] text-sx-body">
@@ -297,7 +297,7 @@ export function LocationFinder() {
                 <h3 className="text-[20px] font-bold text-sx-ink">
                   Where the others fall short, and where they win.
                 </h3>
-                <ul className="mt-4 divide-y divide-sx-border rounded-[16px] border border-sx-border bg-white">
+                <ul className="mt-4 divide-y divide-sx-border rounded-sx border border-sx-border bg-white">
                   {shortlist.others.map((result) => (
                     <li
                       key={result.city.id}
@@ -337,14 +337,14 @@ function ResultCard({
 }) {
   if (!result) {
     return (
-      <div className="rounded-[16px] border border-sx-border bg-sx-bg-light p-6 text-[13px] text-sx-muted">
+      <div className="rounded-sx border border-sx-border bg-sx-bg-light p-6 text-[13px] text-sx-muted">
         No city available for &ldquo;{label}&rdquo; with the current filters.
       </div>
     );
   }
 
   return (
-    <div className="sx-card-hover rounded-[16px] border border-sx-border bg-white p-6">
+    <div className="sx-card-hover rounded-sx border border-sx-border bg-white p-6">
       <div className="sx-eyebrow">{label}</div>
       <div className="mt-1 text-[22px] font-bold text-sx-ink">
         <Tick value={result.city.name} />
@@ -420,7 +420,7 @@ function ReportGate({
   return (
     <div
       id="report"
-      className="mt-12 scroll-mt-24 rounded-[16px] border border-sx-border bg-sx-bg-light p-6 sm:p-8"
+      className="mt-12 scroll-mt-24 rounded-sx border border-sx-border bg-sx-bg-light p-6 sm:p-8"
     >
       <h3 className="text-[20px] font-bold text-sx-ink">Get the full comparison as a PDF.</h3>
       {unlocked ? (
@@ -475,7 +475,7 @@ function Field({
         name={name}
         type={type}
         aria-invalid={Boolean(error)}
-        className="mt-1 h-10 w-full rounded-[12px] border border-sx-border bg-white px-3 text-[14px] font-normal text-sx-body"
+        className="mt-1 h-10 w-full rounded-sx border border-sx-border bg-white px-3 text-[14px] font-normal text-sx-body"
       />
       {error && <span className="mt-1 block font-normal text-red-600">{error}</span>}
     </label>

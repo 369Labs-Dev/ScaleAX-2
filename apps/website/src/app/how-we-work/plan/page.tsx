@@ -134,6 +134,7 @@ export default function PlanPage() {
       />
 
       <InNumbers
+        figure="tower"
         stats={[
           { figure: '6', label: 'Planning decisions', line: 'From mandate to cost model' },
           { figure: '4 weeks', label: 'To a business case', line: 'From kick-off' },
@@ -145,6 +146,7 @@ export default function PlanPage() {
       <LifecycleStrip current="plan" />
       <WhereNext page="plan" />
       <ClosingCta
+        figure="man-suit"
         headline="Start with a plan."
         line="Share your goals and we'll outline what the Plan stage would cover for you."
       />

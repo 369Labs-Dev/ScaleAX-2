@@ -1,24 +1,18 @@
-'use client';
-
-import { useEffect, useRef, type ComponentPropsWithoutRef, type ElementType } from 'react';
-import { observeOnce } from '@/lib/motion';
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
 
 type RevealVariant = 'up' | 'fade' | 'zoom' | 'draw';
 
 type RevealProps<T extends ElementType> = {
   as?: T;
-  /** Entrance style. `up` (default) rises 20px while fading in. */
+  /** `draw` marks a hairline that draws itself in on scroll. */
   variant?: RevealVariant;
-  /** Animate the direct children one after another instead of the wrapper. */
+  /** Kept for the data hook; children are not animated one by one. */
   stagger?: boolean;
 } & Omit<ComponentPropsWithoutRef<T>, 'as'>;
 
-// W7 — scroll-reveal primitive. Renders its element with a `data-reveal` (or
-// `data-reveal-stagger`) hook; CSS in globals.css hides it ONLY while
-// `html.sx-motion` is set and plays a transform/opacity keyframe once the
-// shared IntersectionObserver marks it `data-revealed`. The attribute is
-// written after hydration, so it never causes a hydration mismatch, and a
-// re-render never removes it (React doesn't own the attribute).
+// W9: blocks of content no longer fade in on scroll, so this is now a plain
+// wrapper that only leaves a data hook behind. Scroll motion lives in
+// components/motion/scroll-fx.tsx: headline lines, media and hairlines.
 export function Reveal<T extends ElementType = 'div'>({
   as,
   variant = 'up',
@@ -26,17 +20,9 @@ export function Reveal<T extends ElementType = 'div'>({
   ...rest
 }: RevealProps<T>) {
   const Tag = (as ?? 'div') as ElementType;
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    return observeOnce(el, () => el.setAttribute('data-revealed', ''));
-  }, []);
-
   const hook = stagger
     ? { 'data-reveal-stagger': '' }
     : { 'data-reveal': variant === 'up' ? '' : variant };
 
-  return <Tag ref={ref} {...hook} {...rest} />;
+  return <Tag {...hook} {...rest} />;
 }

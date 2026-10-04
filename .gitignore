@@ -33,3 +33,7 @@ services/*/generated/
 test-results/
 playwright-report/
 blob-report/
+
+# Local tooling
+.vercel/
+.playwright-mcp/

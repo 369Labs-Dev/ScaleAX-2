@@ -1,22 +1,38 @@
 import type { Metadata } from 'next';
-import { Lato } from 'next/font/google';
+import { Archivo, Caveat, Geist } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { SITE_URL, organizationJsonLd } from '@/lib/seo';
 import { MOTION_BOOT_SCRIPT } from '@/lib/motion';
 import { MotionRuntime } from '@/components/motion/motion-runtime';
+import { ScrollFx } from '@/components/motion/scroll-fx';
 
-// W8 — Lato, the typeface of the approved reference design (it self-hosts
-// Lato 400/500/600/700/900). Google Fonts ships Lato at 400/700/900 only, so
-// 500/600 resolve to 700 — the reference's own 800 already resolves to 900.
-// next/font generates a metric-matched fallback, so the swap causes no CLS.
-const lato = Lato({
+// W9: two typefaces. Archivo is the display face (h1 to h3 and the large
+// figures); its width axis is loaded so headlines run semi-condensed
+// (font-stretch in globals.css). Geist sets everything else: body copy,
+// navigation, buttons and labels. next/font self-hosts both and generates
+// metric-matched fallbacks, so the swap causes no layout shift.
+const archivo = Archivo({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
+  axes: ['wdth'],
+  variable: '--font-display',
+  display: 'swap',
+  fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+});
+const geist = Geist({
+  subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
   fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+});
+
+// The one exception: a handwriting face, used only for the testimonial notes on the home page.
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['500', '600'],
+  variable: '--font-hand',
+  display: 'swap',
 });
 
 // Section 13 — home page title/description are the site-wide defaults;
@@ -51,7 +67,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     // suppressHydrationWarning: the inline motion script below may add
     // `sx-motion` to <html> before React hydrates (W7 motion system).
-    <html lang="en" className={lato.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${geist.variable} ${archivo.variable} ${caveat.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/* W7 — decides, before first paint, whether scroll/entrance motion
             is enabled (never under prefers-reduced-motion). See lib/motion.ts. */}
@@ -62,6 +82,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className="flex min-h-full flex-col font-sans" suppressHydrationWarning>
         <MotionRuntime />
+        <ScrollFx />
         {/* Part C — Organization structured data, site-wide (Google's
             guidance is one Organization block, not one per page). */}
         <script
@@ -70,7 +91,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
         />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="sx-main flex-1">{children}</main>
         <Footer />
       </body>
     </html>

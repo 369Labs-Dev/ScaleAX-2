@@ -132,7 +132,7 @@ export function ConsultationForm({ variant = 'band' }: { variant?: 'band' | 'pag
               key={planPrefill || 'empty'}
               defaultValue={planPrefill}
               rows={4}
-              className="mt-1 w-full rounded-[12px] border border-sx-border bg-white p-3 text-[15px] text-sx-body focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
+              className="mt-1 w-full rounded-sx border border-sx-border bg-white p-3 text-[15px] text-sx-body focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
             />
           </div>
 
@@ -216,7 +216,7 @@ export function ConsultationForm({ variant = 'band' }: { variant?: 'band' | 'pag
           </dl>
         </Reveal>
 
-        <Reveal variant="zoom" className="rounded-[20px] bg-white p-6 sm:p-8">
+        <Reveal variant="zoom" className="rounded-sx bg-white p-6 sm:p-8">
           {formCard}
         </Reveal>
       </div>
@@ -255,7 +255,7 @@ function Field({
         aria-required={required}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? errorId : undefined}
-        className="mt-1 h-11 w-full rounded-[12px] border border-sx-border bg-white px-3 text-[15px] text-sx-body focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
+        className="mt-1 h-11 w-full rounded-sx border border-sx-border bg-white px-3 text-[15px] text-sx-body focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
       />
       {error && (
         <p id={errorId} role="alert" className="mt-1 text-[13px] text-red-600">

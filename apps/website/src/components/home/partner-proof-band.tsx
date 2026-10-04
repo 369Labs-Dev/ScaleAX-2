@@ -28,15 +28,15 @@ export function PartnerProofBand() {
         alt={logo.name}
         width={200}
         height={200}
-        className="h-11 w-auto shrink-0 object-contain opacity-55 grayscale transition-[opacity,filter] duration-300 hover:opacity-100 hover:grayscale-0"
+        className="h-14 w-auto shrink-0 object-contain"
       />
     ),
   }));
 
   return (
-    <section className="mt-10 border-y border-sx-border py-6 md:mt-16">
+    <section className="border-b border-sx-border py-7">
       <div className="sx-container flex flex-col gap-5 md:flex-row md:items-center">
-        <p className="shrink-0 text-[15px] text-sx-body md:w-64">
+        <p className="shrink-0 text-[14px] font-bold text-sx-ink md:w-64">
           Enterprises served by our partners
         </p>
         <div className="min-w-0 flex-1">

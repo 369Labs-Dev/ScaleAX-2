@@ -1,38 +1,60 @@
-import { Reveal } from './motion/reveal';
+import { findImage } from '@/lib/images';
+import { Cutout } from './cutout';
 
-// Part 0.3 block 9 / Part C6 "Closing call to action" — H2, one line and a
-// button, between "Where next" and the footer. W8: the reference's closing
-// band — a rounded deep-green panel inset in the page container, with a
-// light pill button.
+// Closing call to action: a full-width soft-tinted band with the headline, one
+// line and a button, between "Where next" and the footer. With `figure`, a
+// cutout (public/images/cutout-<name>) stands on the bottom edge of the band
+// at the right and rises above it into the section before.
 export function ClosingCta({
   headline,
   line,
   href = '/contact',
   label = 'Book a consultation',
+  figure,
 }: {
   headline: string;
   line: string;
-  /** Button target — override on pages where /contact would link to itself. */
+  /** Button target: override on pages where /contact would link to itself. */
   href?: string;
   label?: string;
+  /** Name of a cutout in public/images, without the `cutout-` prefix. */
+  figure?: string;
 }) {
+  const figureSrc = figure ? findImage(`cutout-${figure}`) : null;
   return (
-    <section className="bg-sx-ground py-20 sm:py-28">
-      <div className="sx-container">
-        <Reveal className="relative isolate overflow-hidden rounded-[28px] bg-sx-ink px-8 py-16 text-sx-white md:px-16 md:py-20">
-          <div
-            aria-hidden="true"
-            className="sx-grid-lines-light absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_60%_100%_at_100%_100%,#000_10%,transparent_75%)]"
+    <section className={`relative bg-sx-tint-orange text-sx-ink ${figureSrc ? 'lg:mt-28' : ''}`}>
+      {figureSrc && (
+        <div
+          aria-hidden="true"
+          className="sx-container pointer-events-none absolute inset-x-0 bottom-0 top-[-7rem] hidden lg:block"
+        >
+          <Cutout
+            name={figure ?? ''}
+            className="absolute bottom-0 right-5 h-full max-w-[32%] md:right-10 xl:right-14"
           />
-          <h2 className="sx-h2 max-w-[20ch] text-sx-white">{headline}</h2>
-          <p className="mt-5 max-w-xl text-[17px] text-white/75 sm:text-[18px]">{line}</p>
-          <a href={href} className="sx-btn sx-btn-light mt-9">
+        </div>
+      )}
+      <div
+        className={`sx-container relative grid gap-x-14 gap-y-8 py-20 md:py-28 lg:grid-cols-12 ${
+          figureSrc ? '' : 'lg:items-end'
+        }`}
+      >
+        <h2
+          className={`text-[clamp(2.3rem,5vw,4.6rem)] font-black leading-[0.98] tracking-[-0.025em] text-sx-ink lg:col-span-8 ${
+            figureSrc ? 'lg:text-[clamp(2.3rem,4.2vw,3.9rem)]' : ''
+          }`}
+        >
+          {headline}
+        </h2>
+        <div className={figureSrc ? 'lg:col-span-6 lg:row-start-2' : 'lg:col-span-4'}>
+          <p className="text-[18px] leading-relaxed text-sx-ink">{line}</p>
+          <a href={href} className="sx-btn sx-btn-primary mt-7">
             {label}
             <span className="sx-btn-arrow" aria-hidden="true">
               &rarr;
             </span>
           </a>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Breadcrumb, type Crumb } from './breadcrumb';
-import { Parallax } from './motion/parallax';
+import { Media } from './media';
+import { slugify } from '@/lib/images';
 import { LIFECYCLE_STAGES, type CardId } from '@/lib/site-data';
 
 export interface HeroAction {
@@ -9,15 +10,12 @@ export interface HeroAction {
   variant?: 'primary' | 'ghost';
 }
 
-// Part 0.3 block 1 / Part C6 "Page hero". W8: restyled to the reference's
-// light hero — off-white ground, heavy display H1, ink-70 lead, and the
-// reference's 64px ink grid as a faint, slow-drifting texture (no photos
-// yet; the grid stands in for the brief's placeholder line icon).
-// CSS first-paint entrance (no JS wait) from W7.
-// UX pass (2026-09-30): optional CTA row (`actions`), a compact
-// Plan→Build→Run→Grow journey indicator (`stage`, for the How-we-work
-// pages) and anchor quick-jump pills (`chips`, e.g. the four engagement
-// models). All opt-in, so pages that pass nothing render exactly as before.
+// Inner-page hero. W9: a full-bleed photograph with the copy set on top, the
+// same language as the homepage hero. The image slot is named after the page
+// (last breadcrumb label, e.g. page-plan.jpg) and falls back to
+// page-default.jpg, so one photograph can cover every page until each has
+// its own. Optional CTA row (`actions`), Plan/Build/Run/Grow indicator
+// (`stage`) and anchor quick-jumps (`chips`).
 export function PageHero({
   eyebrow,
   title,
@@ -35,66 +33,59 @@ export function PageHero({
   stage?: CardId;
   chips?: { label: string; href: string }[];
 }) {
+  const slug = slugify(breadcrumb[breadcrumb.length - 1]?.label ?? 'default');
   return (
-    <section className="relative isolate overflow-hidden border-b border-sx-border bg-sx-ground">
-      <Parallax speed={0.2} className="pointer-events-none absolute inset-0 -z-10">
-        <div className="sx-grid-lines absolute inset-0 [mask-image:radial-gradient(ellipse_60%_90%_at_90%_10%,#000_10%,transparent_70%)]" />
-      </Parallax>
-      <div className="sx-container py-16 sm:py-24">
+    <section
+      data-hero="dark"
+      className="relative isolate flex min-h-[78svh] flex-col justify-end overflow-hidden bg-sx-ink-deep text-sx-white"
+    >
+      <Media
+        id={`page-${slug}`}
+        fallback={['page-default']}
+        alt=""
+        width={2400}
+        height={1350}
+        priority
+        parallax
+        kind="page-hero"
+        labelPosition="top"
+        className="!absolute inset-0 -z-10"
+      />
+      <div aria-hidden="true" className="sx-scrim -z-10" />
+
+      <div className="sx-container pb-12 pt-[calc(var(--sx-header-h)+4rem)] md:pb-16">
         <div className="sx-enter">
-          <Breadcrumb items={breadcrumb} />
+          <Breadcrumb items={breadcrumb} tone="light" />
         </div>
-        <div className="sx-enter sx-eyebrow mt-8" style={{ ['--sx-d' as string]: 1 }}>
+        <div
+          className="sx-enter sx-eyebrow mt-8 !text-white/80"
+          style={{ ['--sx-d' as string]: 1 }}
+        >
           {eyebrow}
         </div>
         <h1
-          className="sx-enter mt-4 max-w-[18ch] text-[clamp(2.4rem,5vw,4.2rem)] font-black leading-[1.02] tracking-[-0.035em] text-sx-ink"
+          className="sx-enter mt-5 max-w-[19ch] text-[clamp(2.5rem,5.6vw,5.2rem)] font-black leading-[0.98] tracking-[-0.022em] text-sx-white"
           style={{ ['--sx-d' as string]: 2 }}
         >
           {title}
         </h1>
-        <p className="sx-enter sx-lead mt-6 max-w-[46ch]" style={{ ['--sx-d' as string]: 3 }}>
+        <p
+          className="sx-enter mt-7 max-w-[58ch] text-[clamp(1.05rem,1.3vw,1.22rem)] leading-[1.55] text-white/85"
+          style={{ ['--sx-d' as string]: 3 }}
+        >
           {intro}
         </p>
-
-        {stage && (
-          <nav
-            aria-label="Lifecycle stage"
-            className="sx-enter mt-8 flex flex-wrap items-center gap-2"
-            style={{ ['--sx-d' as string]: 4 }}
-          >
-            {LIFECYCLE_STAGES.map((s, i) => {
-              const isCurrent = s.id === stage;
-              return (
-                <span key={s.id} className="flex items-center gap-2">
-                  {i > 0 && <span aria-hidden="true" className="h-px w-4 bg-sx-ink-20 sm:w-6" />}
-                  <Link
-                    href={s.url}
-                    aria-current={isCurrent ? 'page' : undefined}
-                    className={`rounded-full px-3.5 py-1.5 text-[13px] font-bold transition-colors duration-300 ease-sx-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
-                      isCurrent
-                        ? 'bg-sx-ink text-white'
-                        : 'border border-sx-ink-20 bg-white text-sx-body hover:border-sx-ink hover:text-sx-ink'
-                    }`}
-                  >
-                    {s.label}
-                  </Link>
-                </span>
-              );
-            })}
-          </nav>
-        )}
 
         {actions && actions.length > 0 && (
           <div
             className="sx-enter mt-9 flex flex-wrap items-center gap-3"
-            style={{ ['--sx-d' as string]: stage ? 5 : 4 }}
+            style={{ ['--sx-d' as string]: 4 }}
           >
             {actions.map((action) => (
               <a
                 key={action.href + action.label}
                 href={action.href}
-                className={`sx-btn ${action.variant === 'ghost' ? 'sx-btn-ghost' : 'sx-btn-primary'}`}
+                className={`sx-btn ${action.variant === 'ghost' ? 'sx-btn-outline-light' : 'sx-btn-light'}`}
               >
                 {action.label}
                 <span className="sx-btn-arrow" aria-hidden="true">
@@ -105,21 +96,48 @@ export function PageHero({
           </div>
         )}
 
-        {chips && chips.length > 0 && (
-          <div
-            className="sx-enter mt-8 flex flex-wrap items-center gap-x-2 gap-y-2 border-t border-sx-border pt-6"
+        {stage && (
+          <nav
+            aria-label="Lifecycle stage"
+            className="sx-enter mt-12 grid grid-cols-4 gap-2 md:gap-5"
             style={{ ['--sx-d' as string]: 5 }}
           >
-            <span className="mr-1 text-[13px] font-bold uppercase tracking-[0.06em] text-sx-muted">
+            {LIFECYCLE_STAGES.map((s, i) => {
+              const isCurrent = s.id === stage;
+              return (
+                <Link
+                  key={s.id}
+                  href={s.url}
+                  aria-current={isCurrent ? 'page' : undefined}
+                  className={`group border-t-2 pt-3 text-[14px] font-bold transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${
+                    isCurrent
+                      ? 'border-white text-white'
+                      : 'border-white/25 text-white/60 hover:border-white hover:text-white'
+                  }`}
+                >
+                  <span className="sx-figure mr-2">{String(i + 1).padStart(2, '0')}</span>
+                  {s.label}
+                </Link>
+              );
+            })}
+          </nav>
+        )}
+
+        {chips && chips.length > 0 && (
+          <div
+            className="sx-enter mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/25 pt-5"
+            style={{ ['--sx-d' as string]: 5 }}
+          >
+            <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-white/60">
               Jump to
             </span>
             {chips.map((chip) => (
               <a
                 key={chip.href}
                 href={chip.href}
-                className="rounded-full border border-sx-ink-20 bg-white px-3.5 py-1.5 text-[13px] font-bold text-sx-body transition-colors duration-300 ease-sx-out hover:border-sx-ink hover:text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
+                className="group text-[15px] font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
-                {chip.label}
+                <span className="sx-link">{chip.label}</span>
               </a>
             ))}
           </div>

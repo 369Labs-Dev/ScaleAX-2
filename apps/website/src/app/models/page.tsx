@@ -149,7 +149,7 @@ export default function ModelsPage() {
             <div
               key={model.id}
               id={model.id}
-              className="scroll-mt-24 overflow-hidden rounded-[16px] border border-sx-border bg-white"
+              className="scroll-mt-24 overflow-hidden rounded-sx border border-sx-border bg-white"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12">
                 {/* Main column: what the model is and how the work splits. */}
@@ -169,7 +169,7 @@ export default function ModelsPage() {
                   </p>
 
                   <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div className="rounded-[12px] bg-sx-bg-light p-5">
+                    <div className="rounded-sx bg-sx-bg-light p-5">
                       <div className="text-[13px] font-bold uppercase tracking-[0.06em] text-sx-ink">
                         You do
                       </div>
@@ -184,7 +184,7 @@ export default function ModelsPage() {
                         ))}
                       </ul>
                     </div>
-                    <div className="rounded-[12px] bg-sx-bg-light p-5">
+                    <div className="rounded-sx bg-sx-bg-light p-5">
                       <div className="text-[13px] font-bold uppercase tracking-[0.06em] text-sx-ink">
                         We do
                       </div>
@@ -319,6 +319,7 @@ export default function ModelsPage() {
 
       <WhereNext page="models" />
       <ClosingCta
+        figure="man-suit"
         headline="Not sure which model fits?"
         line="We'll walk you through the trade-offs for your size, timeline and budget."
       />

@@ -96,6 +96,7 @@ export default function ItSecurityPage() {
       />
 
       <InNumbers
+        figure="man-laptop"
         stats={[
           { figure: '5', label: 'Set-up areas', line: 'Cabling to cloud' },
           { figure: '6', label: 'Ongoing services', line: 'Helpdesk to licences' },
@@ -107,6 +108,7 @@ export default function ItSecurityPage() {
       <LifecycleStrip current="build" />
       <WhereNext page="it-security" />
       <ClosingCta
+        figure="man-suit"
         headline="Get your IT right from the start."
         line="Share your group IT standards and we'll show how we'd meet them."
       />

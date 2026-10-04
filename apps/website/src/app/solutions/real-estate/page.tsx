@@ -164,6 +164,7 @@ export default function RealEstatePage() {
       </section>
 
       <InNumbers
+        figure="chair"
         stats={[
           { figure: '4', label: 'Workspace options', line: 'Managed seats to custom build' },
           { figure: '1.5M+', label: 'Sq. ft. managed', line: 'By DevX' },
@@ -175,6 +176,7 @@ export default function RealEstatePage() {
       <LifecycleStrip current="build" />
       <WhereNext page="real-estate" />
       <ClosingCta
+        figure="towers"
         headline="Find the right space for your team."
         line="Tell us your headcount plan and preferred city; we'll send options."
       />

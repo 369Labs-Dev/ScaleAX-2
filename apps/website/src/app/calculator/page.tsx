@@ -34,6 +34,7 @@ export default function CalculatorPage() {
         </div>
       </section>
       <ClosingCta
+        figure="man-laptop"
         headline="Don't just compete. Excel globally."
         line="Tell us the functions you want in India and your timeline. You get a location shortlist, a cost model and a plan within two weeks."
       />

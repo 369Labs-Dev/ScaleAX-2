@@ -1,5 +1,3 @@
-import { Reveal } from './motion/reveal';
-
 export interface ComparisonRow {
   label: string;
   values: string[];
@@ -14,9 +12,8 @@ export interface ComparisonTableProps {
   id?: string;
 }
 
-// Part B13 "Comparison table" — engagement models compared side by side.
-// A plain responsive table (scrolls horizontally on small screens) rather
-// than a bespoke widget, since the brief just calls for a comparison grid.
+// Engagement models compared side by side. A plain responsive table
+// (scrolls horizontally on small screens), ruled rather than boxed.
 export function ComparisonTable({
   eyebrow,
   headline,
@@ -26,27 +23,31 @@ export function ComparisonTable({
   id,
 }: ComparisonTableProps) {
   return (
-    <section id={id} className="sx-container scroll-mt-24 py-12 sm:py-16">
+    <section id={id} className="sx-container scroll-mt-24 py-16 md:py-24">
       {(eyebrow || headline) && (
-        <Reveal className="max-w-[720px]">
+        <div className="max-w-[820px]">
           {eyebrow && <div className="sx-eyebrow">{eyebrow}</div>}
           {headline && (
-            <h2 className="mt-3 text-[28px] font-black leading-[1.06] tracking-[-0.03em] text-sx-ink sm:text-[40px]">
+            <h2 className="mt-5 text-[clamp(1.9rem,3.2vw,2.9rem)] font-black leading-[1.04] tracking-[-0.02em] text-sx-ink">
               {headline}
             </h2>
           )}
-        </Reveal>
+        </div>
       )}
 
-      <Reveal className="mt-8 overflow-x-auto rounded-[16px] border border-sx-border">
-        <table className="w-full min-w-[560px] border-collapse text-left text-[14px]">
+      <div className="mt-10 overflow-x-auto" data-lenis-prevent-horizontal="">
+        <table className="w-full min-w-[640px] border-collapse text-left text-[15px]">
           <thead>
-            <tr className="border-b border-sx-border bg-sx-bg-light">
-              <th scope="col" className="p-4 font-bold text-sx-ink">
+            <tr className="border-y-2 border-sx-ink">
+              <th scope="col" className="py-4 pr-4 font-bold text-sx-ink">
                 &nbsp;
               </th>
               {columns.map((col) => (
-                <th key={col} scope="col" className="p-4 font-bold text-sx-ink">
+                <th
+                  key={col}
+                  scope="col"
+                  className="px-4 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-sx-ink"
+                >
                   {col}
                 </th>
               ))}
@@ -56,9 +57,9 @@ export function ComparisonTable({
             {rows.map((row) => (
               <tr
                 key={row.label}
-                className="border-b border-sx-border transition-colors duration-200 last:border-b-0 hover:bg-sx-bg-light/70"
+                className="border-b border-sx-border transition-colors duration-200 hover:bg-sx-tint-yellow"
               >
-                <th scope="row" className="p-4 font-bold text-sx-ink">
+                <th scope="row" className="py-4 pr-4 font-bold text-sx-ink">
                   {row.label}
                 </th>
                 {row.values.map((value, i) => (
@@ -70,8 +71,8 @@ export function ComparisonTable({
             ))}
           </tbody>
         </table>
-      </Reveal>
-      {note && <p className="mt-3 text-[13px] text-sx-muted">{note}</p>}
+      </div>
+      {note && <p className="mt-4 text-[13px] text-sx-muted">{note}</p>}
     </section>
   );
 }

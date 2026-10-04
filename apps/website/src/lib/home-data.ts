@@ -33,6 +33,8 @@ export interface Offering {
   id: string;
   title: string;
   line: string;
+  /** What the pillar covers, in the words of the pages that deliver it. */
+  points: string[];
   /** Where this pillar lives on our site (the reference links to /what-we-offer#id). */
   links: RouteLink[];
 }
@@ -44,6 +46,11 @@ export const OFFERINGS: Offering[] = [
     id: 'advisory',
     title: 'Advisory & Location Strategy',
     line: 'Business case, city, operating model.',
+    points: [
+      'What the centre is for, and how its success will be measured.',
+      'City, micro-market and building shortlist.',
+      'Five-year cost model and payback.',
+    ],
     links: [
       { label: 'Consulting', url: '/solutions/consulting' },
       { label: 'Plan: strategy and business case', url: '/how-we-work/plan' },
@@ -54,6 +61,11 @@ export const OFFERINGS: Offering[] = [
     id: 'enablement',
     title: 'Enablement & Compliance',
     line: 'Entity, finance, tax and law, run locally.',
+    points: [
+      'PAN, TAN, GST, LUT, Shops and Establishments, professional tax.',
+      'Intercompany agreements, benchmarking, Form 3CEB and documentation.',
+      'Chart of accounts, ERP, approval rules and month-end calendar.',
+    ],
     links: [
       { label: 'Tax, legal and compliance', url: '/solutions/tax-legal-compliance' },
       { label: 'Finance and accounting', url: '/solutions/finance-accounting' },
@@ -64,6 +76,11 @@ export const OFFERINGS: Offering[] = [
     id: 'talent',
     title: 'Talent',
     line: 'GCC-grade hiring across every level.',
+    points: [
+      'Roles, grades, timing and budget for the first 12 months.',
+      'Direct sourcing, referrals, campuses and specialist networks.',
+      'Retained search for site leaders and function heads.',
+    ],
     links: [
       { label: 'Talent', url: '/solutions/talent' },
       { label: 'HR and payroll', url: '/solutions/hr-payroll' },
@@ -73,6 +90,11 @@ export const OFFERINGS: Offering[] = [
     id: 'workspace',
     title: 'Workspace & IT',
     line: 'Enterprise-grade offices in 10+ cities.',
+    points: [
+      'A dedicated floor or wing in a managed centre, branded for you.',
+      'Layout, interiors, furniture, meeting rooms and commissioning.',
+      'Switching, Wi-Fi, firewall and two independent internet links.',
+    ],
     links: [
       { label: 'Real estate and workspace', url: '/solutions/real-estate' },
       { label: 'IT and security', url: '/solutions/it-security' },
@@ -82,6 +104,11 @@ export const OFFERINGS: Offering[] = [
     id: 'delivery',
     title: 'Delivery Incubation',
     line: 'Value before the last desk is installed.',
+    points: [
+      'Office found, designed, built and ready for move-in.',
+      'Hiring plan, first leaders, first team and an India careers presence.',
+      'One plan, one project lead, weekly status and a clear escalation route.',
+    ],
     links: [
       { label: 'Build: entity to first day', url: '/how-we-work/build' },
       { label: 'Run: day-to-day operations', url: '/how-we-work/run' },
@@ -91,6 +118,11 @@ export const OFFERINGS: Offering[] = [
     id: 'transformation',
     title: 'Transformation',
     line: 'From execution hub to value creator.',
+    points: [
+      'Takes full ownership of processes and improves them.',
+      'Accountable for business results, not just tasks.',
+      'Leads work for the whole group and develops new capabilities.',
+    ],
     links: [
       { label: 'Grow: scale up or take it over', url: '/how-we-work/grow' },
       { label: 'Engagement models', url: '/models' },

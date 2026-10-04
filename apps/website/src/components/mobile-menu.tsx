@@ -87,10 +87,10 @@ export function MobileMenu() {
         aria-expanded={open}
         aria-haspopup="dialog"
         onClick={() => setOpen(true)}
-        className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] rounded-full text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink lg:hidden"
+        className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] rounded-sx focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current lg:hidden"
       >
-        <span aria-hidden="true" className="block h-[2px] w-6 rounded-full bg-sx-ink" />
-        <span aria-hidden="true" className="block h-[2px] w-6 rounded-full bg-sx-ink" />
+        <span aria-hidden="true" className="block h-[2px] w-6 bg-current" />
+        <span aria-hidden="true" className="block h-[2px] w-6 bg-current" />
       </button>
 
       {open && (
@@ -99,12 +99,12 @@ export function MobileMenu() {
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="sx-drop fixed inset-0 z-50 flex flex-col bg-sx-ground lg:hidden"
+          className="sx-drop fixed inset-0 z-50 flex flex-col bg-sx-ground text-sx-ink lg:hidden"
         >
           <div className="sx-container flex h-[76px] shrink-0 items-center justify-between">
             <Link
               href="/"
-              className="text-[22px] font-black tracking-[-0.04em] text-sx-ink"
+              className="text-[22px] font-black tracking-[-0.03em] text-sx-ink"
               onClick={close}
             >
               ScaleAX
@@ -114,13 +114,17 @@ export function MobileMenu() {
               type="button"
               aria-label="Close menu"
               onClick={close}
-              className="flex h-11 w-11 items-center justify-center rounded-full text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
+              className="flex h-11 w-11 items-center justify-center rounded-sx text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
             >
               <X className="h-6 w-6" strokeWidth={1.75} />
             </button>
           </div>
 
-          <nav className="sx-container flex-1 overflow-y-auto pb-6 pt-2" aria-label="Mobile">
+          <nav
+            className="sx-container flex-1 overflow-y-auto pb-6 pt-2"
+            aria-label="Mobile"
+            data-lenis-prevent=""
+          >
             <BigLink href="/about" onClick={close}>
               Who we are
             </BigLink>
@@ -148,7 +152,7 @@ export function MobileMenu() {
                           <Link
                             href={link.url}
                             onClick={close}
-                            className="block rounded-[12px] p-2 hover:bg-sx-bg-light"
+                            className="block rounded-sx p-2 hover:bg-sx-bg-light"
                           >
                             <div className="text-[15px] font-bold text-sx-ink">{link.label}</div>
                             <div className="text-[13px] text-sx-muted">{link.summary}</div>

@@ -19,10 +19,10 @@ describe('HomePage', () => {
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: 'Build your Global Capability Centre in India. Without the guesswork.',
+        name: 'Your Global Capability Centre in India, operational in 30 to 90 days.',
       }),
     ).toBeInTheDocument();
-    const hero = sectionOf(/build your global capability centre/i);
+    const hero = sectionOf(/your global capability centre in india/i);
     expect(within(hero).getByRole('link', { name: /plan your centre/i })).toHaveAttribute(
       'href',
       '/contact',
@@ -72,30 +72,26 @@ describe('HomePage', () => {
     }
   });
 
-  it('renders the six pillars as an accordion that opens onto our pages', async () => {
-    const user = userEvent.setup();
+  it('renders the six pillars as a lifecycle with every page link visible, no click needed', () => {
     render(<HomePage />);
     const section = sectionOf(/every function a centre needs, delivered by one team/i);
-    const titles = [
+    for (const title of [
       'Advisory & Location Strategy',
       'Enablement & Compliance',
       'Talent',
       'Workspace & IT',
       'Delivery Incubation',
       'Transformation',
-    ];
-    for (const title of titles) {
-      expect(within(section).getByRole('button', { name: new RegExp(title) })).toHaveAttribute(
-        'aria-expanded',
-        'false',
-      );
+    ]) {
+      expect(within(section).getByRole('heading', { level: 3, name: title })).toBeInTheDocument();
     }
-    const workspace = within(section).getByRole('button', { name: /workspace & it/i });
-    await user.click(workspace);
-    expect(workspace).toHaveAttribute('aria-expanded', 'true');
     expect(
       within(section).getByRole('link', { name: /real estate and workspace/i }),
     ).toHaveAttribute('href', '/solutions/real-estate');
+    expect(within(section).getByRole('link', { name: /^gift city/i })).toHaveAttribute(
+      'href',
+      '/gift-city',
+    );
     expect(
       within(section).getByRole('link', { name: /explore what we offer/i }),
     ).toBeInTheDocument();
@@ -190,12 +186,13 @@ describe('HomePage', () => {
     expect(within(section).getByText(/sample quotes/i)).toBeInTheDocument();
   });
 
-  it('lists the feature and three teaser insights with branded placeholder art, not photos', () => {
+  it('lists the feature and three teaser insights, each with an image slot', () => {
     render(<HomePage />);
     const section = sectionOf(/thinking on talent, workspace and scale/i);
     expect(within(section).getAllByRole('link', { name: /read insight/i })).toHaveLength(4);
-    expect(section.querySelectorAll('[data-placeholder-art="insight"]')).toHaveLength(4);
-    expect(section.querySelectorAll('img')).toHaveLength(0);
+    // Each card has an image slot named after its article; until that file
+    // exists in public/images the slot renders a labelled placeholder.
+    expect(section.querySelectorAll('[data-image-slot^="insight-"]')).toHaveLength(4);
   });
 
   it('closes with the dark CTA band', () => {

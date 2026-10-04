@@ -53,7 +53,7 @@ export function Marquee({
         onClick={() => setPaused((p) => !p)}
         aria-pressed={paused}
         aria-label={paused ? 'Resume scrolling' : 'Pause scrolling'}
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sx-muted transition-colors duration-200 hover:bg-sx-bg-light hover:text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
+        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sx text-sx-muted transition-colors duration-200 hover:bg-sx-bg-light hover:text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
       >
         {paused ? (
           <Play className="h-3.5 w-3.5" strokeWidth={2} aria-hidden="true" />

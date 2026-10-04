@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Linkedin } from 'lucide-react';
 import { ENGAGEMENT_MODELS_MENU, LIFECYCLE_STAGES, SOLUTIONS_MENU } from '@/lib/site-data';
 import { Wordmark } from './header';
 
@@ -19,72 +18,68 @@ const COMPANY_LINKS: FooterLink[] = [
   { label: 'Contact us', url: '/contact' },
 ];
 
-// W8 — dark-green multi-column footer per the reference: brand blurb +
-// LinkedIn, Solutions, Lifecycle + Models, Company, Contact; legal row
-// below a hairline. Every column maps onto our existing routes.
+// W9 footer: the one full ink surface on the site. Brand blurb and contact
+// on the left, link columns on the right, then the wordmark set as large as
+// the container allows above the legal row.
 export function Footer() {
   return (
     <footer className="bg-sx-ink text-sx-white">
-      <div className="sx-container py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-4">
+      <div className="sx-container pb-10 pt-20 md:pt-28">
+        <div className="grid gap-14 lg:grid-cols-12">
+          <div className="lg:col-span-4">
             <Wordmark tone="light" />
-            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-white/70">
+            <p className="mt-7 max-w-sm text-[15px] leading-relaxed text-white/70">
               Your trusted partner for building, managing and scaling global capability centres in
               India. A joint venture between Awfficacy Global and DevX, headquartered in Ahmedabad.
             </p>
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="ScaleAX on LinkedIn"
-              className="mt-8 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 transition-colors duration-200 hover:bg-sx-white hover:text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              <Linkedin className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
-            </a>
-          </div>
-
-          <FooterColumn
-            className="md:col-span-3 lg:col-span-2"
-            title="Solutions"
-            links={SOLUTIONS_MENU.map(({ label, url }) => ({ label, url }))}
-          />
-
-          <div className="md:col-span-2">
-            <FooterColumn
-              title="Lifecycle"
-              links={LIFECYCLE_STAGES.map(({ label, url }) => ({ label, url }))}
-            />
-            <FooterColumn
-              className="mt-8"
-              title="Models"
-              links={ENGAGEMENT_MODELS_MENU.map(({ label, url }) => ({ label, url }))}
-            />
-          </div>
-
-          <FooterColumn
-            className="md:col-span-3 lg:col-span-2"
-            title="Company"
-            links={COMPANY_LINKS}
-          />
-
-          <div className="md:col-span-12 lg:col-span-2">
-            <p className="sx-eyebrow !text-white/50">Contact</p>
-            <ul className="mt-5 space-y-3 text-[15px] text-white/80">
+            <ul className="mt-9 space-y-2 text-[15px] text-white/80">
               <li>
                 <a
                   href="mailto:info@scaleax.com"
-                  className="sx-link transition-colors duration-200 hover:text-white"
+                  className="sx-link text-[20px] font-bold text-white"
                 >
                   info@scaleax.com
                 </a>
               </li>
               <li>Ahmedabad and GIFT City, Gujarat, India</li>
+              <li className="pt-3">
+                <a
+                  href="https://www.linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ScaleAX on LinkedIn"
+                  className="group inline-flex items-center gap-2 font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                >
+                  <span className="sx-link">LinkedIn</span>
+                  <span aria-hidden="true" className="sx-go sx-go-out sx-go-sm" />
+                </a>
+              </li>
             </ul>
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-4 lg:col-span-8">
+            <FooterColumn
+              title="Solutions"
+              links={SOLUTIONS_MENU.map(({ label, url }) => ({ label, url }))}
+            />
+            <FooterColumn
+              title="Lifecycle"
+              links={LIFECYCLE_STAGES.map(({ label, url }) => ({ label, url }))}
+            />
+            <FooterColumn
+              title="Models"
+              links={ENGAGEMENT_MODELS_MENU.map(({ label, url }) => ({ label, url }))}
+            />
+            <FooterColumn title="Company" links={COMPANY_LINKS} />
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/15 pt-8 text-[14px] text-white/50 md:flex-row md:items-center md:justify-between">
+        <div
+          aria-hidden="true"
+          className="mt-20 aspect-[289/56] w-full bg-white/[0.09] [mask:url(/scaleax.svg)_center/contain_no-repeat] md:mt-28"
+        />
+
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/15 pt-8 text-[14px] text-white/55 md:flex-row md:items-center md:justify-between">
           <p>
             &copy; {new Date().getFullYear()} ScaleAX Advisory Private Limited. All rights reserved.
           </p>
@@ -105,18 +100,10 @@ export function Footer() {
   );
 }
 
-function FooterColumn({
-  title,
-  links,
-  className,
-}: {
-  title: string;
-  links: FooterLink[];
-  className?: string;
-}) {
+function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
   return (
-    <div className={className}>
-      <p className="sx-eyebrow !text-white/50">{title}</p>
+    <div>
+      <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-white/45">{title}</p>
       <ul className="mt-5 space-y-3 text-[15px]">
         {links.map((link) => (
           <li key={link.url}>

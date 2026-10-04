@@ -45,7 +45,7 @@ export function CareersTabs() {
 
       <div
         role="tabpanel"
-        className="rounded-[16px] border border-sx-border bg-sx-bg-light p-8 text-center text-sx-muted"
+        className="rounded-sx border border-sx-border bg-sx-bg-light p-8 text-center text-sx-muted"
       >
         {tab === 'scaleax'
           ? 'No open roles at ScaleAX right now. Send us a note and we’ll keep you in mind.'

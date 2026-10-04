@@ -189,7 +189,7 @@ export function CostCalculator({ variant = 'full' }: { variant?: 'full' | 'embed
           </ControlGroup>
 
           <ControlGroup label={<label htmlFor="cc-home-cost">Cost per employee at home</label>}>
-            <div className="flex h-11 items-center rounded-[10px] border border-sx-border bg-white px-3 focus-within:border-sx-ink">
+            <div className="flex h-11 items-center rounded-sx border border-sx-border bg-white px-3 focus-within:border-sx-ink">
               <span className="text-[14px] text-sx-muted">{symbol}</span>
               <input
                 id="cc-home-cost"
@@ -294,7 +294,7 @@ export function CostCalculator({ variant = 'full' }: { variant?: 'full' | 'embed
 
       <a
         href="#cc-result"
-        className="fixed bottom-4 left-1/2 z-30 flex h-11 -translate-x-1/2 items-center rounded-full bg-sx-ink px-6 text-[13px] font-bold text-white shadow-lg lg:hidden"
+        className="fixed bottom-4 left-1/2 z-30 flex h-11 -translate-x-1/2 items-center rounded-sx bg-sx-ink px-6 text-[13px] font-bold text-white shadow-lg lg:hidden"
       >
         See my result
       </a>
@@ -387,7 +387,7 @@ function Chip({
       type="button"
       aria-pressed={selected}
       onClick={onClick}
-      className={`min-h-10 rounded-[8px] border px-3.5 py-2 text-[13px] font-medium transition-[background-color,color,border-color,scale] duration-200 ease-sx-out active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
+      className={`min-h-10 rounded-sx border px-3.5 py-2 text-[13px] font-medium transition-[background-color,color,border-color,scale] duration-200 ease-sx-out active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
         selected
           ? 'border-sx-ink bg-sx-ink text-white'
           : 'border-sx-ink-20 bg-white text-sx-ink hover:border-sx-ink/60'
@@ -415,7 +415,7 @@ function SelectField({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-1 h-10 w-full rounded-[8px] border border-sx-ink-20 bg-white px-3 text-[13px] text-sx-ink focus:border-sx-ink focus:outline-none"
+        className="mt-1 h-10 w-full rounded-sx border border-sx-ink-20 bg-white px-3 text-[13px] text-sx-ink focus:border-sx-ink focus:outline-none"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>
@@ -443,7 +443,7 @@ function ResultPanel({
   }, []);
 
   return (
-    <div className="relative isolate overflow-hidden rounded-[20px] bg-sx-ink p-6 text-sx-white sm:p-8 lg:p-9">
+    <div className="relative isolate overflow-hidden rounded-sx bg-sx-ink p-6 text-sx-white sm:p-8 lg:p-9">
       <div
         aria-hidden="true"
         className="sx-grid-lines-light absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_60%_80%_at_100%_0%,#000_10%,transparent_75%)]"
@@ -564,7 +564,7 @@ function PlanRequestCard({ inputs }: { inputs: Record<string, unknown> }) {
 
   if (status === 'sent') {
     return (
-      <div className="rounded-[20px] border border-sx-border p-6" role="status">
+      <div className="rounded-sx border border-sx-border p-6" role="status">
         <p className="text-[15px] font-bold text-sx-ink">Thank you — your plan is on its way.</p>
         <p className="mt-1 max-w-xl text-[13px] leading-relaxed text-sx-body">
           We&rsquo;ll come back with a detailed model for this profile, with named sites, in about
@@ -578,7 +578,7 @@ function PlanRequestCard({ inputs }: { inputs: Record<string, unknown> }) {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="rounded-[20px] border border-sx-border p-6"
+      className="rounded-sx border border-sx-border p-6"
       aria-label="Send me the full plan"
     >
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -651,7 +651,7 @@ function PlanField({
         placeholder={placeholder}
         required
         aria-invalid={Boolean(error)}
-        className="mt-1 h-10 w-full rounded-[8px] border border-sx-ink-20 bg-white px-3 text-[13px] text-sx-ink placeholder:text-sx-muted/70 focus:border-sx-ink focus:outline-none aria-[invalid=true]:border-red-500"
+        className="mt-1 h-10 w-full rounded-sx border border-sx-ink-20 bg-white px-3 text-[13px] text-sx-ink placeholder:text-sx-muted/70 focus:border-sx-ink focus:outline-none aria-[invalid=true]:border-red-500"
       />
       {error && <span className="mt-1 block text-red-600">{error}</span>}
     </label>

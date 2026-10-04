@@ -45,6 +45,7 @@ export default function NewsPage() {
 
       <WhereNext page="news" />
       <ClosingCta
+        figure="man-profile"
         headline="Talk to us about your centre."
         line="Start with a short call about what you're planning."
       />

@@ -4,6 +4,8 @@ import { PageHero } from '@/components/page-hero';
 import { WhereNext } from '@/components/where-next';
 import { ClosingCta } from '@/components/closing-cta';
 import { InsightsExplorer } from '@/components/insights/insights-explorer';
+import { ARTICLES } from '@/lib/insights-data';
+import { findImage } from '@/lib/images';
 
 // Part B, PAGE B15 — Insights.
 export const metadata: Metadata = pageMetadata({
@@ -22,10 +24,15 @@ export default function InsightsPage() {
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'Insights' }]}
       />
 
-      <InsightsExplorer />
+      <InsightsExplorer
+        covers={Object.fromEntries(
+          ARTICLES.map((a) => [a.slug, findImage(`insight-${a.slug}`, 'insight-default')]),
+        )}
+      />
 
       <WhereNext page="insights" />
       <ClosingCta
+        figure="woman-seated"
         headline="Talk to us about your centre."
         line="Start with a short call about what you're planning."
       />

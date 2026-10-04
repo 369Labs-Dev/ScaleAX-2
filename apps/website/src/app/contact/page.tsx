@@ -13,7 +13,7 @@ import { WhereNext } from '@/components/where-next';
 export const metadata: Metadata = pageMetadata({
   title: 'Contact',
   description:
-    'Tell ScaleAX what you want to build in India — book a consultation or reach us directly.',
+    'Tell ScaleAX what you want to build in India: book a consultation or reach us directly.',
   path: '/contact',
 });
 
@@ -34,12 +34,12 @@ const NEXT_STEPS = [
   {
     step: '1',
     title: 'We reply within one working day',
-    body: 'A real person reads your brief — no automated pitch.',
+    body: 'A real person reads your brief, not an automated pitch.',
   },
   {
     step: '2',
     title: 'A short call on your goals',
-    body: 'Functions, team size and timeline — enough to work with.',
+    body: 'Functions, team size and timeline, enough to work with.',
   },
   {
     step: '3',
@@ -59,7 +59,7 @@ export default function ContactPage() {
         />
         <div className="sx-container pb-14 pt-10 sm:pb-20 sm:pt-14">
           <Reveal className="mx-auto max-w-[760px] text-center">
-            <div className="sx-eyebrow">Contact</div>
+            <div className="sx-eyebrow justify-center">Contact</div>
             <h1 className="sx-h1 mt-3 text-sx-ink">Tell us what you want to build in India.</h1>
             <p className="mx-auto mt-4 max-w-[560px] text-[16px] leading-[1.6] text-sx-body sm:text-[17px]">
               Share the functions, team size and timeline, and we&rsquo;ll come back with a plan,
@@ -119,7 +119,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="mt-3 inline-block text-[14px] font-bold text-sx-ink hover:underline"
               >
-                View on map &rarr;
+                View on map <span aria-hidden="true" className="sx-btn-arrow" />
               </a>
             </div>
           ))}
@@ -133,7 +133,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="mt-2 inline-block text-[15px] font-bold text-sx-ink hover:underline"
             >
-              Follow ScaleAX &rarr;
+              Follow ScaleAX <span aria-hidden="true" className="sx-btn-arrow" />
             </a>
           </div>
         </Reveal>
@@ -143,6 +143,7 @@ export default function ContactPage() {
       {/* Closing band as on other pages; the button scrolls back to the form
           on this page instead of linking /contact to itself. */}
       <ClosingCta
+        figure="woman-tablet"
         headline="Talk to us about your centre."
         line="Start with a short call about what you're planning."
         href="#form"

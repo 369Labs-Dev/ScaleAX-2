@@ -19,16 +19,14 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <section className="bg-sx-bg-light">
-      <div className="mx-auto max-w-[680px] px-4 py-24 text-center sm:py-32">
+    <section className="border-b border-sx-border">
+      <div className="sx-container py-24 md:py-32">
         <div className="sx-eyebrow">SOMETHING WENT WRONG</div>
-        <h1 className="mt-2 text-[32px] font-bold leading-[40px] text-sx-ink sm:text-[44px] sm:leading-[52px]">
-          This page hit an unexpected error.
-        </h1>
-        <p className="mt-4 text-[16px] leading-[26px] text-sx-body sm:text-[18px] sm:leading-[28px]">
+        <h1 className="sx-h1 mt-6 max-w-[14ch] text-sx-ink">This page hit an unexpected error.</h1>
+        <p className="sx-lead mt-7 max-w-[52ch]">
           Our team has been notified. You can try again, or head back to the homepage.
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 flex flex-wrap gap-3">
           <button type="button" onClick={reset} className="sx-btn sx-btn-primary">
             Try again
           </button>
