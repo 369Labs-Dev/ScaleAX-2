@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { AccordionIcon } from '@/components/motion/accordion-icon';
 import { GIFT_CITY, LEAD_ROUTES } from '@/lib/gift-city-data';
@@ -13,7 +13,18 @@ const { ifsc } = GIFT_CITY;
 export function RouteSelector() {
   const [activeKey, setActiveKey] = useState(ifsc.routes[0].key);
   const [openStage, setOpenStage] = useState<number | null>(0);
+  const panelRef = useRef<HTMLDivElement>(null);
   const route = ifsc.routes.find((r) => r.key === activeKey) ?? ifsc.routes[0];
+
+  // The detail panel sits below two rows of cards, so a click can look like
+  // it did nothing. Bring the panel into view unless it is already near the top.
+  const revealPanel = () => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    if (panel.getBoundingClientRect().top < window.innerHeight * 0.35) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    panel.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  };
 
   return (
     <div>
@@ -35,6 +46,7 @@ export function RouteSelector() {
               onClick={() => {
                 setActiveKey(r.key);
                 setOpenStage(0);
+                revealPanel();
               }}
               className={`flex flex-col rounded-sx border p-5 text-left transition-[background-color,border-color,color] duration-300 ease-sx-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
                 selected
@@ -66,10 +78,11 @@ export function RouteSelector() {
       </div>
 
       <div
+        ref={panelRef}
         id="route-panel"
         role="tabpanel"
         aria-labelledby={`route-tab-${route.key}`}
-        className="mt-6 rounded-sx border border-sx-border bg-sx-white p-6 md:p-10"
+        className="mt-6 scroll-mt-24 rounded-sx border border-sx-border bg-sx-white p-6 md:p-10"
       >
         <div className="grid grid-cols-1 gap-x-14 gap-y-8 lg:grid-cols-12">
           <div className="min-w-0 lg:col-span-5">
