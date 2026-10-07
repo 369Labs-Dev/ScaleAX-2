@@ -45,9 +45,15 @@ export function Leadership() {
       }
     }
 
+    // Hold the page still while the panel is open, so only the panel scrolls.
+    const root = document.documentElement;
+    const previousOverflow = root.style.overflow;
+    root.style.overflow = 'hidden';
+
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('mousedown', onClickOutside);
     return () => {
+      root.style.overflow = previousOverflow;
       document.removeEventListener('keydown', onKeyDown);
       document.removeEventListener('mousedown', onClickOutside);
     };
@@ -144,13 +150,16 @@ export function Leadership() {
       </div>
 
       {openMember && (
-        <div className="fixed inset-0 z-50 flex justify-end bg-black/40 sm:bg-black/30">
+        <div
+          data-lenis-prevent=""
+          className="fixed inset-0 z-50 flex justify-end bg-black/40 sm:bg-black/30"
+        >
           <div
             ref={panelRef}
             role="dialog"
             aria-modal="true"
             aria-label={`${openMember.name} biography`}
-            className="flex h-full w-full flex-col overflow-y-auto bg-white p-6 sm:w-[420px] sm:p-8"
+            className="flex h-full w-full flex-col overflow-y-auto overscroll-contain bg-white p-6 sm:w-[420px] sm:p-8"
           >
             <button
               type="button"
