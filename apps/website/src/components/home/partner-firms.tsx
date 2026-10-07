@@ -1,11 +1,15 @@
 import Image from 'next/image';
-import { PARTNER_FIRMS } from '@/lib/home-data';
+import { PARTNER_FIRMS, PLATFORM_PARTNERS } from '@/lib/home-data';
 import { Reveal } from '@/components/motion/reveal';
 import { CountUp } from '@/components/motion/count-up';
 
 // The ecosystem firms behind ScaleAX, used on /about: logo, name, what the
 // firm does and its headline numbers, which roll up once (final values are
 // server-rendered — see CountUp).
+const clientsOf = (firm: string) =>
+  PLATFORM_PARTNERS.find((partner) => partner.name.split(' ')[0] === firm.split(' ')[0])?.clients ??
+  [];
+
 export function PartnerFirms() {
   return (
     <section className="sx-section bg-sx-bg-light">
@@ -49,6 +53,26 @@ export function PartnerFirms() {
                   </li>
                 ))}
               </ul>
+              {clientsOf(firm.name).length > 0 && (
+                <div className="lg:col-span-9 lg:col-start-4">
+                  <div className="text-[12px] font-bold uppercase tracking-[0.1em] text-sx-muted">
+                    Clients
+                  </div>
+                  <ul className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-5">
+                    {clientsOf(firm.name).map((client) => (
+                      <li key={client.name}>
+                        <Image
+                          src={client.src}
+                          alt={client.name}
+                          width={200}
+                          height={200}
+                          className="h-11 w-auto object-contain"
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
         </Reveal>

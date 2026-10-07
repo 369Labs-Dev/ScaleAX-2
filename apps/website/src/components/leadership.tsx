@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Linkedin, X } from 'lucide-react';
 import { ADVISORS, LEADERSHIP } from '@/lib/about-data';
 
 // Part B1 "Leadership" (#leadership) / Part C7 — Leadership/Advisors tab
@@ -91,7 +91,10 @@ export function Leadership() {
       <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
         {members.map((member, index) => (
           <div key={member.name} className="text-left">
-            <div className="relative aspect-[5/6] overflow-hidden rounded-sx bg-sx-bg-light">
+            <div
+              onClick={() => setOpenIndex(index)}
+              className="relative aspect-[5/6] cursor-pointer overflow-hidden rounded-sx bg-sx-bg-light"
+            >
               {member.photo && (
                 <Image
                   src={member.photo}
@@ -114,8 +117,23 @@ export function Leadership() {
                 <ArrowRight className="h-4 w-4" strokeWidth={2} />
               </button>
             </div>
-            <div className="mt-3 text-[15px] font-bold text-sx-ink">{member.name}</div>
-            <div className="text-[13px] text-sx-body">{member.position}</div>
+            <div className="mt-3 flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <div className="text-[15px] font-bold text-sx-ink">{member.name}</div>
+                <div className="text-[13px] text-sx-body">{member.position}</div>
+              </div>
+              {member.linkedin && (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${member.name} on LinkedIn`}
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sx border border-sx-border text-sx-ink transition-colors duration-200 hover:border-sx-ink hover:bg-sx-ink hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
+                >
+                  <Linkedin className="h-4 w-4" strokeWidth={1.75} />
+                </a>
+              )}
+            </div>
             {!member.confirmed && (
               <div className="mt-1 inline-block rounded-[4px] bg-sx-bg-light px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.04em] text-sx-muted">
                 Pending confirmation
@@ -142,7 +160,7 @@ export function Leadership() {
             >
               <X className="h-5 w-5" strokeWidth={1.5} />
             </button>
-            <div className="relative mt-4 aspect-[5/6] w-full max-w-[220px] overflow-hidden rounded-sx bg-sx-bg-light">
+            <div className="relative mt-4 aspect-[5/6] w-full max-w-[220px] shrink-0 overflow-hidden rounded-sx bg-sx-bg-light">
               {openMember.photo && (
                 <Image
                   src={openMember.photo}
@@ -173,9 +191,11 @@ export function Leadership() {
                 href={openMember.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="sx-link mt-4 w-fit text-[14px] font-bold text-sx-ink"
+                className="mt-5 inline-flex w-fit shrink-0 items-center gap-2 rounded-sx border border-sx-ink px-4 py-2.5 text-[14px] font-bold text-sx-ink transition-colors duration-200 hover:bg-sx-ink hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
               >
-                LinkedIn profile
+                <Linkedin className="h-4 w-4" strokeWidth={1.75} />
+                View LinkedIn profile
+                <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />
               </a>
             )}
             {openMember.highlights && openMember.highlights.length > 0 && (
