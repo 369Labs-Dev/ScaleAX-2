@@ -32,8 +32,8 @@ describe('HomePage', () => {
       '/calculator',
     );
     for (const [figure, label] of [
-      ['1.5M+', 'sq. ft. managed'],
-      ['10+', 'cities'],
+      ['60M+', 'Workspace Ecosystem'],
+      ['14+', 'Cities'],
       ['30 to 90', 'days to operational'],
     ]) {
       expect(within(hero).getByText(figure)).toBeInTheDocument();
@@ -46,26 +46,34 @@ describe('HomePage', () => {
     expect(screen.getAllByRole('link', { name: 'Estimate your cost' })).toHaveLength(1);
   });
 
-  it('renders the network strip as a pausable marquee of enterprise logos', () => {
+  it("shows each partner's enterprise logos as a pausable marquee under that partner", () => {
     render(<HomePage />);
-    const strip = screen.getByRole('region', { name: 'Enterprise logos' });
-    expect(within(strip).getAllByRole('img', { name: 'Bank of America' }).length).toBeGreaterThan(
+    const savvy = screen.getByRole('region', { name: 'Enterprises served by Savvy Group' });
+    expect(within(savvy).getAllByRole('img', { name: 'Bank of America' }).length).toBeGreaterThan(
       0,
     );
-    expect(within(strip).getAllByRole('img', { name: 'Deloitte' }).length).toBeGreaterThan(0);
-    expect(screen.getByRole('button', { name: /pause scrolling/i })).toBeInTheDocument();
+    const devx = screen.getByRole('region', { name: 'Enterprises served by DevX' });
+    expect(within(devx).getAllByRole('img', { name: 'Savills' }).length).toBeGreaterThan(0);
+    expect(
+      screen.getByRole('region', { name: 'Enterprises served by Awfficacy Global' }),
+    ).toBeInTheDocument();
+    // Dev IT has no client logos yet, so it gets no strip.
+    expect(
+      screen.queryByRole('region', { name: 'Enterprises served by Dev IT' }),
+    ).not.toBeInTheDocument();
+    expect(screen.getAllByRole('button', { name: /pause scrolling/i })).toHaveLength(3);
   });
 
   it('renders the dark claim band and the four-stat row', () => {
     render(<HomePage />);
     expect(
-      screen.getByText('1,500 centres already run from India. Yours can be live in 90 days.'),
+      screen.getByText('Over 2,500 centres already run from India. Yours can be live in 90 days.'),
     ).toBeInTheDocument();
     for (const [figure, label] of [
       ['34+', 'Years of combined leadership experience'],
-      ['0.8M+', 'Sq. ft. of workspace under management'],
-      ['6+', 'Cities with an active presence'],
-      ['140+', 'Enterprises served across the JV network'],
+      ['60M+', 'Sq. ft. of workspace under management'],
+      ['14+', 'Cities with an active presence'],
+      ['350+', 'Enterprises served across the JV network'],
     ]) {
       const row = screen.getByText(label).parentElement as HTMLElement;
       expect(within(row).getByText(figure)).toBeInTheDocument();
@@ -156,34 +164,31 @@ describe('HomePage', () => {
     );
   });
 
-  it('renders "Why India" with its four figures', () => {
+  it('no longer renders the "Why India" section', () => {
     render(<HomePage />);
-    const section = sectionOf(/why india is the default answer/i);
-    for (const figure of ['1,500+', '1.3M+', '90%', '63rd']) {
-      expect(within(section).getByText(figure)).toBeInTheDocument();
-    }
+    expect(screen.queryByRole('heading', { name: /why india/i })).not.toBeInTheDocument();
   });
 
-  it('renders the three partner cards with their confirmed numbers and site links', () => {
+  it('renders the four partner cards with their confirmed numbers and site links', () => {
     render(<HomePage />);
     const section = sectionOf(/three specialists/i);
-    for (const name of ['Awfficacy Global', 'DevX', 'Savvy Group']) {
+    for (const name of ['Awfficacy Global', 'DevX', 'Dev IT', 'Savvy Group']) {
       expect(within(section).getByRole('heading', { name })).toBeInTheDocument();
       expect(within(section).getByRole('link', { name: `Visit ${name}` })).toHaveAttribute(
         'target',
         '_blank',
       );
     }
-    expect(within(section).getByText('12,000+')).toBeInTheDocument();
+    expect(within(section).getByText('25k+')).toBeInTheDocument();
     expect(within(section).getByText('5,000+')).toBeInTheDocument();
   });
 
-  it('marks the testimonials as placeholders ("Client name") pending cleared quotes', () => {
+  it('keeps the placeholder testimonials off the public page for now', () => {
     render(<HomePage />);
-    const section = sectionOf(/what clients say once the centre is running/i);
-    expect(section).toHaveAttribute('data-placeholder', 'testimonials');
-    expect(within(section).getAllByText('Client name')).toHaveLength(3);
-    expect(within(section).getByText(/sample quotes/i)).toBeInTheDocument();
+    expect(
+      screen.queryByRole('heading', { name: /what clients say once the centre is running/i }),
+    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Client name')).not.toBeInTheDocument();
   });
 
   it('lists the feature and three teaser insights, each with an image slot', () => {
@@ -197,7 +202,7 @@ describe('HomePage', () => {
 
   it('closes with the dark CTA band', () => {
     render(<HomePage />);
-    const band = screen.getByRole('heading', { name: "Don't just compete. Excel globally." })
+    const band = screen.getByRole('heading', { name: 'Tell us what you want to run from India.' })
       .parentElement as HTMLElement;
     expect(within(band).getByRole('link', { name: /plan your centre/i })).toHaveAttribute(
       'href',

@@ -6,38 +6,37 @@ import {
   HOME_STATS,
   OFFERINGS,
   PLATFORM_PARTNERS,
+  SHOW_TESTIMONIALS,
   TESTIMONIALS,
-  WHY_INDIA,
 } from '@/lib/home-data';
 import { HOW_WE_WORK_MENU } from '@/lib/site-data';
 import { ARTICLES } from '@/lib/insights-data';
 import { findImage } from '@/lib/images';
 import { HeroCarousel, type HeroSlide } from '@/components/home/hero-carousel';
-import { PartnerProofBand } from '@/components/home/partner-proof-band';
 import { PillarsJourney } from '@/components/home/pillars-journey';
 import { MiniEstimator } from '@/components/home/mini-estimator';
 import { ModelsRail } from '@/components/home/models-rail';
-import { IndiaOrbit } from '@/components/home/india-orbit';
 import { Media } from '@/components/media';
+import { Marquee } from '@/components/motion/marquee';
 import { Reveal } from '@/components/motion/reveal';
 import { CountUp } from '@/components/motion/count-up';
 
-// Homepage, W9 redesign. Section order and copy are unchanged from W8:
-// hero, partner strip, claim band, stat row, six pillars, embedded estimator,
-// four models, why India, three specialists, testimonials (placeholder),
-// insights, closing band. What changed is the presentation: a full-viewport
+// Homepage, W9 redesign. Section order: hero, claim band, stat row, six
+// pillars, embedded estimator, four models, the partner firms with their
+// client logos, testimonials (placeholder, hidden for now), insights,
+// closing band. What changed is the presentation: a full-viewport
 // photographic hero that rotates through five slides, copy set on full-bleed
 // imagery, and scroll motion driven by GSAP. Every photograph is an image
 // slot (public/images, see apps/website/IMAGES.md) that shows a labelled
 // placeholder until the file exists.
 
 // The hero's five slides: the homepage headline, then the headline of each
-// lifecycle page, so the rotating words are the site's own copy.
+// lifecycle stage.
 const STAGE_HEADLINES: Record<string, string> = {
   Plan: 'Decide where, how and at what cost before you commit.',
   Build: 'From a registered company to a working office.',
-  Run: 'Your centre, run day to day by people who know it.',
-  Grow: 'Scale up, or take it over. Your choice, on your timeline.',
+  Run: 'Finance, HR, payroll, compliance, IT, workplace and day-to-day operations — managed under one accountable partner.',
+  Grow: "Grow with us, transition to your own team, or move to a fully owned GCC when you're ready.",
 };
 
 function heroSlides(): HeroSlide[] {
@@ -46,7 +45,7 @@ function heroSlides(): HeroSlide[] {
       id: 'hero-overview',
       label: 'Overview',
       headline: 'Your Global Capability Centre in India, operational in 30 to 90 days.',
-      lead: 'One accountable partner for strategy, workspace, talent, compliance and technology. We set up, run and scale centres for global companies.',
+      lead: 'One accountable partner to plan, build, run and scale your Global Capability Centre.',
       src: findImage('hero-overview'),
       alt: 'A capability centre floor in Ahmedabad',
     },
@@ -65,15 +64,13 @@ export default function HomePage() {
   return (
     <>
       <HeroCarousel slides={heroSlides()} proof={HERO_PROOF} />
-      <PartnerProofBand />
       <ClaimBand />
       <StatRow />
       <Offerings />
       <Estimator />
       <Models />
-      <WhyIndia />
       <Specialists />
-      <Testimonials />
+      {SHOW_TESTIMONIALS && <Testimonials />}
       <Insights />
       <ClosingBand />
     </>
@@ -130,7 +127,7 @@ function ClaimBand() {
             data-scrub-text=""
             className="max-w-[18ch] text-[clamp(2.2rem,5.2vw,5rem)] font-black leading-[1] tracking-[-0.032em]"
           >
-            1,500 centres already run from India. Yours can be live in 90 days.
+            Over 2,500 centres already run from India. Yours can be live in 90 days.
           </p>
           <p className="mt-7 max-w-xl text-[clamp(1.05rem,1.3vw,1.22rem)] leading-[1.55] text-white/85">
             Entity, office, hiring, tax and technology delivered in parallel by one team, not a
@@ -242,29 +239,6 @@ function Models() {
   );
 }
 
-function WhyIndia() {
-  return (
-    <section className="sx-section">
-      <div className="sx-container">
-        <h2 className="sx-h2 max-w-[16ch] text-sx-ink">Why India is the default answer.</h2>
-      </div>
-      <IndiaOrbit
-        photo={
-          <Media
-            id="india-01"
-            alt="Ahmedabad and GIFT City, where ScaleAX sets up first"
-            width={1200}
-            height={1500}
-            sizes="(min-width: 1024px) 40vw, 100vw"
-            kind="india"
-            className="aspect-[4/3] rounded-sx"
-          />
-        }
-      />
-    </section>
-  );
-}
-
 function Specialists() {
   return (
     <section className="sx-section bg-sx-bg-light">
@@ -275,8 +249,8 @@ function Specialists() {
           </h2>
           <div className="lg:col-span-4 lg:col-start-9">
             <p className="sx-lead">
-              ScaleAX is a joint venture between Awfficacy Global and DevX, with the Savvy Group as
-              construction partner.
+              ScaleAX is a joint venture between Awfficacy Global, DevX and Dev IT, with the Savvy
+              Group as construction partner.
             </p>
             <Link href="/about" className="sx-btn sx-btn-ghost mt-7">
               Who we are
@@ -289,7 +263,7 @@ function Specialists() {
           {PLATFORM_PARTNERS.map((partner) => (
             <article
               key={partner.name}
-              className="group grid gap-x-10 gap-y-7 border-b border-sx-border py-10 lg:grid-cols-12 lg:items-center lg:py-12"
+              className="group grid grid-cols-1 gap-x-10 gap-y-7 border-b border-sx-border py-10 lg:grid-cols-12 lg:items-center lg:py-12"
             >
               <div className="lg:col-span-3">
                 {/* The logo carries the name; the heading stays for assistive tech. */}
@@ -329,6 +303,26 @@ function Specialists() {
                   </div>
                 ))}
               </dl>
+              {partner.clients.length > 0 && (
+                <div className="min-w-0 lg:col-span-12">
+                  <Marquee
+                    label={`Enterprises served by ${partner.name}`}
+                    durationSeconds={Math.max(28, partner.clients.length * 4)}
+                    items={partner.clients.map((client) => ({
+                      key: client.name,
+                      node: (
+                        <Image
+                          src={client.src}
+                          alt={client.name}
+                          width={200}
+                          height={200}
+                          className="h-14 w-auto shrink-0 object-contain"
+                        />
+                      ),
+                    }))}
+                  />
+                </div>
+              )}
             </article>
           ))}
         </Reveal>
@@ -503,7 +497,7 @@ function ClosingBand() {
             data-scrub-text=""
             className="text-[clamp(2.6rem,6.4vw,6rem)] font-black leading-[0.96] tracking-[-0.035em] text-sx-white"
           >
-            <Lines lines={["Don't just compete.", 'Excel globally.']} />
+            Tell us what you want to run from India.
           </h2>
           <p className="mt-7 max-w-xl text-[clamp(1.05rem,1.3vw,1.22rem)] leading-[1.55] text-white/85">
             Tell us the functions you want in India and your timeline. You get a location shortlist,

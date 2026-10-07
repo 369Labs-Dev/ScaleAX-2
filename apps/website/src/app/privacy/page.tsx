@@ -34,7 +34,7 @@ const SECTIONS: { heading: string; body: string }[] = [
   },
   {
     heading: 'Contact',
-    body: 'Questions about this policy can be sent to info@scaleax.com.',
+    body: 'Questions about this policy can be sent to admin@scaleax.com.',
   },
 ];
 

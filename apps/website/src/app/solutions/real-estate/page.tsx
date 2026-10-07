@@ -158,8 +158,8 @@ export default function RealEstatePage() {
 
       <section className="sx-container py-4 text-[14px] text-sx-muted">
         <span className="font-bold text-sx-ink">Partner firms: </span>
-        DevX: managed workspace (1.5M+ sq. ft. managed, 12,000+ professionals, 250+ companies).
-        Savvy Group: construction and development (10M+ sq. ft. under development, 25+ years, 5,000+
+        DevX: managed workspace (3M+ sq. ft. managed, 25k+ professionals, 350+ companies). Savvy
+        Group: construction and development (60M+ sq. ft. under development, 30+ years, 5,000+
         customers).
       </section>
 
@@ -167,8 +167,8 @@ export default function RealEstatePage() {
         figure="chair"
         stats={[
           { figure: '4', label: 'Workspace options', line: 'Managed seats to custom build' },
-          { figure: '1.5M+', label: 'Sq. ft. managed', line: 'By DevX' },
-          { figure: '10M+', label: 'Sq. ft. under development', line: 'By Savvy Group' },
+          { figure: '3M+', label: 'Sq. ft. managed', line: 'By DevX' },
+          { figure: '60M+', label: 'Sq. ft. under development', line: 'By Savvy Group' },
           { figure: '2', label: 'Locations', line: 'Ahmedabad and GIFT City' },
         ]}
       />

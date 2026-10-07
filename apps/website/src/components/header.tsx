@@ -67,14 +67,6 @@ export function Header() {
                     <span className="sx-btn-arrow">&rarr;</span>
                   </span>
                 </Link>
-                <Link
-                  href="/gift-city"
-                  role="menuitem"
-                  className="group text-[14px] font-bold text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sx-ink"
-                >
-                  <span className="sx-link">GIFT City</span> &middot;{' '}
-                  <span className="font-normal text-sx-muted">India&rsquo;s finance centre</span>
-                </Link>
               </div>
             </div>
           </NavMenu>

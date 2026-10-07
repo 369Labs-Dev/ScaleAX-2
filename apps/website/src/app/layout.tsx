@@ -41,25 +41,25 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'ScaleAX | GCC set-up in Ahmedabad and GIFT City, India',
+    default: 'ScaleAX | GCC set-up in India',
     template: '%s | ScaleAX',
   },
   description:
-    'ScaleAX sets up and runs Global Capability Centres in Ahmedabad and GIFT City: site, office, IT, hiring, entity, tax and compliance under one contract.',
+    'ScaleAX sets up and runs Global Capability Centres in India with HQ at Ahmedabad and GIFT City: site, office, IT, hiring, entity, tax and compliance under one contract.',
   alternates: { canonical: SITE_URL },
   openGraph: {
     type: 'website',
     siteName: 'ScaleAX',
     url: SITE_URL,
-    title: 'ScaleAX | GCC set-up in Ahmedabad and GIFT City, India',
+    title: 'ScaleAX | GCC set-up in India',
     description:
-      'ScaleAX sets up and runs Global Capability Centres in Ahmedabad and GIFT City: site, office, IT, hiring, entity, tax and compliance under one contract.',
+      'ScaleAX sets up and runs Global Capability Centres in India with HQ at Ahmedabad and GIFT City: site, office, IT, hiring, entity, tax and compliance under one contract.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ScaleAX | GCC set-up in Ahmedabad and GIFT City, India',
+    title: 'ScaleAX | GCC set-up in India',
     description:
-      'ScaleAX sets up and runs Global Capability Centres in Ahmedabad and GIFT City: site, office, IT, hiring, entity, tax and compliance under one contract.',
+      'ScaleAX sets up and runs Global Capability Centres in India with HQ at Ahmedabad and GIFT City: site, office, IT, hiring, entity, tax and compliance under one contract.',
   },
 };
 

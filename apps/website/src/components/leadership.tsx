@@ -57,15 +57,9 @@ export function Leadership() {
     <section id="leadership" className="sx-container scroll-mt-24 py-12 sm:py-16">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div className="max-w-[720px]">
-          <div className="sx-eyebrow">Our leadership</div>
-          <h2 className="mt-3 text-[28px] font-black leading-[1.06] tracking-[-0.03em] text-sx-ink sm:text-[40px]">
-            Operators first.
-            <br />
-            Advisors when it counts.
+          <h2 className="text-[28px] font-black leading-[1.06] tracking-[-0.03em] text-sx-ink sm:text-[40px]">
+            Our leadership
           </h2>
-          <p className="mt-3 text-[15px] text-sx-body sm:text-[16px]">
-            Every client works directly with at least one founder.
-          </p>
         </div>
         <div
           role="tablist"
@@ -174,6 +168,16 @@ export function Leadership() {
                 </p>
               ))}
             </div>
+            {openMember.linkedin && (
+              <a
+                href={openMember.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sx-link mt-4 w-fit text-[14px] font-bold text-sx-ink"
+              >
+                LinkedIn profile
+              </a>
+            )}
             {openMember.highlights && openMember.highlights.length > 0 && (
               <ul className="mt-4 space-y-3">
                 {openMember.highlights.map((highlight) => (

@@ -187,8 +187,8 @@ export function ConsultationForm({ variant = 'band' }: { variant?: 'band' | 'pag
             <div>
               <dt className="text-white/70">Email</dt>
               <dd>
-                <a href="mailto:info@scaleax.com" className="hover:underline">
-                  info@scaleax.com
+                <a href="mailto:admin@scaleax.com" className="hover:underline">
+                  admin@scaleax.com
                 </a>
               </dd>
             </div>

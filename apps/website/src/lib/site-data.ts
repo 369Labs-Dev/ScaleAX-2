@@ -37,25 +37,25 @@ export const WHERE_NEXT_CARDS: Record<CardId, WhereNextCard> = {
   },
   build: {
     eyebrow: 'BUILD',
-    title: 'From entity to first day in the office',
+    title: 'Entity, people, workplace & technology',
     url: '/how-we-work/build',
     icon: 'hammer',
   },
   run: {
     eyebrow: 'RUN',
-    title: 'Day-to-day operations, owned by us',
+    title: 'Day-to-day operations, finance & compliance',
     url: '/how-we-work/run',
     icon: 'settings',
   },
   grow: {
     eyebrow: 'GROW',
-    title: 'Scale up, or take it over',
+    title: 'Scale, optimise or transition to your team',
     url: '/how-we-work/grow',
     icon: 'trending-up',
   },
   consulting: {
     eyebrow: 'CONSULTING',
-    title: 'Advice before you commit',
+    title: 'Choose the right city, model & economics',
     url: '/solutions/consulting',
     icon: 'lightbulb',
   },
@@ -67,7 +67,7 @@ export const WHERE_NEXT_CARDS: Record<CardId, WhereNextCard> = {
   },
   'it-security': {
     eyebrow: 'IT AND SECURITY',
-    title: 'Network, devices and security from day one',
+    title: 'IT infrastructure, security & connectivity',
     url: '/solutions/it-security',
     icon: 'server',
   },
@@ -85,13 +85,13 @@ export const WHERE_NEXT_CARDS: Record<CardId, WhereNextCard> = {
   },
   'tax-legal-compliance': {
     eyebrow: 'TAX, LEGAL AND COMPLIANCE',
-    title: 'Entity, tax and filings, handled',
+    title: 'Entity, tax, legal & regulatory setup',
     url: '/solutions/tax-legal-compliance',
     icon: 'scale',
   },
   'finance-accounting': {
     eyebrow: 'FINANCE AND ACCOUNTING',
-    title: 'Books closed on time, every month',
+    title: 'Books to Boardroom reports, every month',
     url: '/solutions/finance-accounting',
     icon: 'calculator',
   },
@@ -179,19 +179,19 @@ export const HOW_WE_WORK_MENU: MenuLink[] = [
   },
   {
     label: 'Build',
-    summary: 'From entity to first day in the office',
+    summary: 'Entity, people, workplace & technology',
     url: '/how-we-work/build',
     icon: 'hammer',
   },
   {
     label: 'Run',
-    summary: 'Day-to-day operations, owned by us',
+    summary: 'Day-to-day operations, finance & compliance',
     url: '/how-we-work/run',
     icon: 'settings',
   },
   {
     label: 'Grow',
-    summary: 'Scale up, or take it over',
+    summary: 'Scale, optimise or transition to your team',
     url: '/how-we-work/grow',
     icon: 'trending-up',
   },
@@ -202,7 +202,7 @@ export const HOW_WE_WORK_MENU: MenuLink[] = [
 export const SOLUTIONS_MENU: MenuLink[] = [
   {
     label: 'Consulting',
-    summary: 'Advice before you commit',
+    summary: 'Choose the right city, model & economics',
     url: '/solutions/consulting',
     icon: 'lightbulb',
   },
@@ -214,7 +214,7 @@ export const SOLUTIONS_MENU: MenuLink[] = [
   },
   {
     label: 'IT and security',
-    summary: 'Network, devices and security from day one',
+    summary: 'IT infrastructure, security & connectivity',
     url: '/solutions/it-security',
     icon: 'server',
   },
@@ -232,13 +232,13 @@ export const SOLUTIONS_MENU: MenuLink[] = [
   },
   {
     label: 'Tax, legal and compliance',
-    summary: 'Entity, tax and filings, handled',
+    summary: 'Entity, tax, legal & regulatory setup',
     url: '/solutions/tax-legal-compliance',
     icon: 'scale',
   },
   {
     label: 'Finance and accounting',
-    summary: 'Books closed on time, every month',
+    summary: 'Books to Boardroom reports, every month',
     url: '/solutions/finance-accounting',
     icon: 'calculator',
   },
@@ -295,4 +295,78 @@ export const SITE_ROUTES: string[] = [
   '/contact',
   '/privacy',
   '/terms',
+];
+
+// "Book a consultation" opens ScaleAX's Microsoft Bookings page (supplied by
+// ScaleAX, October 2026) rather than the contact form.
+export const BOOKING_URL =
+  'https://bookings.cloud.microsoft/bookwithme/user/e0d00f350bdd45c88df40d2b4120b482@scaleax.com/meetingtype/XfokVj_kK0Wi9-vLEd7Z0Q2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile';
+
+export interface OfficeLocation {
+  name: string;
+  address?: string;
+  /** Google Maps search query: an address or "lat,lng". */
+  map?: string;
+}
+
+export interface OfficeCity {
+  city: string;
+  offices: OfficeLocation[];
+}
+
+// Where ScaleAX works from, as supplied by ScaleAX (October 2026). Buildings
+// without a street address carry the coordinates of the supplied map pin.
+export const LOCATIONS: OfficeCity[] = [
+  {
+    city: 'Ahmedabad',
+    offices: [
+      {
+        name: 'Ambica Chambers',
+        address: '1st Floor, Ambica Chambers, Near Old High Court, Ahmedabad, Gujarat 380009',
+        map: 'Ambica Chambers, Near Old High Court, Ahmedabad, Gujarat 380009',
+      },
+      {
+        name: 'The First',
+        address:
+          'C-201, 2nd Floor, The First, B/h Keshav Baugh Party Plot, Nr. Shivalik High-Street, Vastrapur, Ahmedabad, Gujarat 380015',
+        map: 'The First, Vastrapur, Ahmedabad, Gujarat 380015',
+      },
+    ],
+  },
+  {
+    city: 'GIFT City, Gandhinagar',
+    offices: [
+      {
+        name: 'GIFT City',
+        address: 'Gujarat International Finance Tec-City, Gandhinagar, Gujarat 382050',
+        map: '5M6H+5CG Gujarat International Finance Tec-City, Gujarat 382050',
+      },
+    ],
+  },
+  {
+    city: 'Pune',
+    offices: [
+      { name: 'ABZ', map: '18.5638264,73.7764783' },
+      { name: 'ICC', map: '18.5356883,73.829868' },
+      { name: 'SBH' },
+    ],
+  },
+  {
+    city: 'Delhi NCR',
+    offices: [
+      { name: 'Jask Tower', map: '28.5431334,77.3298234' },
+      { name: 'Embassy Galaxy Business Park', map: 'Embassy Galaxy Business Park, Noida' },
+    ],
+  },
+  {
+    city: 'Hyderabad',
+    offices: [
+      { name: 'Purva Summit', map: 'Purva Summit, Hyderabad' },
+      {
+        name: 'Laxmi Pinnacle',
+        address: 'Laxmi Pinnacle, Venkat Nagar, Banjara Hills, Hyderabad, Telangana 500034',
+        map: 'Laxmi Pinnacle, Venkat Nagar, Banjara Hills, Hyderabad, Telangana 500034',
+      },
+    ],
+  },
 ];

@@ -1,5 +1,10 @@
 import Link from 'next/link';
-import { ENGAGEMENT_MODELS_MENU, LIFECYCLE_STAGES, SOLUTIONS_MENU } from '@/lib/site-data';
+import {
+  ENGAGEMENT_MODELS_MENU,
+  LIFECYCLE_STAGES,
+  LOCATIONS,
+  SOLUTIONS_MENU,
+} from '@/lib/site-data';
 import { Wordmark } from './header';
 
 interface FooterLink {
@@ -30,18 +35,19 @@ export function Footer() {
             <Wordmark tone="light" />
             <p className="mt-7 max-w-sm text-[15px] leading-relaxed text-white/70">
               Your trusted partner for building, managing and scaling global capability centres in
-              India. A joint venture between Awfficacy Global and DevX, headquartered in Ahmedabad.
+              India. A joint venture between Awfficacy Global, DevX and Dev IT, headquartered in
+              Ahmedabad.
             </p>
             <ul className="mt-9 space-y-2 text-[15px] text-white/80">
               <li>
                 <a
-                  href="mailto:info@scaleax.com"
+                  href="mailto:admin@scaleax.com"
                   className="sx-link text-[20px] font-bold text-white"
                 >
-                  info@scaleax.com
+                  admin@scaleax.com
                 </a>
               </li>
-              <li>Ahmedabad and GIFT City, Gujarat, India</li>
+              <li>{LOCATIONS.map((group) => group.city.split(',')[0]).join(' · ')}</li>
               <li className="pt-3">
                 <a
                   href="https://www.linkedin.com"

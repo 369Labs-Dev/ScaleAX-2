@@ -26,17 +26,21 @@ import TermsPage from './terms/page';
 // calls for one) the Where-next band / lifecycle highlight / closing CTA.
 
 describe('About page (B1)', () => {
-  it('renders the hero, values accordion, partner firms and leadership', () => {
+  it('renders the hero, values, why-ScaleAX hub, ecosystem firms and leadership', () => {
     render(<AboutPage />);
     expect(
-      screen.getByRole('heading', { level: 1, name: /built by people who have run offices/i }),
+      screen.getByRole('heading', { level: 1, name: /built by operators/i }),
     ).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /we own the result/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /we own the result/i })).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { name: /built by firms that already do this work/i }),
+      screen.getByRole('heading', { name: /why companies choose scaleax/i }),
     ).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /operators first/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /part of a wider platform/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Dev IT' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /our leadership/i })).toBeInTheDocument();
     expect(screen.getByText('Purvi Shah')).toBeInTheDocument();
+    expect(screen.getByText('Devika Nekkanti')).toBeInTheDocument();
+    expect(screen.queryByText('Parth Shah')).not.toBeInTheDocument();
     // Advisors live behind the second tab of the team section.
     expect(screen.getByRole('tab', { name: /advisors/i })).toBeInTheDocument();
     // No lifecycle stage highlighted on this page.
@@ -164,19 +168,26 @@ describe('Engagement models page (B13)', () => {
 });
 
 describe('GIFT City page (B14)', () => {
-  it('renders the IFSC overview, set-up steps and FAQ', () => {
+  it('renders the hub: licence routes, facilities, jobs and FAQ', () => {
     render(<GiftCityPage />);
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: /set up in india.s international financial services centre/i,
+        name: /set up, staff and settle your team in gift city/i,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText('One regulator')).toBeInTheDocument();
-    expect(screen.getByText('Eligibility check')).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', { name: /how long does approval take/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByText('One regulator, one application')).toBeInTheDocument();
+    // Eight licence routes; the GIC is open first with its own journey.
+    expect(screen.getAllByRole('tab')).toHaveLength(8);
+    expect(screen.getByRole('tab', { name: /global in-house centre \(gic\)/i })).toHaveAttribute(
+      'aria-selected',
+      'true',
+    );
+    expect(screen.getByText('Who qualifies')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'ScaleAX One Desk' })).toBeInTheDocument();
+    expect(screen.getByText('Treasury Analyst')).toBeInTheDocument();
+    expect(screen.getByText(/listings shown are examples/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /how long does set-up take/i })).toBeInTheDocument();
   });
 });
 

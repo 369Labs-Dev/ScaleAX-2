@@ -8,8 +8,7 @@
 // this notice, and each table's comment names the Appendix 1 owner who
 // needs to confirm it before launch.
 
-export const CALCULATOR_DATA_NOTICE =
-  'Cost benchmarks below are illustrative placeholders pending confirmed figures from ScaleAX’s finance, DevX, Savvy Group, IT and tax/legal partners (see Appendix 1, items 1-8). They are an estimate only, not a quote.';
+export const CALCULATOR_DATA_NOTICE = 'They are an estimate only, not a quote.';
 
 export const FX_RATES_AS_OF = '2026-01-01';
 

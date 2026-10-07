@@ -10,8 +10,8 @@ export interface ProofTile {
 
 // Hero proof tiles (reference: under the CTAs).
 export const HERO_PROOF: ProofTile[] = [
-  { figure: '1.5M+', label: 'sq. ft. managed' },
-  { figure: '10+', label: 'cities' },
+  { figure: '60M+', label: 'Workspace Ecosystem' },
+  { figure: '14+', label: 'Cities' },
   { figure: '30 to 90', label: 'days to operational' },
 ];
 
@@ -19,9 +19,9 @@ export const HERO_PROOF: ProofTile[] = [
 // (the live reference shows 60+ / 1.5M+ / 10+ / 250+ here).
 export const HOME_STATS: ProofTile[] = [
   { figure: '34+', label: 'Years of combined leadership experience' },
-  { figure: '0.8M+', label: 'Sq. ft. of workspace under management' },
-  { figure: '6+', label: 'Cities with an active presence' },
-  { figure: '140+', label: 'Enterprises served across the JV network' },
+  { figure: '60M+', label: 'Sq. ft. of workspace under management' },
+  { figure: '14+', label: 'Cities with an active presence' },
+  { figure: '350+', label: 'Enterprises served across the JV network' },
 ];
 
 export interface RouteLink {
@@ -75,7 +75,7 @@ export const OFFERINGS: Offering[] = [
   {
     id: 'talent',
     title: 'Talent',
-    line: 'GCC-grade hiring across every level.',
+    line: 'Hiring from first site leader to full team.',
     points: [
       'Roles, grades, timing and budget for the first 12 months.',
       'Direct sourcing, referrals, campuses and specialist networks.',
@@ -89,7 +89,7 @@ export const OFFERINGS: Offering[] = [
   {
     id: 'workspace',
     title: 'Workspace & IT',
-    line: 'Enterprise-grade offices in 10+ cities.',
+    line: 'Enterprise-grade offices in 14+ cities.',
     points: [
       'A dedicated floor or wing in a managed centre, branded for you.',
       'Layout, interiors, furniture, meeting rooms and commissioning.',
@@ -103,7 +103,7 @@ export const OFFERINGS: Offering[] = [
   {
     id: 'delivery',
     title: 'Delivery Incubation',
-    line: 'Value before the last desk is installed.',
+    line: 'Your first team starts work while the office is being finished.',
     points: [
       'Office found, designed, built and ready for move-in.',
       'Hiring plan, first leaders, first team and an India careers presence.',
@@ -117,7 +117,7 @@ export const OFFERINGS: Offering[] = [
   {
     id: 'transformation',
     title: 'Transformation',
-    line: 'From execution hub to value creator.',
+    line: 'Your India team takes on more of the work and owns the results.',
     points: [
       'Takes full ownership of processes and improves them.',
       'Accountable for business results, not just tasks.',
@@ -167,35 +167,10 @@ export const HOME_MODELS: ModelCard[] = [
   },
 ];
 
-export interface IndiaStat {
-  figure: string;
-  title: string;
-  body: string;
+export interface ClientLogo {
+  name: string;
+  src: string;
 }
-
-// "Why India is the default answer." — reference copy.
-export const WHY_INDIA: IndiaStat[] = [
-  {
-    figure: '1,500+',
-    title: 'GCCs already operating in India',
-    body: 'Over 60% of Fortune 500 companies run a capability centre here.',
-  },
-  {
-    figure: '1.3M+',
-    title: 'professionals employed in GCCs',
-    body: "The world's largest youth population and second largest English-speaking talent pool.",
-  },
-  {
-    figure: '90%',
-    title: 'lower real estate cost',
-    body: 'USD 0.8 to 1.0 per sq. ft. against USD 8 to 10 in the US and Europe.',
-  },
-  {
-    figure: '63rd',
-    title: 'ease of doing business rank',
-    body: 'Up from 142nd in 2014, with relaxed FDI norms and stronger investment infrastructure.',
-  },
-];
 
 export interface PlatformPartner {
   name: string;
@@ -204,16 +179,65 @@ export interface PlatformPartner {
   logo: string;
   logoHeight: number;
   stats: ProofTile[];
+  /** Enterprises this firm serves, shown as a logo row under it. */
+  clients: ClientLogo[];
 }
 
-// "Three specialists. One integrated platform." — reference descriptions,
-// links and card order; the numbers are the brief's confirmed Section 9
-// figures (identical to PARTNER_FIRMS below).
+const numbered = (dir: string, names: string[]): ClientLogo[] =>
+  names.map((name, i) => ({ name, src: `/partners/${dir}/${dir}-${i + 1}.png` }));
+
+// Client logos per firm, as on the previous scaleax.com. Permission to
+// display each enterprise's logo is ScaleAX's to confirm before launch.
+const AWFFICACY_CLIENTS = numbered('awfficacy', [
+  'Zydus Wellness',
+  'Arvind',
+  'Trent',
+  'Kraft Heinz',
+  'Hindalco',
+  'Amul',
+  'Blue Star',
+  'Wockhardt',
+]);
+
+const DEVX_CLIENTS = numbered('devx', [
+  'BASF',
+  'Horizontal',
+  'Savills',
+  'Tim Hortons',
+  'Persistent',
+  'HDFC Credila',
+  'DCB Bank',
+  'Red Nucleus',
+  'WhiteOak Capital',
+  'Growfitter',
+  'Darwinbox',
+  'Menlo Technologies',
+  'ClearTax',
+  'QX Global Group',
+  'PayMe India',
+  'Schneider Electric',
+]);
+
+const SAVVY_CLIENTS: ClientLogo[] = [
+  { name: 'Bank of America', src: '/partners/bank-of-america.png' },
+  { name: 'Yes Bank', src: '/partners/yes-bank.png' },
+  { name: 'Groww', src: '/partners/groww.png' },
+  { name: 'Suzuki', src: '/partners/suzuki.png' },
+  { name: 'ITC Limited', src: '/partners/itc-limited.png' },
+  { name: 'ICICI Prudential', src: '/partners/icici.png' },
+  { name: 'HDFC Bank', src: '/partners/hdfc.png' },
+  { name: 'Schneider Electric', src: '/partners/schneider.png' },
+  { name: 'Samsung', src: '/partners/samsung.png' },
+  { name: 'PwC', src: '/partners/pwc.png' },
+  { name: 'Deloitte', src: '/partners/deloitte.png' },
+];
+
+// "Three specialists. One integrated platform." — the three joint-venture
+// firms plus the construction partner, each with the enterprises it serves.
 export const PLATFORM_PARTNERS: PlatformPartner[] = [
   {
     name: 'Awfficacy Global',
-    description:
-      'Strategic navigator for corporate finance, business process and international regulatory outsourcing.',
+    description: 'Runs finance, accounting and regulatory filings for international companies.',
     url: 'https://www.awfficacyglobal.com/',
     logo: '/firms/awfficacy.svg',
     logoHeight: 44,
@@ -222,32 +246,46 @@ export const PLATFORM_PARTNERS: PlatformPartner[] = [
       { figure: '70+', label: 'clients served' },
       { figure: '15+', label: 'sector expertise' },
     ],
+    clients: AWFFICACY_CLIENTS,
   },
   {
     name: 'DevX',
-    description:
-      'Managed workspace provider spanning the full value chain of space and innovation from day zero.',
+    description: 'Designs, builds and runs managed offices for growing companies.',
     url: 'https://www.devx.work/',
     logo: '/firms/devx.svg',
     logoHeight: 30,
     stats: [
-      { figure: '1.5M+', label: 'sq. ft. managed workspace' },
-      { figure: '12,000+', label: 'professionals in the network' },
-      { figure: '250+', label: 'enterprises across industries' },
+      { figure: '3M+', label: 'sq. ft. managed workspace' },
+      { figure: '25k+', label: 'professionals in the network' },
+      { figure: '350+', label: 'enterprises across industries' },
     ],
+    clients: DEVX_CLIENTS,
+  },
+  {
+    name: 'Dev IT',
+    description: 'Sets up and runs IT infrastructure, cloud and 24/7 cybersecurity.',
+    url: 'https://www.devitpl.com/',
+    logo: '/firms/devit.png',
+    logoHeight: 30,
+    stats: [
+      { figure: '1,500+', label: 'engineers' },
+      { figure: '4,000+', label: 'projects delivered' },
+      { figure: '10+', label: 'global locations' },
+    ],
+    clients: [],
   },
   {
     name: 'Savvy Group',
-    description:
-      'Progressive construction group changing the paradigm of the business through technology.',
+    description: 'Builds and develops commercial real estate.',
     url: 'https://www.savvygroup.in/',
     logo: '/firms/savvy.png',
     logoHeight: 52,
     stats: [
-      { figure: '10M+', label: 'sq. ft. under development' },
-      { figure: '25+', label: 'years of construction' },
+      { figure: '60M+', label: 'sq. ft. under development' },
+      { figure: '30+', label: 'years of construction' },
       { figure: '5,000+', label: 'customers' },
     ],
+    clients: SAVVY_CLIENTS,
   },
 ];
 
@@ -264,6 +302,9 @@ export interface Testimonial {
 // cleared client quotes (with written permission) before launch; the section
 // labels itself as sample content on the page until then.
 export const TESTIMONIALS_ARE_PLACEHOLDERS = true;
+// Kept for internal use only for now (client request): the section is not
+// rendered on the public site until real, cleared quotes replace the samples.
+export const SHOW_TESTIMONIALS = false;
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
@@ -287,40 +328,43 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export interface PartnerFirm {
   name: string;
-  role: string;
   description: string;
   logo: string;
   logoHeight: number;
   stats: string[];
 }
 
-// Section 9 — "The firms behind ScaleAX" (used on /about and in the
-// homepage proof band). Only the three firms the brief gives confirmed
-// numbers for; the optional Dev IT / Talati & Talati tiles are marked
-// "[if...]" in the brief and are omitted rather than invented.
+// "Part of a wider platform" — the ecosystem firms shown on /about.
 export const PARTNER_FIRMS: PartnerFirm[] = [
   {
     name: 'Savvy Group',
-    role: 'We build it',
     logo: '/firms/savvy.png',
     logoHeight: 52,
-    description: 'Construction and real estate development.',
-    stats: ['10M+ sq. ft. under development', '25+ years', '5,000+ customers'],
+    description:
+      'Savvy is a progressive construction company that believes in changing the paradigm of the construction business by adopting innovative technologies. Within a decade, Savvy established a strong foothold and reliable reputation in the densely saturated construction market of Ahmedabad.',
+    stats: ['60M+ sq. ft. under development', '30+ years', '5,000+ customers'],
   },
   {
     name: 'DevX',
-    role: 'We run the workspace',
     logo: '/firms/devx.svg',
     logoHeight: 30,
-    description: 'Managed offices and workspace operations.',
-    stats: ['1.5M+ sq. ft. managed', '12,000+ professionals', '250+ companies'],
+    description:
+      'DevX is a managed workspace provider having its wings spread to multiple avenues of the value chain within the space and innovation well-aligned with the fundamentals of the business from day Zero.',
+    stats: ['3M+ sq. ft. managed', '25k+ professionals', '350+ companies', '14+ cities'],
+  },
+  {
+    name: 'Dev IT',
+    logo: '/firms/devit.png',
+    logoHeight: 40,
+    description: 'Dev IT sets up and runs IT infrastructure, cloud and 24/7 cybersecurity.',
+    stats: ['1,500+ engineers', '4,000+ projects delivered', '10+ global locations'],
   },
   {
     name: 'Awfficacy Global',
-    role: 'We keep the books and filings',
     logo: '/firms/awfficacy.svg',
     logoHeight: 44,
-    description: 'Finance, accounting and regulatory outsourcing for international clients.',
-    stats: ['25+ years', '70+ clients', '15+ sectors'],
+    description:
+      'Awfficacy Global serves as strategic navigator for businesses of all sizes, guiding them through the intricacies of the global marketplace. We achieve this through a comprehensive suite of outsourcing services encompassing Corporate Finance, Business Processes, and international Regulations.',
+    stats: ['35+ years', '70+ clients', '15+ sectors'],
   },
 ];

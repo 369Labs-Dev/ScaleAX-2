@@ -36,7 +36,7 @@ describe('Header', () => {
     await user.click(screen.getByRole('button', { name: /what we offer/i }));
 
     const panel = screen.getByRole('menu', { name: /what we offer/i });
-    for (const name of [/^plan\s*strategy/i, /^build\s*from/i, /^run\s*day/i, /^grow\s*scale/i]) {
+    for (const name of [/^plan\s*strategy/i, /^build\s*entity/i, /^run\s*day/i, /^grow\s*scale/i]) {
       expect(within(panel).getByRole('menuitem', { name })).toBeInTheDocument();
     }
     expect(within(panel).getAllByRole('menuitem', { name: /consulting/i }).length).toBeGreaterThan(
@@ -53,10 +53,8 @@ describe('Header', () => {
       '/models#eor',
     );
     expect(within(panel).getByText(/not sure where to start/i)).toBeInTheDocument();
-    expect(within(panel).getByRole('menuitem', { name: /gift city/i })).toHaveAttribute(
-      'href',
-      '/gift-city',
-    );
+    // GIFT City is a top-level link, no longer repeated inside this menu.
+    expect(within(panel).queryByRole('menuitem', { name: /gift city/i })).not.toBeInTheDocument();
   });
 
   it('closes the menu on Escape and returns focus to the trigger', async () => {

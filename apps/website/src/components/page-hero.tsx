@@ -2,12 +2,19 @@ import Link from 'next/link';
 import { Breadcrumb, type Crumb } from './breadcrumb';
 import { Media } from './media';
 import { slugify } from '@/lib/images';
-import { LIFECYCLE_STAGES, type CardId } from '@/lib/site-data';
+import { BOOKING_URL, LIFECYCLE_STAGES, type CardId } from '@/lib/site-data';
 
 export interface HeroAction {
   label: string;
   href: string;
   variant?: 'primary' | 'ghost';
+}
+
+/** "Book a consultation" goes to the booking page, in a new tab. */
+function linkProps(action: HeroAction) {
+  return action.label === 'Book a consultation'
+    ? { href: BOOKING_URL, target: '_blank', rel: 'noopener noreferrer' }
+    : { href: action.href };
 }
 
 // Inner-page hero. W9: a full-bleed photograph with the copy set on top, the
@@ -84,7 +91,7 @@ export function PageHero({
             {actions.map((action) => (
               <a
                 key={action.href + action.label}
-                href={action.href}
+                {...linkProps(action)}
                 className={`sx-btn ${action.variant === 'ghost' ? 'sx-btn-outline-light' : 'sx-btn-light'}`}
               >
                 {action.label}

@@ -27,6 +27,8 @@ export interface HeroSlide {
 const DWELL_MS = 7000;
 const EASE = [0.22, 1, 0.36, 1] as const;
 const FADE_S = 1.6;
+// Headlines past this length are set a size down so they hold the same block.
+const LONG_HEADLINE = 75;
 const TONES = ['#2a2a2f', '#33363d', '#3a3632', '#2f3338', '#35322f'];
 
 // Full-viewport hero. Photographs dissolve into one another while each one
@@ -147,7 +149,11 @@ export function HeroCarousel({ slides, proof }: { slides: HeroSlide[]; proof: Pr
                       key={slide.id}
                       data-headline=""
                       aria-hidden={on ? undefined : true}
-                      className="max-w-[19ch] text-[clamp(2.5rem,5.7vw,5.4rem)] font-black leading-[1] tracking-[-0.022em] text-sx-white [grid-area:1/1]"
+                      className={`font-black tracking-[-0.022em] text-sx-white [grid-area:1/1] ${
+                        slide.headline.length > LONG_HEADLINE
+                          ? 'max-w-[30ch] text-[clamp(1.7rem,3.5vw,3.3rem)] leading-[1.08]'
+                          : 'max-w-[19ch] text-[clamp(2.5rem,5.7vw,5.4rem)] leading-[1]'
+                      }`}
                     >
                       {slide.headline.split(' ').map((word, w) => (
                         <span key={`${word}-${w}`}>

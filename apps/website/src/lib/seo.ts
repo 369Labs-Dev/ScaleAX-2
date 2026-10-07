@@ -54,8 +54,8 @@ export function organizationJsonLd() {
     name: SITE_NAME,
     url: SITE_URL,
     description:
-      'ScaleAX sets up and runs Global Capability Centres in Ahmedabad and GIFT City: site, office, IT, hiring, entity, tax and compliance under one contract.',
-    email: 'info@scaleax.com',
+      'ScaleAX sets up and runs Global Capability Centres in India with HQ at Ahmedabad and GIFT City: site, office, IT, hiring, entity, tax and compliance under one contract.',
+    email: 'admin@scaleax.com',
     address: [
       {
         '@type': 'PostalAddress',

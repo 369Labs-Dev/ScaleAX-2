@@ -3,26 +3,16 @@ import { PARTNER_FIRMS } from '@/lib/home-data';
 import { Reveal } from '@/components/motion/reveal';
 import { CountUp } from '@/components/motion/count-up';
 
-// Part A, Section 9 — "The firms behind ScaleAX", used on /about. Tiles in
-// a 3-across grid per Part C4 Section 9. The brief's client-logo grid and
-// leadership row need real logos/headshots and permissions we don't have
-// yet, so — per the no-fabricated-content rule — this section covers only
-// the partner-firm tiles the brief gives confirmed copy and numbers for.
-// W8: the reference's light tinted band with white hairline cards; tiles
-// rise in sequence and their numbers roll up once (final values are
+// The ecosystem firms behind ScaleAX, used on /about: logo, name, what the
+// firm does and its headline numbers, which roll up once (final values are
 // server-rendered — see CountUp).
 export function PartnerFirms() {
   return (
     <section className="sx-section bg-sx-bg-light">
       <div className="sx-container">
         <Reveal className="max-w-4xl">
-          <div className="sx-eyebrow">Our partner firms</div>
-          <h2 className="sx-h2 mt-5 text-sx-ink">Built by firms that already do this work.</h2>
-          <p className="sx-lead mt-5 max-w-[720px]">
-            ScaleAX is a joint venture between Awfficacy Global and DevX, with Savvy Group as its
-            construction partner. Between them, they own buildings, run offices, and handle finance
-            and compliance for companies in India and abroad.
-          </p>
+          <div className="sx-eyebrow">Our Ecosystem</div>
+          <h2 className="sx-h2 mt-5 text-sx-ink">Part of a wider Platform</h2>
         </Reveal>
 
         <Reveal stagger className="mt-14 border-t border-sx-ink md:mt-20">
@@ -44,10 +34,7 @@ export function PartnerFirms() {
                 </div>
               </div>
               <div className="lg:col-span-5">
-                <div className="text-[13px] font-bold uppercase tracking-[0.12em] text-sx-accent-ink">
-                  {firm.role}
-                </div>
-                <h3 className="mt-3 text-[28px] font-black leading-none tracking-[-0.02em] text-sx-ink">
+                <h3 className="text-[28px] font-black leading-none tracking-[-0.02em] text-sx-ink">
                   {firm.name}
                 </h3>
                 <p className="mt-4 text-[17px] leading-relaxed text-sx-body">{firm.description}</p>

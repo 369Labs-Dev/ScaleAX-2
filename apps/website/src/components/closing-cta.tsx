@@ -1,4 +1,5 @@
 import { findImage } from '@/lib/images';
+import { BOOKING_URL } from '@/lib/site-data';
 import { Cutout } from './cutout';
 
 // Closing call to action: a full-width soft-tinted band with the headline, one
@@ -8,19 +9,21 @@ import { Cutout } from './cutout';
 export function ClosingCta({
   headline,
   line,
-  href = '/contact',
+  href,
   label = 'Book a consultation',
   figure,
 }: {
   headline: string;
   line: string;
-  /** Button target: override on pages where /contact would link to itself. */
+  /** Button target. Defaults to the booking page for "Book a consultation", else /contact. */
   href?: string;
   label?: string;
   /** Name of a cutout in public/images, without the `cutout-` prefix. */
   figure?: string;
 }) {
   const figureSrc = figure ? findImage(`cutout-${figure}`) : null;
+  const booking = !href && label === 'Book a consultation';
+  const target = href ?? (booking ? BOOKING_URL : '/contact');
   return (
     <section className={`relative bg-sx-tint-orange text-sx-ink ${figureSrc ? 'lg:mt-28' : ''}`}>
       {figureSrc && (
@@ -48,7 +51,11 @@ export function ClosingCta({
         </h2>
         <div className={figureSrc ? 'lg:col-span-6 lg:row-start-2' : 'lg:col-span-4'}>
           <p className="text-[18px] leading-relaxed text-sx-ink">{line}</p>
-          <a href={href} className="sx-btn sx-btn-primary mt-7">
+          <a
+            href={target}
+            {...(booking ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            className="sx-btn sx-btn-primary mt-7"
+          >
             {label}
             <span className="sx-btn-arrow" aria-hidden="true">
               &rarr;

@@ -4,6 +4,7 @@ import { ClosingCta } from '@/components/closing-cta';
 import { ConsultationForm } from '@/components/home/consultation-form';
 import { Reveal } from '@/components/motion/reveal';
 import { WhereNext } from '@/components/where-next';
+import { LOCATIONS } from '@/lib/site-data';
 
 // Part B, PAGE B18 — Contact, form-first per the conversion brief: a compact
 // hero, then the consultation form as the primary above-the-fold element
@@ -16,19 +17,6 @@ export const metadata: Metadata = pageMetadata({
     'Tell ScaleAX what you want to build in India: book a consultation or reach us directly.',
   path: '/contact',
 });
-
-const OFFICES = [
-  {
-    name: 'Ahmedabad',
-    address: 'DevX, Ahmedabad, Gujarat, India',
-    mapQuery: 'DevX Ahmedabad Gujarat India',
-  },
-  {
-    name: 'GIFT City',
-    address: 'GIFT City, Gandhinagar, Gujarat, India',
-    mapQuery: 'GIFT City, Gandhinagar, Gujarat, India',
-  },
-];
 
 const NEXT_STEPS = [
   {
@@ -95,34 +83,18 @@ export default function ContactPage() {
             Prefer to reach us directly?
           </h2>
         </Reveal>
-        <Reveal stagger className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal stagger className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:max-w-3xl">
           <div className="sx-card p-6">
             <div className="text-[13px] font-bold uppercase tracking-[0.08em] text-sx-muted">
               Email
             </div>
             <a
-              href="mailto:info@scaleax.com"
+              href="mailto:admin@scaleax.com"
               className="mt-2 inline-block text-[15px] font-bold text-sx-ink hover:underline"
             >
-              info@scaleax.com
+              admin@scaleax.com
             </a>
           </div>
-          {OFFICES.map((office) => (
-            <div key={office.name} className="sx-card p-6">
-              <div className="text-[13px] font-bold uppercase tracking-[0.08em] text-sx-muted">
-                {office.name}
-              </div>
-              <p className="mt-2 text-[14px] text-sx-body">{office.address}</p>
-              <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(office.mapQuery)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block text-[14px] font-bold text-sx-ink hover:underline"
-              >
-                View on map <span aria-hidden="true" className="sx-btn-arrow" />
-              </a>
-            </div>
-          ))}
           <div className="sx-card p-6">
             <div className="text-[13px] font-bold uppercase tracking-[0.08em] text-sx-muted">
               LinkedIn
@@ -137,6 +109,46 @@ export default function ContactPage() {
             </a>
           </div>
         </Reveal>
+      </section>
+
+      {/* Offices by city. */}
+      <section className="border-t border-sx-border">
+        <div className="sx-container py-12 sm:py-16">
+          <Reveal>
+            <h2 className="text-[22px] font-black tracking-[-0.02em] text-sx-ink">Our locations</h2>
+          </Reveal>
+          <Reveal stagger className="mt-8 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {LOCATIONS.map((group) => (
+              <div key={group.city} className="border-t border-sx-ink pt-5">
+                <h3 className="text-[19px] font-black tracking-[-0.015em] text-sx-ink">
+                  {group.city}
+                </h3>
+                <ul className="mt-4 space-y-5">
+                  {group.offices.map((office) => (
+                    <li key={office.name}>
+                      <div className="text-[15px] font-bold text-sx-ink">{office.name}</div>
+                      {office.address && (
+                        <p className="mt-1 text-[14px] leading-relaxed text-sx-body">
+                          {office.address}
+                        </p>
+                      )}
+                      {office.map && (
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.map)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 inline-block text-[14px] font-bold text-sx-ink hover:underline"
+                        >
+                          View on map <span aria-hidden="true" className="sx-btn-arrow" />
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </Reveal>
+        </div>
       </section>
 
       <WhereNext page="contact" />

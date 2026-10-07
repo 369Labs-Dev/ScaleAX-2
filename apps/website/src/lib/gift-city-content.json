@@ -1,0 +1,796 @@
+{
+  "meta": {
+    "tabTitle": "GIFT City IFSC set-up, facilities and jobs | ScaleAX",
+    "searchDesc": "Set up a GIC, treasury centre or other IFSC unit in GIFT City, find local services for your team, and browse GIFT City jobs. ScaleAX is based in GIFT City."
+  },
+  "banner": {
+    "label": "GIFT CITY · IFSC",
+    "heading": "Set up, staff and settle your team in GIFT City.",
+    "text": "GIFT City in Gandhinagar is home to India's International Financial Services Centre (IFSC), which has its own regulator, the International Financial Services Centres Authority (IFSCA). ScaleAX is based here. We take you from choosing the right licence to hiring your team and getting them settled.",
+    "buttons": ["Find your licence route", "See open jobs"],
+    "jump": ["IFSC set-up", "Facilities", "Jobs", "FAQ"]
+  },
+  "why": {
+    "label": "WHY GIFT CITY IFSC",
+    "heading": "One regulator, foreign-currency operations and a tax regime built for international business.",
+    "items": [
+      [
+        "One regulator, one application",
+        "IFSCA regulates banking, capital markets, insurance, funds and related services in the IFSC. Applications for IFSCA registration and the SEZ approval go through one online system, the Single Window IT System (SWIT)."
+      ],
+      [
+        "Foreign-currency operations",
+        "IFSC units transact in specified foreign currencies. Rupee accounts are allowed for local administrative and statutory expenses."
+      ],
+      [
+        "Tax regime for eligible units",
+        "Eligible IFSC units can claim a 100% deduction on qualifying business income for any 20 consecutive years out of 25, from tax year 2026-27. After that, IFSC business income is taxed at 15%. We confirm what applies to your structure."
+      ],
+      [
+        "A business district built for it",
+        "Grade-A offices, homes, schools, sport and leisure in one planned district, a short drive from Ahmedabad and Gandhinagar."
+      ]
+    ]
+  },
+  "ifsc": {
+    "label": "IFSC SET-UP",
+    "heading": "Which IFSC licence fits what you want to run?",
+    "text": "Most global capability centres in GIFT City use one of the first three routes. Pick the one closest to your plan; we confirm the exact route in a scoping call.",
+    "routes": [
+      {
+        "key": "gic",
+        "name": "Global In-House Centre (GIC)",
+        "forWho": "Financial institution groups",
+        "summary": "A unit that provides services related to financial products and services to its financial institution group.",
+        "rule": "IFSCA (Global In-House Centres) Regulations, 2025 (notified December 2025)",
+        "points": [
+          [
+            "Who qualifies",
+            "A financial institution group: banks, NBFCs, insurers, brokers, exchanges and similar institutions, and their group entities (parent, subsidiary, joint venture, associate, common brand, 20%+ equity or network member)."
+          ],
+          [
+            "Who it serves",
+            "Group entities outside India, in jurisdictions not on FATF's high-risk list. Indian group entities can be served for up to 10% of the GIC's revenue in a financial year."
+          ],
+          [
+            "Operating models",
+            "Captive centre, build-operate-transfer, joint venture, hybrid, or another model IFSCA permits."
+          ],
+          [
+            "People",
+            "A Principal Officer and a Compliance Officer, both full-time and based in the IFSC."
+          ],
+          [
+            "What's not allowed",
+            "A GIC cannot be set up by moving existing contracts or work from the group's Indian entities."
+          ],
+          [
+            "Approval",
+            "Apply on SWIT. IFSCA grants in-principle approval, you meet the conditions within 180 days, then IFSCA grants registration."
+          ]
+        ],
+        "weeks": "Timeline on request",
+        "journey": [
+          [
+            "Pre-set-up advisory",
+            "1–2 weeks",
+            [
+              "Understand current business and GIFT City plans",
+              "Structuring of the GIFT City entity",
+              "Liaise with developers for provisional letter of allotment",
+              "Arrange meetings with regulators (IFSCA / GIFT)",
+              "Confirm the group qualifies as a financial institution group",
+              "Choose the operating model: captive, build-operate-transfer, joint venture or hybrid"
+            ]
+          ],
+          [
+            "Incorporation in GIFT IFSC",
+            "2–3 weeks",
+            [
+              "Name reservation of company / LLP",
+              "Draft object clause per the applicable IFSCA regulations",
+              "Draft MoA / AoA / LLP agreement",
+              "File incorporation form with MCA",
+              "File relevant company / LLP forms with MCA"
+            ]
+          ],
+          [
+            "SWIT application and in-principle approval",
+            "Set by IFSCA",
+            [
+              "File SWIT application for the GIC unit",
+              "Business plan and list of group entities to be served",
+              "Fit-and-proper declarations for the unit, officers and controlling shareholders",
+              "Regulator liaison until in-principle approval"
+            ]
+          ],
+          [
+            "Meet conditions and obtain registration",
+            "Up to 180 days (regulatory limit)",
+            [
+              "Appoint full-time Principal Officer and Compliance Officer based in the IFSC",
+              "Office in the IFSC and other conditions in the in-principle approval",
+              "Submit compliance to IFSCA and obtain the certificate of registration"
+            ]
+          ],
+          [
+            "Post-set-up compliances",
+            "3–5 weeks",
+            [
+              "SEZ online registration and credential creation",
+              "Bond cum Legal Undertaking (BLUT) with IFSCA Administrator",
+              "Letter of Acceptance filing",
+              "Eligibility certificate for tax exemption (IFSCA Administrator)",
+              "Import Export Code (IEC) registration",
+              "e-Registration cum Membership Certificate (RCMC)",
+              "GST registration",
+              "Letter of Undertaking (LUT) with GST authorities",
+              "Lease deed execution and registration with co-developer",
+              "Update SEZ online (GST, IEC, lease deed, BLUT)",
+              "SEZ portal ID cards for employees",
+              "Professional tax and Shops and Establishments registration",
+              "FIN-net portal registration (AML compliance)",
+              "ICEGATE portal registration"
+            ]
+          ],
+          ["Go-live", "About 1 week", ["File for commencement of business (SEZ)"]]
+        ]
+      },
+      {
+        "key": "grctc",
+        "name": "Global or Regional Corporate Treasury Centre (GRCTC)",
+        "forWho": "Corporate groups centralising treasury",
+        "summary": "A finance company or branch in the IFSC that runs treasury for its group: cash, funding, FX and risk.",
+        "rule": "IFSCA (Finance Company) Regulations, 2021 and the GRCTC Framework, circular of 4 April 2025 (amended 9 June 2025)",
+        "points": [
+          ["Legal form", "A company, or a branch of a company incorporated in India or abroad."],
+          [
+            "Owned fund",
+            "At least USD 0.2 million at all times. A branch can maintain this at parent level."
+          ],
+          [
+            "People",
+            "At least five qualified staff based in the IFSC, including a Head of Treasury and a Compliance Officer, before operations start. IFSCA can relax this for up to one year after start, depending on activities and volumes."
+          ],
+          [
+            "What it can do",
+            "Cash pooling and liquidity management, intercompany loans and deposits, FX and derivatives (OTC and exchange-traded), re-invoicing, investing in financial instruments, managing bank and rating-agency relationships, treasury accounting, and acting as a group holding company. Factoring needs a separate factor registration."
+          ],
+          [
+            "Who it serves",
+            "Group entities of the applicant or its parent, and their branches, in India or abroad. Transactions with Indian residents follow FEMA."
+          ],
+          [
+            "Currency and accounts",
+            "Transacts in specified foreign currencies in the IFSC; may open a Special Non-Resident Rupee (SNRR) account for business outside the IFSC."
+          ],
+          [
+            "IFSCA fees",
+            "USD 1,000 application fee, USD 12,500 registration fee, and USD 25,000 a year."
+          ],
+          [
+            "Timeline rules",
+            "Provisional registration, then a Certificate of Registration. Operations must start within six months of registration (one extension of up to three months possible). A valid SEZ Letter of Approval is needed throughout."
+          ]
+        ],
+        "weeks": "Timeline on request",
+        "journey": [
+          [
+            "Pre-set-up advisory",
+            "1–2 weeks",
+            [
+              "Understand current business and GIFT City plans",
+              "Structuring of the GIFT City entity",
+              "Liaise with developers for provisional letter of allotment",
+              "Arrange meetings with regulators (IFSCA / GIFT)",
+              "Map the treasury activities and the group entities (service recipients) to be served",
+              "Choose company or branch structure; plan the USD 0.2 million owned fund",
+              "Check the parent's jurisdiction is not on FATF's high-risk list"
+            ]
+          ],
+          [
+            "Incorporation or branch registration",
+            "2–3 weeks",
+            [
+              "Name reservation of company / LLP",
+              "Draft object clause per the applicable IFSCA regulations",
+              "Draft MoA / AoA / LLP agreement",
+              "File incorporation form with MCA",
+              "File relevant company / LLP forms with MCA"
+            ]
+          ],
+          [
+            "SWIT application and provisional registration",
+            "Set by IFSCA",
+            [
+              "File SWIT application with the list of service recipients",
+              "Application fee USD 1,000",
+              "Fit-and-proper declarations (Annex I of the framework)",
+              "Board-approved corporate governance, risk and permissible-activities policies",
+              "Regulator liaison until provisional registration"
+            ]
+          ],
+          [
+            "Certificate of Registration",
+            "Set by IFSCA",
+            [
+              "Hire at least five qualified staff in the IFSC, including the Head of Treasury and Compliance Officer (relaxation possible for up to one year)",
+              "Pay registration fee USD 12,500",
+              "Obtain the Certificate of Registration; keep a valid SEZ Letter of Approval"
+            ]
+          ],
+          [
+            "Post-set-up compliances",
+            "3–5 weeks",
+            [
+              "SEZ online registration and credential creation",
+              "Bond cum Legal Undertaking (BLUT) with IFSCA Administrator",
+              "Letter of Acceptance filing",
+              "Eligibility certificate for tax exemption (IFSCA Administrator)",
+              "Import Export Code (IEC) registration",
+              "e-Registration cum Membership Certificate (RCMC)",
+              "GST registration",
+              "Letter of Undertaking (LUT) with GST authorities",
+              "Lease deed execution and registration with co-developer",
+              "Update SEZ online (GST, IEC, lease deed, BLUT)",
+              "SEZ portal ID cards for employees",
+              "Professional tax and Shops and Establishments registration",
+              "FIN-net portal registration (AML compliance)",
+              "ICEGATE portal registration"
+            ]
+          ],
+          [
+            "Go-live",
+            "Within 6 months of registration",
+            [
+              "File for commencement of business (SEZ)",
+              "For cash pooling, a header account with an IFSC Banking Unit (IBU)",
+              "Start operations within six months of the Certificate of Registration"
+            ]
+          ]
+        ]
+      },
+      {
+        "key": "tas",
+        "name": "TechFin and Ancillary Services (TAS)",
+        "forWho": "Professional and technology service teams",
+        "summary": "A unit providing professional or technology services, such as accounting, audit, legal, compliance, HR, fund administration, cloud, AI or cybersecurity, to clients outside India.",
+        "rule": "IFSCA (TechFin and Ancillary Services) Regulations, 2025 (notified July 2025)",
+        "points": [
+          ["Legal form", "A company or LLP incorporated in the IFSC, or a branch."],
+          [
+            "Who it serves",
+            "Non-resident clients in jurisdictions not on FATF's high-risk list, with limited exceptions for Indian residents setting up in the IFSC or overseas."
+          ],
+          [
+            "People",
+            "A Principal Officer and a Compliance Officer, both full-time and based in the IFSC."
+          ]
+        ],
+        "weeks": "11–18 weeks",
+        "journey": [
+          [
+            "Pre-set-up advisory",
+            "1–2 weeks",
+            [
+              "Understand current business and GIFT City plans",
+              "Structuring of the GIFT City entity",
+              "Liaise with developers for provisional letter of allotment",
+              "Arrange meetings with regulators (IFSCA / GIFT)"
+            ]
+          ],
+          [
+            "Incorporation in GIFT IFSC",
+            "2–3 weeks",
+            [
+              "Name reservation of company / LLP",
+              "Draft object clause per the applicable IFSCA regulations",
+              "Draft MoA / AoA / LLP agreement",
+              "File incorporation form with MCA",
+              "File relevant company / LLP forms with MCA"
+            ]
+          ],
+          [
+            "SWIT application and approvals",
+            "4–8 weeks",
+            [
+              "File SWIT application for the unit",
+              "Review and regulatory input on the business plan (plan prepared by management)",
+              "Review of all supporting documents",
+              "File via SWIT portal for SEZ + IFSCA approval",
+              "Regulator liaison and end-to-end approval support"
+            ]
+          ],
+          [
+            "Post-set-up compliances",
+            "3–5 weeks",
+            [
+              "SEZ online registration and credential creation",
+              "Bond cum Legal Undertaking (BLUT) with IFSCA Administrator",
+              "Letter of Acceptance filing",
+              "Eligibility certificate for tax exemption (IFSCA Administrator)",
+              "Import Export Code (IEC) registration",
+              "e-Registration cum Membership Certificate (RCMC)",
+              "GST registration",
+              "Letter of Undertaking (LUT) with GST authorities",
+              "Lease deed execution and registration with co-developer",
+              "Update SEZ online (GST, IEC, lease deed, BLUT)",
+              "SEZ portal ID cards for employees",
+              "Professional tax and Shops and Establishments registration",
+              "FIN-net portal registration (AML compliance)",
+              "ICEGATE portal registration"
+            ]
+          ],
+          ["Go-live", "About 1 week", ["File for commencement of business (SEZ)"]]
+        ]
+      },
+      {
+        "key": "aif",
+        "name": "Fund management and AIF",
+        "forWho": "Asset managers",
+        "summary": "A fund management entity plus a fund (usually a trust), with trust registration, IFSCA scheme filing and fund documents.",
+        "weeks": "13–20 weeks",
+        "journey": [
+          [
+            "Pre-set-up advisory",
+            "1–2 weeks",
+            [
+              "Understand current business and GIFT City plans",
+              "Structuring of the GIFT City entity",
+              "Liaise with developers for provisional letter of allotment",
+              "Arrange meetings with regulators (IFSCA / GIFT)",
+              "Fund Management Entity (FME) and fund structuring",
+              "Identify IFSCA-registered vendors (trustee, custodian, etc.)"
+            ]
+          ],
+          [
+            "Incorporation in GIFT IFSC",
+            "2–3 weeks",
+            [
+              "Name reservation of company / LLP",
+              "Draft object clause per the applicable IFSCA regulations",
+              "Draft MoA / AoA / LLP agreement",
+              "File incorporation form with MCA",
+              "File relevant company / LLP forms with MCA"
+            ]
+          ],
+          [
+            "SWIT application and approvals",
+            "4–8 weeks",
+            [
+              "File SWIT application for FME and fund entity",
+              "Review and regulatory input on the business plan",
+              "Review of all supporting documents",
+              "File via SWIT portal for SEZ + IFSCA approval",
+              "Regulator liaison and end-to-end approval support"
+            ]
+          ],
+          [
+            "Fund formation and documentation",
+            "3–5 weeks",
+            [
+              "Trust deed preparation and registration with Registrar",
+              "File Form FA with SEZ authorities (IFSCA Administrator)",
+              "File scheme form for fund registration with IFSCA",
+              "Draft Private Placement Memorandum (PPM)",
+              "Draft Contribution Agreement",
+              "Draft Investment Management Agreement (IMA)",
+              "Draft Trusteeship Agreement"
+            ]
+          ],
+          [
+            "Post-set-up compliances",
+            "3–5 weeks",
+            [
+              "SEZ online registration and credential creation",
+              "Bond cum Legal Undertaking (BLUT) with IFSCA Administrator",
+              "Letter of Acceptance filing",
+              "Eligibility certificate for tax exemption (IFSCA Administrator)",
+              "Import Export Code (IEC) registration",
+              "e-Registration cum Membership Certificate (RCMC)",
+              "GST registration",
+              "Letter of Undertaking (LUT) with GST authorities",
+              "Lease deed execution and registration with co-developer",
+              "Update SEZ online (GST, IEC, lease deed, BLUT)",
+              "SEZ portal ID cards for employees",
+              "Professional tax and Shops and Establishments registration",
+              "FIN-net portal registration (AML compliance)",
+              "ICEGATE portal registration"
+            ]
+          ],
+          ["Go-live", "About 1 week", ["File for commencement of business (SEZ)"]]
+        ]
+      },
+      {
+        "key": "leasing",
+        "name": "Aircraft and ship leasing",
+        "forWho": "Lessors and financiers",
+        "summary": "A finance company for aircraft or ship leasing, with the full IFSCA and SEZ set-up.",
+        "weeks": "11–18 weeks",
+        "journey": [
+          [
+            "Pre-set-up advisory",
+            "1–2 weeks",
+            [
+              "Understand current business and GIFT City plans",
+              "Structuring of the GIFT City entity",
+              "Liaise with developers for provisional letter of allotment",
+              "Arrange meetings with regulators (IFSCA / GIFT)"
+            ]
+          ],
+          [
+            "Incorporation in GIFT IFSC",
+            "2–3 weeks",
+            [
+              "Name reservation of company / LLP",
+              "Draft object clause per the applicable IFSCA regulations",
+              "Draft MoA / AoA / LLP agreement",
+              "File incorporation form with MCA",
+              "File relevant company / LLP forms with MCA"
+            ]
+          ],
+          [
+            "SWIT application and approvals",
+            "4–8 weeks",
+            [
+              "File SWIT application for the unit",
+              "Review and regulatory input on the business plan (plan prepared by management)",
+              "Review of all supporting documents",
+              "File via SWIT portal for SEZ + IFSCA approval",
+              "Regulator liaison and end-to-end approval support"
+            ]
+          ],
+          [
+            "Post-set-up compliances",
+            "3–5 weeks",
+            [
+              "SEZ online registration and credential creation",
+              "Bond cum Legal Undertaking (BLUT) with IFSCA Administrator",
+              "Letter of Acceptance filing",
+              "Eligibility certificate for tax exemption (IFSCA Administrator)",
+              "Import Export Code (IEC) registration",
+              "e-Registration cum Membership Certificate (RCMC)",
+              "GST registration",
+              "Letter of Undertaking (LUT) with GST authorities",
+              "Lease deed execution and registration with co-developer",
+              "Update SEZ online (GST, IEC, lease deed, BLUT)",
+              "SEZ portal ID cards for employees",
+              "Professional tax and Shops and Establishments registration",
+              "FIN-net portal registration (AML compliance)",
+              "ICEGATE portal registration"
+            ]
+          ],
+          ["Go-live", "About 1 week", ["File for commencement of business (SEZ)"]]
+        ]
+      },
+      {
+        "key": "broker",
+        "name": "Broker-dealer",
+        "forWho": "Capital markets firms",
+        "summary": "A broker-dealer entity with membership of India INX or NSE IFSC. We check early whether SEBI or RBI approval is also needed.",
+        "weeks": "12–19 weeks",
+        "journey": [
+          [
+            "Pre-set-up advisory",
+            "1–2 weeks",
+            [
+              "Understand current business and GIFT City plans",
+              "Structuring of the GIFT City entity",
+              "Liaise with developers for provisional letter of allotment",
+              "Arrange meetings with regulators (IFSCA / GIFT)",
+              "Determine whether SEBI / RBI approval is required"
+            ]
+          ],
+          [
+            "Incorporation in GIFT IFSC",
+            "2–3 weeks",
+            [
+              "Name reservation of company / LLP",
+              "Draft object clause per the applicable IFSCA regulations",
+              "Draft MoA / AoA / LLP agreement",
+              "File incorporation form with MCA",
+              "File relevant company / LLP forms with MCA"
+            ]
+          ],
+          [
+            "SWIT application and approvals",
+            "4–8 weeks",
+            [
+              "File SWIT application for the unit",
+              "Review and regulatory input on the business plan (plan prepared by management)",
+              "Review of all supporting documents",
+              "File via SWIT portal for SEZ + IFSCA approval",
+              "Regulator liaison and end-to-end approval support"
+            ]
+          ],
+          [
+            "Post-set-up compliances",
+            "3–5 weeks",
+            [
+              "SEZ online registration and credential creation",
+              "Bond cum Legal Undertaking (BLUT) with IFSCA Administrator",
+              "Letter of Acceptance filing",
+              "Eligibility certificate for tax exemption (IFSCA Administrator)",
+              "Import Export Code (IEC) registration",
+              "e-Registration cum Membership Certificate (RCMC)",
+              "GST registration",
+              "Letter of Undertaking (LUT) with GST authorities",
+              "Lease deed execution and registration with co-developer",
+              "Update SEZ online (GST, IEC, lease deed, BLUT)",
+              "SEZ portal ID cards for employees",
+              "Professional tax and Shops and Establishments registration",
+              "FIN-net portal registration (AML compliance)",
+              "ICEGATE portal registration"
+            ]
+          ],
+          [
+            "Go-live",
+            "About 1 week",
+            [
+              "File for commencement of business (SEZ)",
+              "Assistance in obtaining India INX / NSE IFSC membership"
+            ]
+          ]
+        ]
+      },
+      {
+        "key": "psp",
+        "name": "Payment service provider",
+        "forWho": "Payments firms",
+        "summary": "Usually a wholly owned subsidiary: IFSCA in-principle approval, incorporation, then final approval.",
+        "weeks": "12–19 weeks",
+        "journey": [
+          [
+            "Pre-set-up advisory",
+            "1–2 weeks",
+            [
+              "Understand current business and GIFT City plans",
+              "Structuring of the GIFT City entity",
+              "Liaise with developers for provisional letter of allotment",
+              "Arrange meetings with regulators (IFSCA / GIFT)"
+            ]
+          ],
+          [
+            "In-principle approval and incorporation",
+            "2–3 weeks",
+            [
+              "File for in-principle approval from IFSCA (SWIT) for the parent",
+              "Incorporate wholly owned subsidiary (Companies Act, 2013)",
+              "Reserve company name with MCA",
+              "Prepare MoA and AoA",
+              "File incorporation application (private limited)",
+              "Obtain PAN for the company",
+              "Coordinate with MCA for incorporation approval"
+            ]
+          ],
+          [
+            "Final IFSCA approval",
+            "4–8 weeks",
+            [
+              "File on behalf of the subsidiary for final IFSCA approval",
+              "Review of all supporting documents",
+              "Regulator liaison and end-to-end approval support"
+            ]
+          ],
+          [
+            "Post-set-up compliances",
+            "3–5 weeks",
+            [
+              "SEZ online registration and credential creation",
+              "Bond cum Legal Undertaking (BLUT) with IFSCA Administrator",
+              "Letter of Acceptance filing",
+              "Eligibility certificate for tax exemption (IFSCA Administrator)",
+              "Import Export Code (IEC) registration",
+              "e-Registration cum Membership Certificate (RCMC)",
+              "GST registration",
+              "Letter of Undertaking (LUT) with GST authorities",
+              "Lease deed execution and registration with co-developer",
+              "Update SEZ online (GST, IEC, lease deed, BLUT)",
+              "SEZ portal ID cards for employees",
+              "Professional tax and Shops and Establishments registration",
+              "FIN-net portal registration (AML compliance)",
+              "ICEGATE portal registration"
+            ]
+          ],
+          ["Go-live", "About 1 week", ["File application in SEZ for commencement of business"]]
+        ]
+      },
+      {
+        "key": "ia",
+        "name": "Investment adviser and distribution",
+        "forWho": "Advisers and distributors",
+        "summary": "An advisory or distribution entity under the applicable IFSCA regime.",
+        "weeks": "11–18 weeks",
+        "journey": [
+          [
+            "Pre-set-up advisory",
+            "1–2 weeks",
+            [
+              "Understand current business and GIFT City plans",
+              "Structuring of the GIFT City entity",
+              "Liaise with developers for provisional letter of allotment",
+              "Arrange meetings with regulators (IFSCA / GIFT)"
+            ]
+          ],
+          [
+            "Incorporation in GIFT IFSC",
+            "2–3 weeks",
+            [
+              "Name reservation of company / LLP",
+              "Draft object clause per the applicable IFSCA regulations",
+              "Draft MoA / AoA / LLP agreement",
+              "File incorporation form with MCA",
+              "File relevant company / LLP forms with MCA"
+            ]
+          ],
+          [
+            "SWIT application and approvals",
+            "4–8 weeks",
+            [
+              "File SWIT application for the unit",
+              "Review and regulatory input on the business plan (plan prepared by management)",
+              "Review of all supporting documents",
+              "File via SWIT portal for SEZ + IFSCA approval",
+              "Regulator liaison and end-to-end approval support"
+            ]
+          ],
+          [
+            "Post-set-up compliances",
+            "3–5 weeks",
+            [
+              "SEZ online registration and credential creation",
+              "Bond cum Legal Undertaking (BLUT) with IFSCA Administrator",
+              "Letter of Acceptance filing",
+              "Eligibility certificate for tax exemption (IFSCA Administrator)",
+              "Import Export Code (IEC) registration",
+              "e-Registration cum Membership Certificate (RCMC)",
+              "GST registration",
+              "Letter of Undertaking (LUT) with GST authorities",
+              "Lease deed execution and registration with co-developer",
+              "Update SEZ online (GST, IEC, lease deed, BLUT)",
+              "SEZ portal ID cards for employees",
+              "Professional tax and Shops and Establishments registration",
+              "FIN-net portal registration (AML compliance)",
+              "ICEGATE portal registration"
+            ]
+          ],
+          ["Go-live", "About 1 week", ["File for commencement of business (SEZ)"]]
+        ]
+      }
+    ],
+    "outside": [
+      "Not a financial services business?",
+      "You can still use GIFT City. Professional and technology teams serving overseas clients can use the TAS route, and any company can take offices in GIFT City's domestic area, outside the IFSC. Corporate groups can also run their treasury from here as a GRCTC."
+    ],
+    "journeyHeading": "Set-up journey",
+    "journeyNote": "Indicative timeline from ScaleAX's set-up process notes. Actual time depends on regulator responses and how quickly documents are ready.",
+    "helpHeading": "What ScaleAX does",
+    "help": [
+      [
+        "Route and structure",
+        "Which licence, which entity, which operating model, including build-operate-transfer for GICs."
+      ],
+      [
+        "Filing and approvals",
+        "Drafting, the SWIT application and follow-up with IFSCA and the SEZ office until approval."
+      ],
+      [
+        "Office and people",
+        "Office space in GIFT City, the Principal Officer, Compliance Officer and the wider team hired and on payroll."
+      ],
+      [
+        "Run and report",
+        "Accounting, tax, IFSCA and SEZ compliance, and AML reporting after go-live."
+      ]
+    ]
+  },
+  "facilities": {
+    "label": "FACILITIES AND SERVICES",
+    "heading": "Everything your team needs around the office.",
+    "text": "GIFT City's offices and homes are built. What makes a team stay is getting here easily, services that work after hours, and reasons to spend time here. Find service providers by category below, or let ScaleAX run them for you through one desk.",
+    "categories": [
+      [
+        "Getting here and around",
+        "Metro timings, evening transport from 6 to 11 PM, EV taxis, corporate fleets and shuttles, parking and pickup points."
+      ],
+      [
+        "Homes and relocation",
+        "Residences in GIFT City, vetted rentals nearby, and help with the move-in."
+      ],
+      [
+        "Everyday services",
+        "Building concierge, food delivery, housekeeping, laundry and errands."
+      ],
+      [
+        "Offices and meeting space",
+        "Managed offices, meeting rooms and venues for offsites and client events."
+      ],
+      [
+        "Sport, food and leisure",
+        "The sports complex, golf, Bastion, restaurants and cafés, the park, and an events calendar."
+      ],
+      ["Health and essentials", "Clinics, pharmacies, banks and ATMs close to the office."]
+    ],
+    "partnerNote": "Each category lists approved providers with a short description, a link to their app or website, and a contact. Providers can apply to be listed; ScaleAX reviews each one before it goes live.",
+    "deskHeading": "ScaleAX One Desk",
+    "deskText": "One point of contact for every service your team uses in GIFT City.",
+    "desk": [
+      [
+        "Concierge desks",
+        "Building-level desks for transport, errands, guests and hotel bookings."
+      ],
+      [
+        "Evening mobility",
+        "EV taxis, corporate fleets and shuttles combined into one reliable service."
+      ],
+      [
+        "Vendor management",
+        "Security, housekeeping and maintenance vendors held to measured service levels."
+      ],
+      ["Team events", "Offsites and events at GIFT City venues, planned and run for you."],
+      [
+        "Leasing and relocation",
+        "One window for homes in GIFT City and vetted nearby rentals, with move-in handled."
+      ]
+    ],
+    "listCta": [
+      "Provide a service in GIFT City?",
+      "Apply to be listed. Tell us what you offer and we'll be in touch.",
+      "Apply to be listed"
+    ]
+  },
+  "jobs": {
+    "label": "JOBS IN GIFT CITY",
+    "heading": "Open roles at GIFT City employers.",
+    "text": "Roles at IFSC units, capability centres and service firms in GIFT City, including ScaleAX clients. Apply directly, or sign up for job alerts.",
+    "filters": [
+      "Function: Finance and treasury / Technology / Risk and compliance / Operations / HR and admin",
+      "Employer type: IFSC unit / Capability centre / Service provider",
+      "Experience: 0–3 / 3–8 / 8+ years"
+    ],
+    "candidate": [
+      "Apply with your CV in two minutes. No account needed.",
+      "Set up job alerts by function and experience."
+    ],
+    "employerHeading": "Hiring in GIFT City?",
+    "employerText": "Employers sign in to post and manage openings. ScaleAX verifies each company before its first listing goes live.",
+    "employerButtons": ["Employer sign in", "Create employer account"]
+  },
+  "faq": [
+    [
+      "How long does set-up take?",
+      "Most IFSC licences take about 11 to 20 weeks from first meeting to go-live, depending on the licence, document readiness and regulator responses. A GIC has 180 days after in-principle approval to meet the conditions. A treasury centre must start operations within six months of registration."
+    ],
+    [
+      "Can non-financial companies set up in GIFT City?",
+      "Yes. Professional and technology teams serving overseas clients can use the TechFin and Ancillary Services route. Corporate groups can run treasury as a GRCTC. Any company can take offices in GIFT City's domestic area, outside the IFSC."
+    ],
+    [
+      "What is the difference between a GIC and a treasury centre?",
+      "A GIC provides services to a financial institution group, for example operations, risk or technology for a bank. A GRCTC runs a corporate group's own treasury: cash, funding, FX and risk."
+    ],
+    [
+      "How many people do we need to start?",
+      "A GIC or TAS unit needs a full-time Principal Officer and Compliance Officer in the IFSC. A treasury centre needs at least five qualified staff, including a Head of Treasury and a Compliance Officer, though IFSCA can relax this for up to a year after start."
+    ],
+    [
+      "Can we move existing work from our Indian entity into a GIC?",
+      "No. The 2025 GIC regulations do not allow a GIC to be set up by transferring existing contracts or work from the group's Indian entities."
+    ],
+    [
+      "Do staff have to live in GIFT City?",
+      "They work from the GIFT City office. Many live in Ahmedabad or Gandhinagar; see Facilities for evening transport and homes nearby."
+    ]
+  ],
+  "numbers": [
+    ["1", "regulator and one single-window application"],
+    ["20 of 25", "years of 100% tax deduction for eligible units"],
+    ["11–20", "weeks indicative set-up"],
+    ["8", "licence routes mapped"]
+  ],
+  "closing": [
+    "Tell us what you want to run from GIFT City.",
+    "We'll confirm the licence route, the people you need and a set-up timeline.",
+    "Plan your GIFT City set-up"
+  ]
+}

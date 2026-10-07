@@ -1,5 +1,5 @@
 // Shared CRM/lead handoff, used by both tools' API routes (Part D1 "Lead
-// capture" and D2 "Send the lead and all inputs to [CRM / info@scaleax.com]").
+// capture" and D2 "Send the lead and all inputs to [CRM / admin@scaleax.com]").
 // No real CRM integration exists yet, so this is a typed stub — the same
 // pattern as /api/consultation's inline validation, pulled out here because
 // two tools need it. Swapping in a real CRM/email provider later means
@@ -28,7 +28,7 @@ export interface CrmLead {
 }
 
 export async function sendLeadToCrm(lead: CrmLead): Promise<void> {
-  // TODO: wire to the real CRM / info@scaleax.com once the integration is
+  // TODO: wire to the real CRM / admin@scaleax.com once the integration is
   // chosen (Part D "Lead capture" / Appendix 3 #16). For now, log server-side
   // so submissions are visible during development and in server logs.
   console.log(`[crm] ${lead.tool} lead received`, {
