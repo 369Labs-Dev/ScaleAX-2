@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
 import { gsap, ScrollTrigger, SplitText, useGSAP } from '@/lib/gsap';
 import { motionEnabled } from '@/lib/motion';
+import { registerLenis } from '@/lib/smooth-scroll';
 
 // Mounted once in the root layout. Owns everything scroll-driven that is not
 // specific to one component:
@@ -23,12 +24,14 @@ export function ScrollFx() {
   useEffect(() => {
     if (!motionEnabled() || !window.matchMedia('(pointer: fine)').matches) return;
     const lenis = new Lenis({ duration: 1.35, anchors: { offset: -88 } });
+    registerLenis(lenis);
     lenis.on('scroll', ScrollTrigger.update);
     const raf = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
     return () => {
       gsap.ticker.remove(raf);
+      registerLenis(null);
       lenis.destroy();
     };
   }, []);
