@@ -364,7 +364,6 @@ export const LOCATIONS: OfficeCity[] = [
       { name: 'Purva Summit', map: 'Purva Summit, Hyderabad' },
       {
         name: 'Laxmi Pinnacle',
-        address: 'Laxmi Pinnacle, Venkat Nagar, Banjara Hills, Hyderabad, Telangana 500034',
         map: 'Laxmi Pinnacle, Venkat Nagar, Banjara Hills, Hyderabad, Telangana 500034',
       },
     ],
