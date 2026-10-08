@@ -155,22 +155,22 @@ export default function ModelsPage() {
                 {/* Main column: what the model is and how the work splits. */}
                 <div className="p-6 sm:p-8 lg:col-span-8">
                   <div className="flex items-baseline gap-4">
-                    <div className="sx-figure text-[13px] font-bold text-sx-muted">
+                    <div className="sx-figure text-[14px] font-bold text-sx-muted">
                       {String(index + 1).padStart(2, '0')} /{' '}
                       {String(MODELS.length).padStart(2, '0')}
                     </div>
                     <div className="sx-eyebrow">{model.tagline}</div>
                   </div>
-                  <h2 className="mt-3 text-[26px] font-black tracking-[-0.03em] text-sx-ink sm:text-[32px]">
+                  <h2 className="mt-3 text-[24px] font-black tracking-[-0.03em] text-sx-ink sm:text-[32px]">
                     {model.name}
                   </h2>
-                  <p className="mt-3 max-w-[640px] text-[15px] leading-[1.6] text-sx-body">
+                  <p className="mt-3 max-w-[640px] text-[16px] leading-[1.6] text-sx-body">
                     {model.description}
                   </p>
 
                   <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div className="rounded-sx bg-sx-bg-light p-5">
-                      <div className="text-[13px] font-bold uppercase tracking-[0.06em] text-sx-ink">
+                      <div className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-ink">
                         You do
                       </div>
                       <ul className="mt-3 space-y-2">
@@ -185,7 +185,7 @@ export default function ModelsPage() {
                       </ul>
                     </div>
                     <div className="rounded-sx bg-sx-bg-light p-5">
-                      <div className="text-[13px] font-bold uppercase tracking-[0.06em] text-sx-ink">
+                      <div className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-ink">
                         We do
                       </div>
                       <ul className="mt-3 space-y-2">
@@ -202,7 +202,7 @@ export default function ModelsPage() {
                   </div>
 
                   <div className="mt-7">
-                    <div className="text-[13px] font-bold uppercase tracking-[0.06em] text-sx-ink">
+                    <div className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-ink">
                       Why it works
                     </div>
                     <ul className="mt-3 grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
@@ -225,18 +225,18 @@ export default function ModelsPage() {
                 <div className="flex flex-col justify-between gap-8 border-t border-sx-border bg-sx-bg-light p-6 sm:p-8 lg:col-span-4 lg:border-l lg:border-t-0">
                   <dl className="space-y-6">
                     <div>
-                      <dt className="text-[13px] font-bold uppercase tracking-[0.06em] text-sx-muted">
+                      <dt className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-muted">
                         Best for
                       </dt>
-                      <dd className="mt-2 text-[15px] leading-[1.55] font-medium text-sx-ink">
+                      <dd className="mt-2 text-[16px] leading-[1.55] font-medium text-sx-ink">
                         {model.bestFor}
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-[13px] font-bold uppercase tracking-[0.06em] text-sx-muted">
+                      <dt className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-muted">
                         Typical length
                       </dt>
-                      <dd className="mt-2 text-[15px] leading-[1.55] font-medium text-sx-ink">
+                      <dd className="mt-2 text-[16px] leading-[1.55] font-medium text-sx-ink">
                         {model.typicalLength}
                       </dd>
                     </div>
@@ -319,7 +319,6 @@ export default function ModelsPage() {
 
       <WhereNext page="models" />
       <ClosingCta
-        figure="man-suit"
         headline="Not sure which model fits?"
         line="We'll walk you through the trade-offs for your size, timeline and budget."
       />

@@ -13,7 +13,9 @@ const BARS = ['bg-sx-ink', 'bg-sx-blue', 'bg-sx-yellow', 'bg-sx-ink-20'];
 
 // "In numbers" strip: heavy tabular figures between hairlines. Figures are
 // server-rendered at their final value (never "0"), then roll up once on
-// first view when motion is allowed.
+// first view when motion is allowed. Each stat shares its four rows (bar,
+// figure, label, line) with its neighbours through subgrid, so the labels
+// line up across the row even when one figure wraps to a second line.
 //
 // With `figure`, the strip becomes a soft tinted band: one large cutout
 // (public/images/cutout-<name>) stands on its bottom edge at the left and
@@ -27,10 +29,13 @@ export function InNumbers({ stats, figure }: { stats: NumberStat[]; figure?: str
       <section className="border-y border-sx-border">
         <Reveal
           stagger
-          className="sx-container grid grid-cols-1 divide-y divide-sx-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x"
+          className="sx-container grid grid-cols-1 divide-y divide-sx-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4"
         >
           {stats.map((stat, i) => (
-            <div key={stat.label} className="py-12 md:py-16 lg:px-8 lg:first:pl-0 lg:last:pr-0">
+            <div
+              key={stat.label}
+              className="row-span-4 grid grid-rows-subgrid content-start gap-0 py-12 sm:pr-8 md:py-16"
+            >
               <Stat stat={stat} index={i} />
             </div>
           ))}
@@ -75,7 +80,7 @@ function Stat({ stat, index }: { stat: NumberStat; index: number }) {
   return (
     <>
       <span aria-hidden="true" className={`mb-7 block h-1.5 w-12 ${BARS[index % BARS.length]}`} />
-      <div className="text-[52px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[68px]">
+      <div className="text-[40px] font-black leading-[1.05] tracking-[-0.035em] text-sx-ink">
         <CountUp value={stat.figure} className="sx-figure" />
       </div>
       <div className="mt-4 text-[16px] font-bold text-sx-ink">{stat.label}</div>

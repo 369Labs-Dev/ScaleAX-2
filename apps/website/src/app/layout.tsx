@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Archivo, Caveat, Geist } from 'next/font/google';
+import { Caveat, Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -8,19 +8,12 @@ import { MOTION_BOOT_SCRIPT } from '@/lib/motion';
 import { MotionRuntime } from '@/components/motion/motion-runtime';
 import { ScrollFx } from '@/components/motion/scroll-fx';
 
-// W9: two typefaces. Archivo is the display face (h1 to h3 and the large
-// figures); its width axis is loaded so headlines run semi-condensed
-// (font-stretch in globals.css). Geist sets everything else: body copy,
-// navigation, buttons and labels. next/font self-hosts both and generates
-// metric-matched fallbacks, so the swap causes no layout shift.
-const archivo = Archivo({
-  subsets: ['latin'],
-  axes: ['wdth'],
-  variable: '--font-display',
-  display: 'swap',
-  fallback: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
-});
-const geist = Geist({
+// One typeface: Inter sets everything, headings and body alike (client
+// request, October 2026). It is loaded once and exposed under both variable
+// names so the display and sans stacks in globals.css resolve to it.
+// next/font self-hosts it and generates a metric-matched fallback, so the
+// swap causes no layout shift.
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
@@ -67,11 +60,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     // suppressHydrationWarning: the inline motion script below may add
     // `sx-motion` to <html> before React hydrates (W7 motion system).
-    <html
-      lang="en"
-      className={`${geist.variable} ${archivo.variable} ${caveat.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={`${inter.variable} ${caveat.variable}`} suppressHydrationWarning>
       <head>
         {/* W7 — decides, before first paint, whether scroll/entrance motion
             is enabled (never under prefers-reduced-motion). See lib/motion.ts. */}

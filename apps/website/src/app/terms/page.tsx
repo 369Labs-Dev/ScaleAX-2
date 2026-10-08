@@ -41,7 +41,7 @@ export default function TermsPage() {
   return (
     <section className="mx-auto max-w-[800px] px-4 py-16 sm:py-20">
       <Breadcrumb items={[{ label: 'Home', url: '/' }, { label: 'Terms' }]} />
-      <h1 className="mt-4 text-[28px] font-bold text-sx-ink sm:text-[40px]">Terms of use</h1>
+      <h1 className="mt-4 text-[32px] font-bold text-sx-ink sm:text-[40px]">Terms of use</h1>
       <p className="mt-4 text-[14px] text-sx-muted">
         This page sets out the structure of our terms of use. The text below is a placeholder
         outline, not the final legal wording &mdash; that will be reviewed by counsel before launch.
@@ -51,7 +51,7 @@ export default function TermsPage() {
         {SECTIONS.map((section) => (
           <div key={section.heading}>
             <h2 className="text-[18px] font-bold text-sx-ink">{section.heading}</h2>
-            <p className="mt-2 text-[15px] leading-[24px] text-sx-body">{section.body}</p>
+            <p className="mt-2 text-[16px] leading-[24px] text-sx-body">{section.body}</p>
           </div>
         ))}
       </div>

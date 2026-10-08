@@ -49,7 +49,7 @@ export default function ContactPage() {
           <Reveal className="mx-auto max-w-[760px] text-center">
             <div className="sx-eyebrow justify-center">Contact</div>
             <h1 className="sx-h1 mt-3 text-sx-ink">Tell us what you want to build in India.</h1>
-            <p className="mx-auto mt-4 max-w-[560px] text-[16px] leading-[1.6] text-sx-body sm:text-[17px]">
+            <p className="mx-auto mt-4 max-w-[560px] text-[16px] leading-[1.6] text-sx-body sm:text-[18px]">
               Share the functions, team size and timeline, and we&rsquo;ll come back with a plan,
               not a pitch.
             </p>
@@ -67,7 +67,7 @@ export default function ContactPage() {
           <Reveal stagger className="grid grid-cols-1 gap-5 sm:grid-cols-3">
             {NEXT_STEPS.map((item) => (
               <div key={item.step} className="sx-card p-6">
-                <div className="sx-figure text-[22px] font-black text-sx-ink">{item.step}</div>
+                <div className="sx-figure text-[20px] font-black text-sx-ink">{item.step}</div>
                 <div className="mt-2 text-[16px] font-bold text-sx-ink">{item.title}</div>
                 <p className="mt-2 text-[14px] leading-relaxed text-sx-body">{item.body}</p>
               </div>
@@ -79,31 +79,31 @@ export default function ContactPage() {
       {/* Secondary: direct contact details and offices. */}
       <section className="sx-container py-12 sm:py-16">
         <Reveal>
-          <h2 className="text-[22px] font-black tracking-[-0.02em] text-sx-ink">
+          <h2 className="text-[20px] font-black tracking-[-0.02em] text-sx-ink">
             Prefer to reach us directly?
           </h2>
         </Reveal>
         <Reveal stagger className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:max-w-3xl">
           <div className="sx-card p-6">
-            <div className="text-[13px] font-bold uppercase tracking-[0.08em] text-sx-muted">
+            <div className="text-[14px] font-bold uppercase tracking-[0.08em] text-sx-muted">
               Email
             </div>
             <a
               href="mailto:admin@scaleax.com"
-              className="mt-2 inline-block text-[15px] font-bold text-sx-ink hover:underline"
+              className="mt-2 inline-block text-[16px] font-bold text-sx-ink hover:underline"
             >
               admin@scaleax.com
             </a>
           </div>
           <div className="sx-card p-6">
-            <div className="text-[13px] font-bold uppercase tracking-[0.08em] text-sx-muted">
+            <div className="text-[14px] font-bold uppercase tracking-[0.08em] text-sx-muted">
               LinkedIn
             </div>
             <a
               href="https://www.linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-block text-[15px] font-bold text-sx-ink hover:underline"
+              className="mt-2 inline-block text-[16px] font-bold text-sx-ink hover:underline"
             >
               Follow ScaleAX <span aria-hidden="true" className="sx-btn-arrow" />
             </a>
@@ -115,18 +115,18 @@ export default function ContactPage() {
       <section className="border-t border-sx-border">
         <div className="sx-container py-12 sm:py-16">
           <Reveal>
-            <h2 className="text-[22px] font-black tracking-[-0.02em] text-sx-ink">Our locations</h2>
+            <h2 className="text-[20px] font-black tracking-[-0.02em] text-sx-ink">Our locations</h2>
           </Reveal>
           <Reveal stagger className="mt-8 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {LOCATIONS.map((group) => (
               <div key={group.city} className="border-t border-sx-ink pt-5">
-                <h3 className="text-[19px] font-black tracking-[-0.015em] text-sx-ink">
+                <h3 className="text-[18px] font-black tracking-[-0.015em] text-sx-ink">
                   {group.city}
                 </h3>
                 <ul className="mt-4 space-y-5">
                   {group.offices.map((office) => (
                     <li key={office.name}>
-                      <div className="text-[15px] font-bold text-sx-ink">{office.name}</div>
+                      <div className="text-[16px] font-bold text-sx-ink">{office.name}</div>
                       {office.address && (
                         <p className="mt-1 text-[14px] leading-relaxed text-sx-body">
                           {office.address}
@@ -155,7 +155,6 @@ export default function ContactPage() {
       {/* Closing band as on other pages; the button scrolls back to the form
           on this page instead of linking /contact to itself. */}
       <ClosingCta
-        figure="woman-tablet"
         headline="Talk to us about your centre."
         line="Start with a short call about what you're planning."
         href="#form"

@@ -28,17 +28,17 @@ const COMPANY_LINKS: FooterLink[] = [
 // the container allows above the legal row.
 export function Footer() {
   return (
-    <footer className="bg-sx-ink text-sx-white">
+    <footer className="bg-sx-navy text-sx-white">
       <div className="sx-container pb-10 pt-20 md:pt-28">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Wordmark tone="light" />
-            <p className="mt-7 max-w-sm text-[15px] leading-relaxed text-white/70">
+            <p className="mt-7 max-w-sm text-[16px] leading-relaxed text-white/70">
               Your trusted partner for building, managing and scaling global capability centres in
               India. A joint venture between Awfficacy Global, DevX and Dev IT, headquartered in
               Ahmedabad.
             </p>
-            <ul className="mt-9 space-y-2 text-[15px] text-white/80">
+            <ul className="mt-9 space-y-2 text-[16px] text-white/80">
               <li>
                 <a
                   href="mailto:admin@scaleax.com"
@@ -110,7 +110,7 @@ function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) 
   return (
     <div>
       <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-white/45">{title}</p>
-      <ul className="mt-5 space-y-3 text-[15px]">
+      <ul className="mt-5 space-y-3 text-[16px]">
         {links.map((link) => (
           <li key={link.url}>
             <Link

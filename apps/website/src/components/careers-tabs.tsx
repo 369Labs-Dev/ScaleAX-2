@@ -20,7 +20,7 @@ export function CareersTabs() {
           role="tab"
           aria-selected={tab === 'scaleax'}
           onClick={() => setTab('scaleax')}
-          className={`px-4 py-3 text-[15px] font-bold ${
+          className={`px-4 py-3 text-[16px] font-bold ${
             tab === 'scaleax'
               ? 'border-b-2 border-sx-ink text-sx-ink'
               : 'text-sx-muted hover:text-sx-ink'
@@ -33,7 +33,7 @@ export function CareersTabs() {
           role="tab"
           aria-selected={tab === 'clients'}
           onClick={() => setTab('clients')}
-          className={`px-4 py-3 text-[15px] font-bold ${
+          className={`px-4 py-3 text-[16px] font-bold ${
             tab === 'clients'
               ? 'border-b-2 border-sx-ink text-sx-ink'
               : 'text-sx-muted hover:text-sx-ink'

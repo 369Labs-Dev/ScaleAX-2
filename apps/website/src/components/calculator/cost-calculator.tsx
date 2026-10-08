@@ -169,7 +169,7 @@ export function CostCalculator({ variant = 'full' }: { variant?: 'full' | 'embed
               {GROUPS.map(([key, label]) => (
                 <div key={key} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
                   <div>
-                    <p className="text-[13px] font-semibold text-sx-ink">{label}</p>
+                    <p className="text-[14px] font-semibold text-sx-ink">{label}</p>
                     <Range
                       min={0}
                       max={100}
@@ -180,7 +180,7 @@ export function CostCalculator({ variant = 'full' }: { variant?: 'full' | 'embed
                       className="mt-1.5"
                     />
                   </div>
-                  <span className="sx-figure w-10 shrink-0 text-right text-[13px] font-bold text-sx-body">
+                  <span className="sx-figure w-10 shrink-0 text-right text-[14px] font-bold text-sx-body">
                     {Math.round((mix[key] / mixTotal) * 100)}%
                   </span>
                 </div>
@@ -254,17 +254,17 @@ export function CostCalculator({ variant = 'full' }: { variant?: 'full' | 'embed
           <ResultPanel result={result} maxHome={maxHome} money={money} />
           <div className="grid gap-5 md:grid-cols-2 lg:gap-6">
             <div className="sx-card p-6 sm:p-7">
-              <h3 className="text-[15px] font-bold text-sx-ink">City fit for this profile</h3>
+              <h3 className="text-[16px] font-bold text-sx-ink">City fit for this profile</h3>
               <ul className="mt-5 grid gap-4">
                 {result.cities.map((c, i) => (
                   <li key={c.name}>
                     <div className="flex items-baseline justify-between gap-3">
                       <p
-                        className={`font-extrabold text-sx-ink ${i === 0 ? 'text-[17px]' : 'text-[14px]'}`}
+                        className={`font-extrabold text-sx-ink ${i === 0 ? 'text-[18px]' : 'text-[14px]'}`}
                       >
                         {c.name}
                       </p>
-                      <p className="sx-figure text-[13px] font-bold text-sx-body">
+                      <p className="sx-figure text-[14px] font-bold text-sx-body">
                         {c.score.toFixed(2)}
                       </p>
                     </div>
@@ -275,7 +275,7 @@ export function CostCalculator({ variant = 'full' }: { variant?: 'full' | 'embed
                       />
                     </div>
                     {i === 0 && (
-                      <p className="mt-2 text-[13px] leading-relaxed text-sx-body">{c.why}</p>
+                      <p className="mt-2 text-[14px] leading-relaxed text-sx-body">{c.why}</p>
                     )}
                   </li>
                 ))}
@@ -294,7 +294,7 @@ export function CostCalculator({ variant = 'full' }: { variant?: 'full' | 'embed
 
       <a
         href="#cc-result"
-        className="fixed bottom-4 left-1/2 z-30 flex h-11 -translate-x-1/2 items-center rounded-sx bg-sx-ink px-6 text-[13px] font-bold text-white shadow-lg lg:hidden"
+        className="fixed bottom-4 left-1/2 z-30 flex h-11 -translate-x-1/2 items-center rounded-sx bg-sx-ink px-6 text-[14px] font-bold text-white shadow-lg lg:hidden"
       >
         See my result
       </a>
@@ -325,7 +325,7 @@ function ControlGroup({
       <div className="mb-3 flex items-baseline justify-between gap-3">
         <div className="text-[14px] font-bold text-sx-ink">{label}</div>
         {value && (
-          <div className="sx-figure text-[13px] font-bold text-sx-body">
+          <div className="sx-figure text-[14px] font-bold text-sx-body">
             <Tick value={value} />
           </div>
         )}
@@ -387,7 +387,7 @@ function Chip({
       type="button"
       aria-pressed={selected}
       onClick={onClick}
-      className={`min-h-10 rounded-sx border px-3.5 py-2 text-[13px] font-medium transition-[background-color,color,border-color,scale] duration-200 ease-sx-out active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
+      className={`min-h-10 rounded-sx border px-3.5 py-2 text-[14px] font-medium transition-[background-color,color,border-color,scale] duration-200 ease-sx-out active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
         selected
           ? 'border-sx-ink bg-sx-ink text-white'
           : 'border-sx-ink-20 bg-white text-sx-ink hover:border-sx-ink/60'
@@ -415,7 +415,7 @@ function SelectField({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-1 h-10 w-full rounded-sx border border-sx-ink-20 bg-white px-3 text-[13px] text-sx-ink focus:border-sx-ink focus:outline-none"
+        className="mt-1 h-10 w-full rounded-sx border border-sx-ink-20 bg-white px-3 text-[14px] text-sx-ink focus:border-sx-ink focus:outline-none"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>
@@ -450,10 +450,10 @@ function ResultPanel({
       />
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/60">
+          <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-white/60">
             Three-year saving vs. home market
           </p>
-          <p className="sx-figure mt-3 text-[clamp(2.6rem,6vw,3.8rem)] font-black leading-none tracking-tight">
+          <p className="sx-figure mt-3 text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-none tracking-tight">
             <Tick value={money(result.cum)} />
           </p>
           <p className="mt-3 max-w-[34ch] text-[14px] leading-relaxed text-white/80">
@@ -470,7 +470,7 @@ function ResultPanel({
       </div>
 
       <div className="mt-10 border-t border-white/15 pt-8">
-        <div className="mb-4 flex items-center gap-5 text-[11px] font-semibold text-white/60">
+        <div className="mb-4 flex items-center gap-5 text-[12px] font-semibold text-white/60">
           <span className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-sm bg-white/25" /> Home market
           </span>
@@ -485,8 +485,8 @@ function ResultPanel({
                 <Bar pct={y.home / maxHome} className="bg-white/25" title={money(y.home)} />
                 <Bar pct={y.india / maxHome} className="bg-white" title={money(y.india)} />
               </div>
-              <p className="mt-3 text-[13px] font-bold">Year {i + 1}</p>
-              <p className="sx-figure text-[11px] text-white/60">
+              <p className="mt-3 text-[14px] font-bold">Year {i + 1}</p>
+              <p className="sx-figure text-[12px] text-white/60">
                 {money(y.india)} vs {money(y.home)}
               </p>
             </div>
@@ -513,7 +513,7 @@ function Bar({ pct, className, title }: { pct: number; className: string; title:
 function PanelStat({ label, value }: { label: string; value: string }) {
   return (
     <div className="min-w-[110px]">
-      <dt className="text-[11px] font-semibold leading-snug text-white/55">{label}</dt>
+      <dt className="text-[12px] font-semibold leading-snug text-white/55">{label}</dt>
       <dd className="sx-figure mt-1 text-[20px] font-extrabold">
         <Tick value={value} />
       </dd>
@@ -565,8 +565,8 @@ function PlanRequestCard({ inputs }: { inputs: Record<string, unknown> }) {
   if (status === 'sent') {
     return (
       <div className="rounded-sx border border-sx-border p-6" role="status">
-        <p className="text-[15px] font-bold text-sx-ink">Thank you — your plan is on its way.</p>
-        <p className="mt-1 max-w-xl text-[13px] leading-relaxed text-sx-body">
+        <p className="text-[16px] font-bold text-sx-ink">Thank you — your plan is on its way.</p>
+        <p className="mt-1 max-w-xl text-[14px] leading-relaxed text-sx-body">
           We&rsquo;ll come back with a detailed model for this profile, with named sites, in about
           ten working days.
         </p>
@@ -608,7 +608,7 @@ function PlanRequestCard({ inputs }: { inputs: Record<string, unknown> }) {
         </p>
       )}
       <div className="mt-5 flex flex-col gap-4 border-t border-sx-border pt-5 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-md text-[13px] leading-relaxed text-sx-body">
+        <p className="max-w-md text-[14px] leading-relaxed text-sx-body">
           Indicative only. Actuals depend on roles, city corridor and fit-out. A detailed model with
           named sites takes us about ten working days.
         </p>
@@ -651,7 +651,7 @@ function PlanField({
         placeholder={placeholder}
         required
         aria-invalid={Boolean(error)}
-        className="mt-1 h-10 w-full rounded-sx border border-sx-ink-20 bg-white px-3 text-[13px] text-sx-ink placeholder:text-sx-muted/70 focus:border-sx-ink focus:outline-none aria-[invalid=true]:border-red-500"
+        className="mt-1 h-10 w-full rounded-sx border border-sx-ink-20 bg-white px-3 text-[14px] text-sx-ink placeholder:text-sx-muted/70 focus:border-sx-ink focus:outline-none aria-[invalid=true]:border-red-500"
       />
       {error && <span className="mt-1 block text-red-600">{error}</span>}
     </label>
@@ -661,7 +661,7 @@ function PlanField({
 function TimelineCard({ result }: { result: Result }) {
   return (
     <div className="sx-card p-6 sm:p-7">
-      <h3 className="text-[15px] font-bold text-sx-ink">Launch timeline, weeks</h3>
+      <h3 className="text-[16px] font-bold text-sx-ink">Launch timeline, weeks</h3>
       <ul className="mt-5 grid gap-3">
         {result.timeline.map((phase) => (
           <li
@@ -681,7 +681,7 @@ function TimelineCard({ result }: { result: Result }) {
           </li>
         ))}
       </ul>
-      <div className="mt-2 flex justify-between text-[10px] font-semibold text-sx-muted">
+      <div className="mt-2 flex justify-between text-[12px] font-semibold text-sx-muted">
         <span>Week 0</span>
         <span>Week {result.weeks}</span>
       </div>

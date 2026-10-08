@@ -264,6 +264,16 @@ export const ENGAGEMENT_MODELS_MENU: MenuLink[] = [
   },
 ];
 
+// "GIFT City" menu: the hub is split into one page per part.
+export const GIFT_CITY_MENU: MenuLink[] = [
+  { label: 'Overview', summary: 'What ScaleAX does in GIFT City', url: '/gift-city' },
+  { label: 'Why GIFT City', summary: 'Regulator, currency and tax regime', url: '/gift-city/why' },
+  { label: 'IFSC set-up', summary: 'Licence routes and timelines', url: '/gift-city/ifsc-set-up' },
+  { label: 'Facilities', summary: 'Services around the office', url: '/gift-city/facilities' },
+  { label: 'Jobs', summary: 'Open roles at GIFT City employers', url: '/gift-city/jobs' },
+  { label: 'FAQ', summary: 'Common questions answered', url: '/gift-city/faq' },
+];
+
 // "Insights" menu — simple dropdown (0.2).
 export const INSIGHTS_MENU: MenuLink[] = [
   { label: 'Articles', summary: 'Analysis on GCCs in India', url: '/insights' },
@@ -287,6 +297,11 @@ export const SITE_ROUTES: string[] = [
   '/solutions/finance-accounting',
   '/models',
   '/gift-city',
+  '/gift-city/why',
+  '/gift-city/ifsc-set-up',
+  '/gift-city/facilities',
+  '/gift-city/jobs',
+  '/gift-city/faq',
   '/location',
   '/calculator',
   '/insights',

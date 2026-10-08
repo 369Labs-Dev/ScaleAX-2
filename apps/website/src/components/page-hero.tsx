@@ -31,6 +31,7 @@ export function PageHero({
   actions,
   stage,
   chips,
+  image,
 }: {
   eyebrow: string;
   title: string;
@@ -39,6 +40,8 @@ export function PageHero({
   actions?: HeroAction[];
   stage?: CardId;
   chips?: { label: string; href: string }[];
+  /** Image slot to use instead of the one named after the page. */
+  image?: string;
 }) {
   const slug = slugify(breadcrumb[breadcrumb.length - 1]?.label ?? 'default');
   return (
@@ -47,7 +50,7 @@ export function PageHero({
       className="relative isolate flex min-h-[78svh] flex-col justify-end overflow-hidden bg-sx-ink-deep text-sx-white"
     >
       <Media
-        id={`page-${slug}`}
+        id={image ?? `page-${slug}`}
         fallback={['page-default']}
         alt=""
         width={2400}
@@ -71,13 +74,13 @@ export function PageHero({
           {eyebrow}
         </div>
         <h1
-          className="sx-enter mt-5 max-w-[19ch] text-[clamp(2.5rem,5.6vw,5.2rem)] font-black leading-[0.98] tracking-[-0.022em] text-sx-white"
+          className="sx-enter mt-5 max-w-[19ch] text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1.05] tracking-[-0.022em] text-sx-white"
           style={{ ['--sx-d' as string]: 2 }}
         >
           {title}
         </h1>
         <p
-          className="sx-enter mt-7 max-w-[58ch] text-[clamp(1.05rem,1.3vw,1.22rem)] leading-[1.55] text-white/85"
+          className="sx-enter mt-7 max-w-[58ch] text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.55] text-white/85"
           style={{ ['--sx-d' as string]: 3 }}
         >
           {intro}
@@ -135,14 +138,14 @@ export function PageHero({
             className="sx-enter mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/25 pt-5"
             style={{ ['--sx-d' as string]: 5 }}
           >
-            <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-white/60">
+            <span className="text-[14px] font-bold uppercase tracking-[0.1em] text-white/60">
               Jump to
             </span>
             {chips.map((chip) => (
               <a
                 key={chip.href}
                 href={chip.href}
-                className="group text-[15px] font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                className="group text-[16px] font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
                 <span className="sx-link">{chip.label}</span>
               </a>

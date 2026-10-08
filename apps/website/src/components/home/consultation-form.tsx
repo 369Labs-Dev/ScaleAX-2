@@ -83,7 +83,7 @@ export function ConsultationForm({ variant = 'band' }: { variant?: 'band' | 'pag
       {status === 'success' ? (
         <div role="status" className="sx-drop py-6 text-center">
           <div className="text-[20px] font-bold text-sx-ink">Thank you.</div>
-          <p className="mt-2 text-[15px] text-sx-body">
+          <p className="mt-2 text-[16px] text-sx-body">
             Our team will reply within one working day.
           </p>
         </div>
@@ -132,7 +132,7 @@ export function ConsultationForm({ variant = 'band' }: { variant?: 'band' | 'pag
               key={planPrefill || 'empty'}
               defaultValue={planPrefill}
               rows={4}
-              className="mt-1 w-full rounded-sx border border-sx-border bg-white p-3 text-[15px] text-sx-body focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
+              className="mt-1 w-full rounded-sx border border-sx-border bg-white p-3 text-[16px] text-sx-body focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
             />
           </div>
 
@@ -149,7 +149,7 @@ export function ConsultationForm({ variant = 'band' }: { variant?: 'band' | 'pag
           >
             {status === 'submitting' ? 'Sending…' : 'Book a consultation'}
           </button>
-          <p className="mt-3 text-center text-[13px] text-sx-muted">
+          <p className="mt-3 text-center text-[14px] text-sx-muted">
             We use your details only to reply to you.{' '}
             <a href="/privacy" className="text-sx-ink hover:underline">
               Privacy policy
@@ -169,7 +169,7 @@ export function ConsultationForm({ variant = 'band' }: { variant?: 'band' | 'pag
   }
 
   return (
-    <section id="contact" className="relative isolate scroll-mt-24 overflow-hidden bg-sx-ink">
+    <section id="contact" className="relative isolate scroll-mt-24 overflow-hidden bg-sx-navy">
       <div
         aria-hidden="true"
         className="sx-grid-lines-light absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_60%_80%_at_0%_0%,#000_10%,transparent_70%)]"
@@ -178,12 +178,12 @@ export function ConsultationForm({ variant = 'band' }: { variant?: 'band' | 'pag
         <Reveal className="text-sx-white">
           <div className="sx-eyebrow !text-white/55">Book a consultation</div>
           <h2 className="sx-h2 mt-3 text-sx-white">Tell us what you want to build in India.</h2>
-          <p className="mt-5 max-w-[480px] text-[17px] leading-[1.6] text-white/75 sm:text-[18px]">
+          <p className="mt-5 max-w-[480px] text-[18px] leading-[1.6] text-white/75 sm:text-[18px]">
             Share the functions, team size and timeline. Within two weeks you get a location
             recommendation, a cost model and a set-up plan.
           </p>
 
-          <dl className="mt-10 space-y-4 text-[15px]">
+          <dl className="mt-10 space-y-4 text-[16px]">
             <div>
               <dt className="text-white/70">Email</dt>
               <dd>
@@ -255,10 +255,10 @@ function Field({
         aria-required={required}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? errorId : undefined}
-        className="mt-1 h-11 w-full rounded-sx border border-sx-border bg-white px-3 text-[15px] text-sx-body focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
+        className="mt-1 h-11 w-full rounded-sx border border-sx-border bg-white px-3 text-[16px] text-sx-body focus-visible:outline focus-visible:outline-2 focus-visible:outline-sx-ink"
       />
       {error && (
-        <p id={errorId} role="alert" className="mt-1 text-[13px] text-red-600">
+        <p id={errorId} role="alert" className="mt-1 text-[14px] text-red-600">
           {error}
         </p>
       )}

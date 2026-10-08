@@ -105,11 +105,11 @@ export function PillarsJourney({ images }: { images: Record<string, string | nul
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
-                className="text-[26px] font-black leading-[1.05] tracking-[-0.02em]"
+                className="text-[24px] font-black leading-[1.05] tracking-[-0.02em]"
               >
                 {OFFERINGS[active].title}
               </motion.span>
-              <span className="sx-figure shrink-0 text-[15px] font-bold">
+              <span className="sx-figure shrink-0 text-[16px] font-bold">
                 {String(active + 1).padStart(2, '0')}
                 <span className="text-white/55">
                   {' '}
@@ -186,14 +186,14 @@ export function PillarsJourney({ images }: { images: Record<string, string | nul
                 <div
                   className={`transition-opacity duration-700 ${current ? '' : 'lg:opacity-30'}`}
                 >
-                  <span className="sx-figure text-[13px] font-bold uppercase tracking-[0.14em] text-sx-ink-50">
+                  <span className="sx-figure text-[14px] font-bold uppercase tracking-[0.14em] text-sx-ink-50">
                     Stage {String(i + 1).padStart(2, '0')} of{' '}
                     {String(OFFERINGS.length).padStart(2, '0')}
                   </span>
-                  <h3 className="mt-3 text-[clamp(1.9rem,3.6vw,3.4rem)] font-black leading-[1.02] tracking-[-0.022em] text-sx-ink">
+                  <h3 className="mt-3 text-[clamp(1.875rem,3.2vw,2.75rem)] font-black leading-[1.02] tracking-[-0.022em] text-sx-ink">
                     {offering.title}
                   </h3>
-                  <p className="mt-4 text-[clamp(1.05rem,1.4vw,1.3rem)] leading-snug text-sx-body">
+                  <p className="mt-4 text-[clamp(1rem,1.3vw,1.125rem)] leading-snug text-sx-body">
                     {offering.line}
                   </p>
                   <div className="mt-8 rounded-sx bg-sx-bg-light p-6 md:p-7">
@@ -204,7 +204,7 @@ export function PillarsJourney({ images }: { images: Record<string, string | nul
                       {offering.points.map((point, p) => (
                         <li
                           key={point}
-                          className="flex gap-5 border-t border-sx-border py-3.5 text-[17px] font-bold leading-snug text-sx-ink first:border-t-0 md:text-[18px]"
+                          className="flex gap-5 border-t border-sx-border py-3.5 text-[18px] font-bold leading-snug text-sx-ink first:border-t-0 md:text-[18px]"
                         >
                           <span
                             aria-hidden="true"

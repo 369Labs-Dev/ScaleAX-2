@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
+import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 
 // A keyboard- and pointer-accessible dropdown/mega-menu trigger, shared by
@@ -8,12 +9,17 @@ import { ChevronDown } from 'lucide-react';
 // "Insights" menus (Part 0.2, Part C6). Opens on hover or click, closes on
 // Escape (returning focus to the trigger), outside click, or blur past the
 // panel. Arrow keys move focus between the panel's links (roving focus).
+// With `href` the label is itself a link to the section's main page: hover
+// still opens the panel, and the chevron becomes the button that opens it
+// for keyboard and touch.
 export function NavMenu({
   label,
+  href,
   panelClassName,
   children,
 }: {
   label: string;
+  href?: string;
   panelClassName?: string;
   children: React.ReactNode;
 }) {
@@ -104,29 +110,56 @@ export function NavMenu({
       }}
       onMouseLeave={scheduleClose}
     >
-      <button
-        ref={buttonRef}
-        type="button"
-        aria-expanded={open}
-        aria-haspopup="true"
-        aria-controls={id}
-        onClick={() => {
-          // Hover already opens the panel for pointer users, so a click
-          // (which fires after the hover-enter) should not immediately
-          // toggle it shut again — it only needs to guarantee it's open,
-          // e.g. for touch devices that don't fire hover at all.
-          cancelClose();
-          setOpen(true);
-        }}
-        onKeyDown={onButtonKeyDown}
-        className="sx-header-link flex items-center gap-1 rounded-sx py-2"
-      >
-        {label}
-        <ChevronDown
-          className={`h-4 w-4 transition-[rotate] duration-300 ease-sx-out ${open ? 'rotate-180' : ''}`}
-          strokeWidth={1.5}
-        />
-      </button>
+      {href ? (
+        <div className="sx-header-link flex items-center gap-1">
+          <Link href={href} onClick={() => close()} className="group rounded-sx py-2">
+            <span className="sx-link">{label}</span>
+          </Link>
+          <button
+            ref={buttonRef}
+            type="button"
+            aria-label={`${label} sections`}
+            aria-expanded={open}
+            aria-haspopup="true"
+            aria-controls={id}
+            onClick={() => {
+              cancelClose();
+              setOpen(true);
+            }}
+            onKeyDown={onButtonKeyDown}
+            className="rounded-sx py-2"
+          >
+            <ChevronDown
+              className={`h-4 w-4 transition-[rotate] duration-300 ease-sx-out ${open ? 'rotate-180' : ''}`}
+              strokeWidth={1.5}
+            />
+          </button>
+        </div>
+      ) : (
+        <button
+          ref={buttonRef}
+          type="button"
+          aria-expanded={open}
+          aria-haspopup="true"
+          aria-controls={id}
+          onClick={() => {
+            // Hover already opens the panel for pointer users, so a click
+            // (which fires after the hover-enter) should not immediately
+            // toggle it shut again — it only needs to guarantee it's open,
+            // e.g. for touch devices that don't fire hover at all.
+            cancelClose();
+            setOpen(true);
+          }}
+          onKeyDown={onButtonKeyDown}
+          className="sx-header-link flex items-center gap-1 rounded-sx py-2"
+        >
+          {label}
+          <ChevronDown
+            className={`h-4 w-4 transition-[rotate] duration-300 ease-sx-out ${open ? 'rotate-180' : ''}`}
+            strokeWidth={1.5}
+          />
+        </button>
+      )}
       {open && (
         <div
           id={id}

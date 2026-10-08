@@ -15,22 +15,28 @@
   --sx-ink-06: #1212140f; /* hover wash */
   --sx-ink-03: #12121409;
   --sx-ink-raised: #2a2a2f; /* hover on an ink surface, image placeholders */
-  --sx-ink-deep: #0b0b0d; /* behind photography */
+  --sx-ink-deep: var(--sx-navy); /* dark panels, and behind photography */
   --sx-ground: #ffffff;
   --sx-surface: #ffffff;
   --sx-white: #ffffff;
-  --sx-bg-light: #f7f7f5; /* the one neutral band colour */
+  --sx-bg-light: #f5f8fa; /* the one neutral band colour */
 
-  /* Colour. Actions and markers are ink, so nothing shouts; the only colour
-     is a soft tint that sits just off the white page. Blue and yellow are
-     only used for small marks, never as large fills. */
-  --sx-accent: var(--sx-ink);
-  --sx-accent-ink: var(--sx-ink-70);
-  --sx-blue: #8499f0;
-  --sx-yellow: #f0c95f;
-  --sx-tint-orange: #fdf0ea;
-  --sx-tint-blue: #eef2fc;
-  --sx-tint-yellow: #fbf5e1;
+  /* Colour. The page stays white with ink type and ink actions; colour comes
+     from the three logo colours. Navy carries the dark panels and the
+     footer, orange and teal are small marks only (rules, bars, the text
+     selection), and the soft tints are pale versions of the same three. The
+     blue / yellow token names are kept so existing classes still resolve:
+     blue now holds teal, yellow holds orange. */
+  --sx-navy: #174a66;
+  --sx-orange: #ed925f;
+  --sx-teal: #1da074;
+  --sx-accent: var(--sx-orange);
+  --sx-accent-ink: var(--sx-navy);
+  --sx-blue: var(--sx-teal);
+  --sx-yellow: var(--sx-orange);
+  --sx-tint-orange: #fdf1ea;
+  --sx-tint-blue: #edf3f6;
+  --sx-tint-yellow: #e9f6f1;
 
   --sx-body: var(--sx-ink-70);
   --sx-muted: var(--sx-ink-50);
@@ -77,6 +83,9 @@
   --color-sx-border: var(--sx-border);
   --color-sx-accent: var(--sx-accent);
   --color-sx-accent-ink: var(--sx-accent-ink);
+  --color-sx-navy: var(--sx-navy);
+  --color-sx-orange: var(--sx-orange);
+  --color-sx-teal: var(--sx-teal);
   --color-sx-blue: var(--sx-blue);
   --color-sx-yellow: var(--sx-yellow);
   --color-sx-tint-orange: var(--sx-tint-orange);
@@ -86,7 +95,7 @@
   --font-sans:
     var(--font-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-display:
-    var(--font-display), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    var(--font-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --ease-sx-out: var(--sx-ease-out);
   --ease-sx-in-out: var(--sx-ease-in-out);
   --shadow-sx-lift: var(--sx-shadow-lift);
@@ -111,7 +120,7 @@
     background: var(--sx-ground);
     color: var(--sx-body);
     font-weight: 400;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -128,7 +137,6 @@
   h3 {
     color: var(--sx-ink);
     font-family: var(--font-display);
-    font-stretch: 86%;
     text-wrap: balance;
   }
   h1 {
@@ -150,10 +158,9 @@
 }
 
 @layer utilities {
-  /* Display weight always comes with the display face, semi-condensed. */
+  /* Display weight; same family as the body since the move to Inter. */
   .font-black {
     font-family: var(--font-display);
-    font-stretch: 86%;
   }
 }
 
@@ -171,7 +178,7 @@
     gap: 10px;
     border-radius: var(--sx-radius);
     padding-inline: 24px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     white-space: nowrap;
     transition:
@@ -325,7 +332,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 0.74rem;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.14em;
@@ -339,29 +346,32 @@
     background: var(--sx-accent);
   }
 
+  /* Type scale. One family (Inter) and a fixed set of sizes:
+     text 12 / 14 / 16 / 18 / 20 / 24 / 32 / 40 / 56 / 72 px, and three fluid
+     heading sizes: display clamp(2.25rem, 4.6vw, 4rem), section
+     clamp(1.875rem, 3.2vw, 2.75rem) and sub-heading
+     clamp(1.5rem, 2.2vw, 2rem). Use these rather than new one-off sizes. */
   .sx-h1 {
-    font-size: clamp(2.7rem, 6.2vw, 5.6rem);
+    font-size: clamp(2.25rem, 4.6vw, 4rem);
     font-weight: 650;
-    font-stretch: 84%;
-    line-height: 0.98;
-    letter-spacing: -0.022em;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
   }
   .sx-h2 {
-    font-size: clamp(2.1rem, 4.4vw, 3.9rem);
+    font-size: clamp(1.875rem, 3.2vw, 2.75rem);
     font-weight: 650;
-    font-stretch: 84%;
-    line-height: 1.02;
-    letter-spacing: -0.02em;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
   }
   .sx-h3 {
-    font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.015em;
   }
   .sx-lead {
     color: var(--sx-ink-70);
-    font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
     line-height: 1.55;
   }
 
@@ -427,7 +437,7 @@
     left: 16px;
     bottom: 14px;
     max-width: calc(100% - 32px);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -621,9 +631,9 @@
   outline-offset: 4px;
 }
 .sx-logo {
-  /* The supplied wordmark file is green; it is shown in ink until a
-     recoloured file replaces public/scaleax.svg. */
-  filter: brightness(0);
+  /* The wordmark keeps its own navy, teal and orange on a light bar; over a
+     hero photograph it turns white (rule below). */
+  filter: none;
   transition: filter var(--sx-dur-base) ease;
 }
 html:has([data-hero='dark']) .sx-header:not([data-scrolled]) {

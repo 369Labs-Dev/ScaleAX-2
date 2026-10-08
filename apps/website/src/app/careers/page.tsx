@@ -48,7 +48,6 @@ export default function CareersPage() {
 
       <WhereNext page="careers" />
       <ClosingCta
-        figure="woman-tablet"
         headline="Get in touch."
         line="Send us a note even if there's no open role listed yet."
         label="Contact us"

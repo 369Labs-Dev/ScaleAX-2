@@ -63,7 +63,7 @@ export function Leadership() {
     <section id="leadership" className="sx-container scroll-mt-24 py-12 sm:py-16">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div className="max-w-[720px]">
-          <h2 className="text-[28px] font-black leading-[1.06] tracking-[-0.03em] text-sx-ink sm:text-[40px]">
+          <h2 className="text-[32px] font-black leading-[1.06] tracking-[-0.03em] text-sx-ink sm:text-[40px]">
             Our leadership
           </h2>
         </div>
@@ -125,8 +125,8 @@ export function Leadership() {
             </div>
             <div className="mt-3 flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <div className="text-[15px] font-bold text-sx-ink">{member.name}</div>
-                <div className="text-[13px] text-sx-body">{member.position}</div>
+                <div className="text-[16px] font-bold text-sx-ink">{member.name}</div>
+                <div className="text-[14px] text-sx-body">{member.position}</div>
               </div>
               {member.linkedin && (
                 <a
@@ -141,7 +141,7 @@ export function Leadership() {
               )}
             </div>
             {!member.confirmed && (
-              <div className="mt-1 inline-block rounded-[4px] bg-sx-bg-light px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.04em] text-sx-muted">
+              <div className="mt-1 inline-block rounded-[4px] bg-sx-bg-light px-2 py-0.5 text-[12px] font-bold uppercase tracking-[0.04em] text-sx-muted">
                 Pending confirmation
               </div>
             )}
@@ -183,7 +183,7 @@ export function Leadership() {
             <div className="mt-4 text-[20px] font-bold text-sx-ink">{openMember.name}</div>
             <div className="text-[14px] text-sx-body">{openMember.position}</div>
             {!openMember.confirmed && (
-              <div className="mt-2 inline-block w-fit rounded-[4px] bg-sx-bg-light px-2 py-0.5 text-[11px] font-bold uppercase tracking-[0.04em] text-sx-muted">
+              <div className="mt-2 inline-block w-fit rounded-[4px] bg-sx-bg-light px-2 py-0.5 text-[12px] font-bold uppercase tracking-[0.04em] text-sx-muted">
                 Pending confirmation
               </div>
             )}

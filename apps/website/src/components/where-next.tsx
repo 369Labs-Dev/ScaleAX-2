@@ -30,10 +30,10 @@ export function WhereNext({ page }: { page: string }) {
               <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-sx-muted">
                 {card.eyebrow}
               </div>
-              <div className="mt-4 text-[22px] font-black leading-[1.12] tracking-[-0.02em] text-sx-ink md:text-[26px]">
+              <div className="mt-4 text-[20px] font-black leading-[1.12] tracking-[-0.02em] text-sx-ink md:text-[24px]">
                 {card.title}
               </div>
-              <div className="mt-auto pt-8 text-[22px] text-sx-ink">
+              <div className="mt-auto pt-8 text-[20px] text-sx-ink">
                 <span className="sx-btn-arrow" aria-hidden="true">
                   &rarr;
                 </span>

@@ -220,7 +220,6 @@ export default function BuildPage() {
       />
 
       <InNumbers
-        figure="towers"
         stats={[
           { figure: '8', label: 'Workstreams', line: 'From real estate to programme management' },
           {
@@ -236,7 +235,6 @@ export default function BuildPage() {
       <LifecycleStrip current="build" />
       <WhereNext page="build" />
       <ClosingCta
-        figure="man-blazer"
         headline="Ready to set up in India?"
         line="Tell us your timeline and first roles, and we'll map out the Build stage."
       />

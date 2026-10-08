@@ -116,23 +116,6 @@ export const LEADERSHIP: LeadershipMember[] = [
     ],
   },
   {
-    name: 'Sunny Agarwal',
-    position: 'CXO',
-    background:
-      'Sunny is a dynamic entrepreneur with over 18 years of experience managing and scaling businesses across various sectors including textiles and travel. With a proven track record of success, he leads ventures with a combined turnover exceeding INR 2 billion.',
-    confirmed: true,
-    photo: '/leadership/sunny.png',
-    linkedin: 'https://www.linkedin.com/in/sunnypagrawal/',
-    bio: [],
-    highlights: [
-      'Multisector expertise: successfully owns and operates businesses in textiles and travel, showcasing cross-industry leadership.',
-      'Financial strategist: skilled in financial analysis and investment advisory, driving growth and profitability.',
-      'Market visionary: renowned for identifying and capitalizing on emerging market trends with strategic foresight.',
-      'Agile leader: demonstrates exceptional adaptability and strategic thinking, ensuring sustained success in competitive markets.',
-      'Trusted professional: known for reliability and excellence in financial and business management.',
-    ],
-  },
-  {
     name: 'Umesh Uttamchandani',
     position: 'Director, Managed Space',
     background:
@@ -160,6 +143,23 @@ export const LEADERSHIP: LeadershipMember[] = [
       'Investment management: previously worked with True Beacon, a hedge fund, as an investment analyst, and at PwC as a valuation intern.',
       "Entrepreneurial vision: co-founder and Director at Instaclaus, a fintech startup focused on making credit more accessible to employees in India, and leads Aris Infra Realty's strategy for Gujarat in the B2B construction supply industry.",
       "Financial modelling and valuations: as Vice President of Boston University's Real Estate Club, grew the organisation from 50 members to 120+ and developed key connections in the industry.",
+    ],
+  },
+  {
+    name: 'Sunny Agarwal',
+    position: 'Director, New Business',
+    background:
+      'Sunny is a dynamic entrepreneur with over 18 years of experience managing and scaling businesses across various sectors including textiles and travel. With a proven track record of success, he leads ventures with a combined turnover exceeding INR 2 billion.',
+    confirmed: true,
+    photo: '/leadership/sunny.png',
+    linkedin: 'https://www.linkedin.com/in/sunnypagrawal/',
+    bio: [],
+    highlights: [
+      'Multisector expertise: successfully owns and operates businesses in textiles and travel, showcasing cross-industry leadership.',
+      'Financial strategist: skilled in financial analysis and investment advisory, driving growth and profitability.',
+      'Market visionary: renowned for identifying and capitalizing on emerging market trends with strategic foresight.',
+      'Agile leader: demonstrates exceptional adaptability and strategic thinking, ensuring sustained success in competitive markets.',
+      'Trusted professional: known for reliability and excellence in financial and business management.',
     ],
   },
   {

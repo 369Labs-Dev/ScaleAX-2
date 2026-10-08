@@ -38,16 +38,16 @@ export function PartnerFirms() {
                 </div>
               </div>
               <div className="lg:col-span-5">
-                <h3 className="text-[28px] font-black leading-none tracking-[-0.02em] text-sx-ink">
+                <h3 className="text-[32px] font-black leading-none tracking-[-0.02em] text-sx-ink">
                   {firm.name}
                 </h3>
-                <p className="mt-4 text-[17px] leading-relaxed text-sx-body">{firm.description}</p>
+                <p className="mt-4 text-[18px] leading-relaxed text-sx-body">{firm.description}</p>
               </div>
               <ul className="space-y-2 lg:col-span-4">
                 {firm.stats.map((stat) => (
                   <li
                     key={stat}
-                    className="border-l-0 text-[19px] font-black tracking-[-0.015em] text-sx-ink"
+                    className="border-l-0 text-[18px] font-black tracking-[-0.015em] text-sx-ink"
                   >
                     <CountUp value={stat} className="sx-figure" />
                   </li>

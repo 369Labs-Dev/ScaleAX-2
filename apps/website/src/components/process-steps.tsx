@@ -74,7 +74,7 @@ export function ProcessSteps({ eyebrow, headline, steps, id }: ProcessStepsProps
           <div className="max-w-[820px]">
             {eyebrow && <div className="sx-eyebrow">{eyebrow}</div>}
             {headline && (
-              <h2 className="mt-5 text-[clamp(1.9rem,3.2vw,2.9rem)] font-black leading-[1.04] tracking-[-0.02em] text-sx-ink">
+              <h2 className="mt-5 text-[clamp(1.875rem,3.2vw,2.75rem)] font-black leading-[1.04] tracking-[-0.02em] text-sx-ink">
                 {headline}
               </h2>
             )}
@@ -109,10 +109,10 @@ export function ProcessSteps({ eyebrow, headline, steps, id }: ProcessStepsProps
                       {step.when}
                     </div>
                   )}
-                  <div className="mt-1 text-[22px] font-black leading-snug tracking-[-0.015em] text-sx-ink">
+                  <div className="mt-1 text-[20px] font-black leading-snug tracking-[-0.015em] text-sx-ink">
                     {step.label}
                   </div>
-                  <p className="mt-2 max-w-[34ch] text-[15px] leading-relaxed text-sx-body">
+                  <p className="mt-2 max-w-[34ch] text-[16px] leading-relaxed text-sx-body">
                     {step.body}
                   </p>
                 </div>

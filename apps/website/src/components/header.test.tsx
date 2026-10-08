@@ -22,6 +22,7 @@ describe('Header', () => {
       'href',
       '/gift-city',
     );
+    expect(within(nav).getByRole('button', { name: /gift city sections/i })).toBeInTheDocument();
     expect(within(nav).queryByRole('link', { name: 'Careers' })).toBeNull();
     expect(within(nav).getByRole('link', { name: /plan your centre/i })).toHaveAttribute(
       'href',
@@ -69,6 +70,25 @@ describe('Header', () => {
 
     expect(screen.queryByRole('menu', { name: /what we offer/i })).not.toBeInTheDocument();
     expect(trigger).toHaveFocus();
+  });
+
+  it('lists each part of the GIFT City page under its dropdown', async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+
+    await user.click(screen.getByRole('button', { name: /gift city sections/i }));
+
+    // The label itself links to the page, so the panel holds only its parts.
+    expect(screen.queryByRole('menuitem', { name: /overview/i })).not.toBeInTheDocument();
+    for (const [name, href] of [
+      [/why gift city/i, '/gift-city/why'],
+      [/ifsc set-up/i, '/gift-city/ifsc-set-up'],
+      [/facilities/i, '/gift-city/facilities'],
+      [/jobs/i, '/gift-city/jobs'],
+      [/faq/i, '/gift-city/faq'],
+    ] as const) {
+      expect(screen.getByRole('menuitem', { name })).toHaveAttribute('href', href);
+    }
   });
 
   it('keeps Articles and News under the Insights dropdown', async () => {

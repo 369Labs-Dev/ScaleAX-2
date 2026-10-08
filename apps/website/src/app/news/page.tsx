@@ -23,20 +23,20 @@ export default function NewsPage() {
       />
 
       <section className="mx-auto max-w-[800px] px-4 py-12 sm:py-16">
-        <p className="mb-6 text-[13px] text-sx-muted">
+        <p className="mb-6 text-[14px] text-sx-muted">
           Sample entries shown below for the News template.
         </p>
         <ul className="divide-y divide-sx-border">
           {NEWS_ITEMS.map((item) => (
             <li key={item.headline} className="py-5">
-              <div className="text-[13px] text-sx-muted">
+              <div className="text-[14px] text-sx-muted">
                 {new Date(item.date).toLocaleDateString('en-GB', {
                   day: 'numeric',
                   month: 'long',
                   year: 'numeric',
                 })}
               </div>
-              <div className="mt-1 text-[17px] font-bold text-sx-ink">{item.headline}</div>
+              <div className="mt-1 text-[18px] font-bold text-sx-ink">{item.headline}</div>
               <p className="mt-1 text-[14px] text-sx-body">{item.line}</p>
             </li>
           ))}
@@ -45,7 +45,6 @@ export default function NewsPage() {
 
       <WhereNext page="news" />
       <ClosingCta
-        figure="man-profile"
         headline="Talk to us about your centre."
         line="Start with a short call about what you're planning."
       />

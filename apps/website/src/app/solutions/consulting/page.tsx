@@ -80,7 +80,6 @@ export default function ConsultingPage() {
       </section>
 
       <InNumbers
-        figure="towers"
         stats={[
           { figure: '3', label: 'Service lines', line: 'New centre, location, review' },
           { figure: '6', label: 'Focus areas', line: 'From mandate to business case' },
@@ -92,7 +91,6 @@ export default function ConsultingPage() {
       <LifecycleStrip current="plan" />
       <WhereNext page="consulting" />
       <ClosingCta
-        figure="woman-seated"
         headline="Get an outside view before you commit."
         line="Tell us what you are considering; we'll suggest where to start."
       />

@@ -61,14 +61,17 @@ export function WhyHub() {
             {WHY_SCALEAX.map((item, i) => {
               const Icon = ICONS[i % ICONS.length];
               return (
-                <article key={item.title} className="lg:text-center">
+                <article
+                  key={item.title}
+                  className="row-span-3 grid grid-rows-subgrid gap-0 lg:text-center"
+                >
                   <div className="flex h-12 w-12 items-center justify-center rounded-sx border border-white/25 bg-white/10 lg:mx-auto">
                     <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
                   </div>
                   <h3 className="mt-5 text-[20px] font-black leading-[1.12] tracking-[-0.015em] text-sx-white">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-white/75">
+                  <p className="mt-3 text-[16px] leading-relaxed text-white/75">
                     {item.description}
                   </p>
                 </article>

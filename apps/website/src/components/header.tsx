@@ -4,6 +4,7 @@ import {
   HOW_WE_WORK_MENU,
   SOLUTIONS_MENU,
   ENGAGEMENT_MODELS_MENU,
+  GIFT_CITY_MENU,
   INSIGHTS_MENU,
   type MenuLink,
 } from '@/lib/site-data';
@@ -27,7 +28,7 @@ export function Header() {
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-8 text-[15px] font-bold lg:flex"
+          className="hidden items-center gap-8 text-[16px] font-bold lg:flex"
         >
           <NavLink href="/about">Who we are</NavLink>
 
@@ -61,8 +62,8 @@ export function Header() {
                   role="menuitem"
                   className="group mt-auto flex flex-col rounded-sx bg-sx-tint-blue p-5 text-sx-ink transition-colors duration-300 hover:bg-sx-bg-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
                 >
-                  <span className="text-[15px] font-bold">Not sure where to start?</span>
-                  <span className="mt-1 text-[13px] font-normal text-sx-ink-70">
+                  <span className="text-[16px] font-bold">Not sure where to start?</span>
+                  <span className="mt-1 text-[14px] font-normal text-sx-ink-70">
                     Compare cities with the Location Finder{' '}
                     <span className="sx-btn-arrow">&rarr;</span>
                   </span>
@@ -71,7 +72,13 @@ export function Header() {
             </div>
           </NavMenu>
 
-          <NavLink href="/gift-city">GIFT City</NavLink>
+          <NavMenu label="GIFT City" href="/gift-city">
+            <ul>
+              {GIFT_CITY_MENU.filter((link) => link.url !== '/gift-city').map((link) => (
+                <SimpleLink key={link.url} link={link} />
+              ))}
+            </ul>
+          </NavMenu>
           <NavMenu label="Insights">
             <ul>
               {INSIGHTS_MENU.map((link) => (
@@ -149,10 +156,10 @@ function MegaLink({ link, index }: { link: MenuLink; index?: number }) {
         </span>
       )}
       <span>
-        <span className="block text-[15px] font-bold text-sx-ink">
+        <span className="block text-[16px] font-bold text-sx-ink">
           <span className="sx-link">{link.label}</span>
         </span>{' '}
-        <span className="block text-[13px] font-normal leading-snug text-sx-muted">
+        <span className="block text-[14px] font-normal leading-snug text-sx-muted">
           {link.summary}
         </span>
       </span>
@@ -168,13 +175,13 @@ function SimpleLink({ link }: { link: MenuLink }) {
         role="menuitem"
         className="group block border-t border-sx-border py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
       >
-        <span className="flex items-center justify-between text-[15px] font-bold text-sx-ink">
+        <span className="flex items-center justify-between text-[16px] font-bold text-sx-ink">
           <span className="sx-link">{link.label}</span>
           <span aria-hidden="true" className="sx-btn-arrow">
             &rarr;
           </span>
         </span>
-        <span className="block text-[13px] font-normal text-sx-muted">{link.summary}</span>
+        <span className="block text-[14px] font-normal text-sx-muted">{link.summary}</span>
       </Link>
     </li>
   );

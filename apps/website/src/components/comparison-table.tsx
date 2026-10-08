@@ -28,7 +28,7 @@ export function ComparisonTable({
         <div className="max-w-[820px]">
           {eyebrow && <div className="sx-eyebrow">{eyebrow}</div>}
           {headline && (
-            <h2 className="mt-5 text-[clamp(1.9rem,3.2vw,2.9rem)] font-black leading-[1.04] tracking-[-0.02em] text-sx-ink">
+            <h2 className="mt-5 text-[clamp(1.875rem,3.2vw,2.75rem)] font-black leading-[1.04] tracking-[-0.02em] text-sx-ink">
               {headline}
             </h2>
           )}
@@ -36,7 +36,7 @@ export function ComparisonTable({
       )}
 
       <div className="mt-10 overflow-x-auto" data-lenis-prevent-horizontal="">
-        <table className="w-full min-w-[640px] border-collapse text-left text-[15px]">
+        <table className="w-full min-w-[640px] border-collapse text-left text-[16px]">
           <thead>
             <tr className="border-y-2 border-sx-ink">
               <th scope="col" className="py-4 pr-4 font-bold text-sx-ink">
@@ -46,7 +46,7 @@ export function ComparisonTable({
                 <th
                   key={col}
                   scope="col"
-                  className="px-4 py-4 text-[13px] font-bold uppercase tracking-[0.08em] text-sx-ink"
+                  className="px-4 py-4 text-[14px] font-bold uppercase tracking-[0.08em] text-sx-ink"
                 >
                   {col}
                 </th>
@@ -72,7 +72,7 @@ export function ComparisonTable({
           </tbody>
         </table>
       </div>
-      {note && <p className="mt-4 text-[13px] text-sx-muted">{note}</p>}
+      {note && <p className="mt-4 text-[14px] text-sx-muted">{note}</p>}
     </section>
   );
 }

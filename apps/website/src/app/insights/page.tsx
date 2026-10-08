@@ -32,7 +32,6 @@ export default function InsightsPage() {
 
       <WhereNext page="insights" />
       <ClosingCta
-        figure="woman-seated"
         headline="Talk to us about your centre."
         line="Start with a short call about what you're planning."
       />

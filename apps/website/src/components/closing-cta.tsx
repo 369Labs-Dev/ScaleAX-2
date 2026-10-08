@@ -43,8 +43,8 @@ export function ClosingCta({
         }`}
       >
         <h2
-          className={`text-[clamp(2.3rem,5vw,4.6rem)] font-black leading-[0.98] tracking-[-0.025em] text-sx-ink lg:col-span-8 ${
-            figureSrc ? 'lg:text-[clamp(2.3rem,4.2vw,3.9rem)]' : ''
+          className={`text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1.05] tracking-[-0.025em] text-sx-ink lg:col-span-8 ${
+            figureSrc ? 'lg:text-[clamp(2.25rem,4.6vw,4rem)]' : ''
           }`}
         >
           {headline}

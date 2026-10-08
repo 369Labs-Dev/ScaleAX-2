@@ -133,7 +133,6 @@ export default function GrowPage() {
       />
 
       <InNumbers
-        figure="towers"
         stats={[
           { figure: '3', label: 'Ways to grow', line: 'Scale, own, improve' },
           { figure: '6', label: 'Handover steps', line: 'Planned from day one' },
@@ -145,7 +144,6 @@ export default function GrowPage() {
       <LifecycleStrip current="grow" />
       <WhereNext page="grow" />
       <ClosingCta
-        figure="man-profile"
         headline="Plan your next step."
         line="Whether you want to grow the centre or take it over, we'll map the route."
       />

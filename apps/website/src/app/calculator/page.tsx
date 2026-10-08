@@ -19,7 +19,7 @@ export default function CalculatorPage() {
     <>
       <section className="bg-sx-ground">
         <div className="sx-container pb-12 pt-16 sm:pb-16 sm:pt-24">
-          <h1 className="sx-enter max-w-[24ch] text-[clamp(2.4rem,5vw,4.2rem)] font-black leading-[1.02] tracking-[-0.035em] text-sx-ink">
+          <h1 className="sx-enter max-w-[24ch] text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1.02] tracking-[-0.035em] text-sx-ink">
             Plan your centre in a minute, not a quarter.
           </h1>
           <p className="sx-enter sx-lead mt-6 max-w-[52ch]" style={{ ['--sx-d' as string]: 1 }}>
@@ -34,7 +34,6 @@ export default function CalculatorPage() {
         </div>
       </section>
       <ClosingCta
-        figure="man-laptop"
         headline="Don't just compete. Excel globally."
         line="Tell us the functions you want in India and your timeline. You get a location shortlist, a cost model and a plan within two weeks."
       />

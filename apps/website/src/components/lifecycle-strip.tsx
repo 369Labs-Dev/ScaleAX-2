@@ -43,13 +43,13 @@ export function LifecycleStrip({ current }: { current?: CardId }) {
                 <span className="sx-figure mt-5 flex h-7 items-center gap-3 text-[12px] font-bold uppercase tracking-[0.14em] text-sx-muted">
                   Stage {String(i + 1).padStart(2, '0')}
                   {isCurrent && (
-                    <span className="rounded-sx bg-sx-ink px-2 py-1 text-[11px] tracking-[0.08em] text-sx-white">
+                    <span className="rounded-sx bg-sx-ink px-2 py-1 text-[12px] tracking-[0.08em] text-sx-white">
                       You are here
                     </span>
                   )}
                 </span>
                 <span
-                  className={`mt-3 flex items-center gap-3 text-[clamp(1.9rem,3.2vw,3rem)] font-black leading-none tracking-[-0.025em] transition-colors duration-300 ${
+                  className={`mt-3 flex items-center gap-3 text-[clamp(1.875rem,3.2vw,2.75rem)] font-black leading-none tracking-[-0.025em] transition-colors duration-300 ${
                     isCurrent ? 'text-sx-ink' : 'text-sx-ink-50 group-hover:text-sx-ink'
                   }`}
                 >
@@ -62,7 +62,7 @@ export function LifecycleStrip({ current }: { current?: CardId }) {
                   )}
                 </span>
                 {summary && (
-                  <span className="mt-3 block max-w-[26ch] pr-6 text-[15px] leading-relaxed text-sx-body">
+                  <span className="mt-3 block max-w-[26ch] pr-6 text-[16px] leading-relaxed text-sx-body">
                     {summary}
                   </span>
                 )}

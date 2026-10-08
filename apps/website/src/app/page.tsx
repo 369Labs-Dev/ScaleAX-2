@@ -125,11 +125,11 @@ function ClaimBand() {
         <div className="sx-container pb-14 pt-32 md:pb-24">
           <p
             data-scrub-text=""
-            className="max-w-[18ch] text-[clamp(2.2rem,5.2vw,5rem)] font-black leading-[1] tracking-[-0.032em]"
+            className="max-w-[18ch] text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1] tracking-[-0.032em]"
           >
             Over 2,500 centres already run from India. Yours can be live in 90 days.
           </p>
-          <p className="mt-7 max-w-xl text-[clamp(1.05rem,1.3vw,1.22rem)] leading-[1.55] text-white/85">
+          <p className="mt-7 max-w-xl text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.55] text-white/85">
             Entity, office, hiring, tax and technology delivered in parallel by one team, not a
             dozen vendors.
           </p>
@@ -154,10 +154,10 @@ function StatRow() {
               aria-hidden="true"
               className={`mb-7 block h-1.5 w-12 ${STAT_BARS[i % STAT_BARS.length]}`}
             />
-            <span className="block text-[60px] font-black leading-none tracking-[-0.04em] text-sx-ink md:text-[84px]">
+            <span className="block text-[56px] font-black leading-none tracking-[-0.04em] text-sx-ink md:text-[72px]">
               <CountUp value={stat.figure} className="sx-figure" />
             </span>
-            <p className="mt-4 max-w-[22ch] text-[15px] font-bold leading-snug text-sx-ink-70">
+            <p className="mt-4 max-w-[22ch] text-[16px] font-bold leading-snug text-sx-ink-70">
               {stat.label}
             </p>
           </div>
@@ -280,12 +280,12 @@ function Specialists() {
                 </div>
               </div>
               <div className="lg:col-span-4">
-                <p className="text-[17px] leading-relaxed text-sx-body">{partner.description}</p>
+                <p className="text-[18px] leading-relaxed text-sx-body">{partner.description}</p>
                 <a
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group mt-6 inline-flex w-fit items-center gap-3 text-[15px] font-bold text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sx-ink"
+                  className="group mt-6 inline-flex w-fit items-center gap-3 text-[16px] font-bold text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sx-ink"
                 >
                   <span>Visit {partner.name}</span>
                   <Go className="sx-go-out" />
@@ -294,10 +294,10 @@ function Specialists() {
               <dl className="grid grid-cols-3 gap-5 lg:col-span-5">
                 {partner.stats.map((stat) => (
                   <div key={stat.label} className="border-l border-sx-border pl-4">
-                    <dt className="text-[30px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[40px]">
+                    <dt className="text-[32px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[40px]">
                       <CountUp value={stat.figure} className="sx-figure" />
                     </dt>
-                    <dd className="mt-2 text-[13px] font-bold leading-snug text-sx-muted">
+                    <dd className="mt-2 text-[14px] font-bold leading-snug text-sx-muted">
                       {stat.label}
                     </dd>
                   </div>
@@ -345,12 +345,12 @@ function Testimonials() {
         </h2>
         <div className="mt-14 grid gap-x-14 gap-y-12 md:mt-20 lg:grid-cols-12">
           <figure className="sx-note self-start p-8 md:p-12 lg:col-span-7 lg:p-14">
-            <blockquote className="sx-note-hand text-[clamp(1.9rem,3.3vw,3.1rem)] leading-[1.14]">
+            <blockquote className="sx-note-hand text-[clamp(1.875rem,3.2vw,2.75rem)] leading-[1.14]">
               &ldquo;{lead.quote}&rdquo;
             </blockquote>
             <figcaption className="mt-9 border-t border-[#2a1e12]/25 pt-5">
-              <span className="block text-[17px] font-bold">{lead.name}</span>
-              <span className="block text-[15px] opacity-75">{lead.role}</span>
+              <span className="block text-[18px] font-bold">{lead.name}</span>
+              <span className="block text-[16px] opacity-75">{lead.role}</span>
             </figcaption>
           </figure>
           <div className="grid gap-10 lg:col-span-4 lg:col-start-9 lg:pt-6">
@@ -360,18 +360,18 @@ function Testimonials() {
                 className="sx-note sx-note-light p-7 md:p-8"
                 style={{ ['--sx-note-tilt' as string]: i % 2 ? '-0.9deg' : '1.3deg' }}
               >
-                <blockquote className="sx-note-hand text-[26px] leading-[1.18] md:text-[28px]">
+                <blockquote className="sx-note-hand text-[24px] leading-[1.18] md:text-[32px]">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <figcaption className="mt-6 border-t border-[#2a1e12]/25 pt-4">
-                  <span className="block text-[15px] font-bold">{t.name}</span>
+                  <span className="block text-[16px] font-bold">{t.name}</span>
                   <span className="block text-[14px] opacity-75">{t.role}</span>
                 </figcaption>
               </figure>
             ))}
           </div>
         </div>
-        <p className="mt-10 text-[13px] text-sx-muted">
+        <p className="mt-10 text-[14px] text-sx-muted">
           Sample quotes shown for layout. Named client testimonials will replace them once cleared.
         </p>
       </div>
@@ -438,10 +438,10 @@ function InsightCard({
         <div data-zoom="" className="overflow-hidden rounded-sx">
           {cover}
         </div>
-        <p className="mt-7 text-[13px] font-bold text-sx-accent-ink">
+        <p className="mt-7 text-[14px] font-bold text-sx-accent-ink">
           {article.topic}, {article.readTime}
         </p>
-        <h3 className="mt-3 text-[clamp(1.5rem,2.3vw,2.1rem)] font-black leading-[1.08] tracking-[-0.025em] text-sx-ink">
+        <h3 className="mt-3 text-[clamp(1.5rem,2.2vw,2rem)] font-black leading-[1.08] tracking-[-0.025em] text-sx-ink">
           {article.title}
         </h3>
         <p className="mt-4 max-w-[60ch] text-[16px] leading-relaxed text-sx-body">
@@ -462,13 +462,13 @@ function InsightCard({
     >
       <div className="w-full shrink-0 sm:w-[34%]">{cover}</div>
       <div>
-        <p className="text-[13px] font-bold text-sx-accent-ink">
+        <p className="text-[14px] font-bold text-sx-accent-ink">
           {article.topic}, {article.readTime}
         </p>
-        <h3 className="mt-2 text-[19px] font-black leading-snug tracking-[-0.02em] text-sx-ink">
+        <h3 className="mt-2 text-[18px] font-black leading-snug tracking-[-0.02em] text-sx-ink">
           {article.title}
         </h3>
-        <span className="mt-4 inline-flex w-fit items-center gap-3 text-[15px] font-bold text-sx-ink">
+        <span className="mt-4 inline-flex w-fit items-center gap-3 text-[16px] font-bold text-sx-ink">
           Read insight
           <Go className="sx-go-sm" />
         </span>
@@ -495,11 +495,11 @@ function ClosingBand() {
         <div className="max-w-4xl">
           <h2
             data-scrub-text=""
-            className="text-[clamp(2.6rem,6.4vw,6rem)] font-black leading-[0.96] tracking-[-0.035em] text-sx-white"
+            className="text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1.05] tracking-[-0.035em] text-sx-white"
           >
             Tell us what you want to run from India.
           </h2>
-          <p className="mt-7 max-w-xl text-[clamp(1.05rem,1.3vw,1.22rem)] leading-[1.55] text-white/85">
+          <p className="mt-7 max-w-xl text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.55] text-white/85">
             Tell us the functions you want in India and your timeline. You get a location shortlist,
             a cost model and a plan within two weeks.
           </p>

@@ -133,7 +133,6 @@ export default function RunPage() {
       />
 
       <InNumbers
-        figure="man-laptop"
         stats={[
           { figure: '9', label: 'Services', line: 'In three groups: people, money, premises' },
           { figure: '4', label: 'Review cycles', line: 'Weekly to annual' },
@@ -145,7 +144,6 @@ export default function RunPage() {
       <LifecycleStrip current="run" />
       <WhereNext page="run" />
       <ClosingCta
-        figure="woman-seated"
         headline="Hand us the running of your centre."
         line="Tell us which services you need and we'll propose service levels and a fee."
       />

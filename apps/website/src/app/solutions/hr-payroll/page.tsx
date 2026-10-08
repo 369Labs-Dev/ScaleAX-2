@@ -94,7 +94,6 @@ export default function HrPayrollPage() {
       />
 
       <InNumbers
-        figure="woman-walking"
         stats={[
           { figure: '6', label: 'Set-up steps', line: 'System to grades' },
           { figure: '6', label: 'Monthly services', line: 'Payroll to exits' },
@@ -106,7 +105,6 @@ export default function HrPayrollPage() {
       <LifecycleStrip current="run" />
       <WhereNext page="hr-payroll" />
       <ClosingCta
-        figure="man-blazer"
         headline="Get HR and payroll right from the first salary."
         line="Tell us your headcount and locations and we'll propose a set-up plan."
       />

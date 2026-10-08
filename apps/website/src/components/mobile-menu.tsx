@@ -7,6 +7,7 @@ import {
   HOW_WE_WORK_MENU,
   SOLUTIONS_MENU,
   ENGAGEMENT_MODELS_MENU,
+  GIFT_CITY_MENU,
   INSIGHTS_MENU,
   type MenuLink,
 } from '@/lib/site-data';
@@ -21,6 +22,7 @@ const GROUPS: AccordionGroup[] = [
   { id: 'how-we-work', label: 'How we work', links: HOW_WE_WORK_MENU },
   { id: 'solutions', label: 'Solutions', links: SOLUTIONS_MENU },
   { id: 'engagement', label: 'Engagement models', links: ENGAGEMENT_MODELS_MENU },
+  { id: 'gift-city', label: 'GIFT City', links: GIFT_CITY_MENU },
   { id: 'insights', label: 'Insights', links: INSIGHTS_MENU },
 ];
 
@@ -104,7 +106,7 @@ export function MobileMenu() {
           <div className="sx-container flex h-[76px] shrink-0 items-center justify-between">
             <Link
               href="/"
-              className="text-[22px] font-black tracking-[-0.03em] text-sx-ink"
+              className="text-[20px] font-black tracking-[-0.03em] text-sx-ink"
               onClick={close}
             >
               ScaleAX
@@ -137,7 +139,7 @@ export function MobileMenu() {
                     aria-expanded={isExpanded}
                     aria-controls={`mobile-group-${group.id}`}
                     onClick={() => setExpanded(isExpanded ? null : group.id)}
-                    className="flex w-full items-center justify-between py-5 text-left text-[22px] font-black tracking-[-0.02em] text-sx-ink"
+                    className="flex w-full items-center justify-between py-5 text-left text-[20px] font-black tracking-[-0.02em] text-sx-ink"
                   >
                     {group.label}
                     <ChevronDown
@@ -154,8 +156,8 @@ export function MobileMenu() {
                             onClick={close}
                             className="block rounded-sx p-2 hover:bg-sx-bg-light"
                           >
-                            <div className="text-[15px] font-bold text-sx-ink">{link.label}</div>
-                            <div className="text-[13px] text-sx-muted">{link.summary}</div>
+                            <div className="text-[16px] font-bold text-sx-ink">{link.label}</div>
+                            <div className="text-[14px] text-sx-muted">{link.summary}</div>
                           </Link>
                         </li>
                       ))}
@@ -164,13 +166,10 @@ export function MobileMenu() {
                 </div>
               );
             })}
-            <BigLink href="/gift-city" onClick={close}>
-              GIFT City
-            </BigLink>
             <BigLink href="/calculator" onClick={close}>
               GCC Calculator
             </BigLink>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 pt-5 text-[15px] font-bold text-sx-ink-70">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 pt-5 text-[16px] font-bold text-sx-ink-70">
               <Link href="/location" onClick={close} className="hover:text-sx-ink">
                 Location Finder
               </Link>
@@ -207,7 +206,7 @@ function BigLink({
     <Link
       href={href}
       onClick={onClick}
-      className="block border-b border-sx-border py-5 text-[22px] font-black tracking-[-0.02em] text-sx-ink"
+      className="block border-b border-sx-border py-5 text-[20px] font-black tracking-[-0.02em] text-sx-ink"
     >
       {children}
     </Link>

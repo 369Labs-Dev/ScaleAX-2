@@ -151,8 +151,8 @@ export function HeroCarousel({ slides, proof }: { slides: HeroSlide[]; proof: Pr
                       aria-hidden={on ? undefined : true}
                       className={`font-black tracking-[-0.022em] text-sx-white [grid-area:1/1] ${
                         slide.headline.length > LONG_HEADLINE
-                          ? 'max-w-[30ch] text-[clamp(1.7rem,3.5vw,3.3rem)] leading-[1.08]'
-                          : 'max-w-[19ch] text-[clamp(2.5rem,5.7vw,5.4rem)] leading-[1]'
+                          ? 'max-w-[30ch] text-[clamp(1.875rem,3.2vw,2.75rem)] leading-[1.08]'
+                          : 'max-w-[19ch] text-[clamp(2.25rem,4.6vw,4rem)] leading-[1]'
                       }`}
                     >
                       {slide.headline.split(' ').map((word, w) => (
@@ -199,14 +199,14 @@ export function HeroCarousel({ slides, proof }: { slides: HeroSlide[]; proof: Pr
                       className="max-w-[52ch] [grid-area:1/1]"
                     >
                       {slide.lead && (
-                        <p className="text-[clamp(1.05rem,1.3vw,1.22rem)] leading-[1.55] text-white/85">
+                        <p className="text-[clamp(1rem,1.3vw,1.125rem)] leading-[1.55] text-white/85">
                           {slide.lead}
                         </p>
                       )}
                       {slide.link && (
                         <Link
                           href={slide.link.href}
-                          className="group inline-flex items-center gap-3 text-[clamp(1.05rem,1.3vw,1.22rem)] font-bold text-sx-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                          className="group inline-flex items-center gap-3 text-[clamp(1rem,1.3vw,1.125rem)] font-bold text-sx-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                         >
                           <span className="sx-link">{slide.link.text}</span>
                           <span className="sx-btn-arrow" aria-hidden="true">
@@ -239,10 +239,10 @@ export function HeroCarousel({ slides, proof }: { slides: HeroSlide[]; proof: Pr
             >
               {proof.map((tile) => (
                 <div key={tile.label} className="lg:border-t lg:border-white/25 lg:py-4">
-                  <dt className="text-[26px] font-black leading-none tracking-[-0.03em] text-sx-white md:text-[32px]">
+                  <dt className="text-[24px] font-black leading-none tracking-[-0.03em] text-sx-white md:text-[32px]">
                     <CountUp value={tile.figure} className="sx-figure" />
                   </dt>
-                  <dd className="mt-2 text-[13px] font-bold text-white/70">{tile.label}</dd>
+                  <dd className="mt-2 text-[14px] font-bold text-white/70">{tile.label}</dd>
                 </div>
               ))}
             </dl>
@@ -267,7 +267,7 @@ export function HeroCarousel({ slides, proof }: { slides: HeroSlide[]; proof: Pr
                       aria-label={`Show slide ${i + 1} of ${slides.length}: ${slide.label}`}
                       aria-current={current ? 'true' : undefined}
                       onClick={() => go(i)}
-                      className={`group flex w-full items-baseline gap-2 pb-1 pt-3 text-left text-[13px] font-bold transition-colors duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:text-[14px] ${
+                      className={`group flex w-full items-baseline gap-2 pb-1 pt-3 text-left text-[14px] font-bold transition-colors duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:text-[14px] ${
                         current ? 'text-sx-white' : 'text-white/55 hover:text-sx-white'
                       }`}
                     >

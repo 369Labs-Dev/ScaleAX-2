@@ -122,7 +122,7 @@ export function LocationFinder() {
             <select
               value={industry}
               onChange={(e) => setIndustry(e.target.value as IndustryId)}
-              className="mt-1 h-11 w-full rounded-sx border border-sx-border bg-white px-3 text-[15px] text-sx-body"
+              className="mt-1 h-11 w-full rounded-sx border border-sx-border bg-white px-3 text-[16px] text-sx-body"
             >
               {INDUSTRIES.map((i) => (
                 <option key={i.id} value={i.id}>
@@ -137,7 +137,7 @@ export function LocationFinder() {
             <select
               value={hqRegion}
               onChange={(e) => setHqRegion(e.target.value as HqRegionId)}
-              className="mt-1 h-11 w-full rounded-sx border border-sx-border bg-white px-3 text-[15px] text-sx-body"
+              className="mt-1 h-11 w-full rounded-sx border border-sx-border bg-white px-3 text-[16px] text-sx-body"
             >
               {HQ_REGIONS.map((r) => (
                 <option key={r.id} value={r.id}>
@@ -282,7 +282,7 @@ export function LocationFinder() {
                       className="rounded-sx border border-sx-border bg-white p-4"
                     >
                       <div className="sx-eyebrow">{factor.label}</div>
-                      <p className="mt-1 text-[13px] text-sx-body">
+                      <p className="mt-1 text-[14px] text-sx-body">
                         {shortlist.best!.city.whyThisCity[factor.id]}
                       </p>
                     </div>
@@ -303,10 +303,10 @@ export function LocationFinder() {
                       className="flex flex-col gap-1 p-4 sm:flex-row sm:items-center sm:justify-between"
                     >
                       <div>
-                        <div className="text-[15px] font-bold text-sx-ink">
+                        <div className="text-[16px] font-bold text-sx-ink">
                           {result.city.name} &middot; {result.overallScore.toFixed(2)} / 5
                         </div>
-                        <p className="mt-1 text-[13px] text-sx-body">
+                        <p className="mt-1 text-[14px] text-sx-body">
                           {result.city.tradeOff.strength}, but{' '}
                           {result.city.tradeOff.weakness.toLowerCase()}.
                         </p>
@@ -334,7 +334,7 @@ function ResultCard({
 }) {
   if (!result) {
     return (
-      <div className="rounded-sx border border-sx-border bg-sx-bg-light p-6 text-[13px] text-sx-muted">
+      <div className="rounded-sx border border-sx-border bg-sx-bg-light p-6 text-[14px] text-sx-muted">
         No city available for &ldquo;{label}&rdquo; with the current filters.
       </div>
     );
@@ -343,10 +343,10 @@ function ResultCard({
   return (
     <div className="sx-card-hover rounded-sx border border-sx-border bg-white p-6">
       <div className="sx-eyebrow">{label}</div>
-      <div className="mt-1 text-[22px] font-bold text-sx-ink">
+      <div className="mt-1 text-[20px] font-bold text-sx-ink">
         <Tick value={result.city.name} />
       </div>
-      <div className="sx-figure mt-1 text-[15px] font-bold text-sx-ink">
+      <div className="sx-figure mt-1 text-[16px] font-bold text-sx-ink">
         <Tick value={`${result.overallScore.toFixed(2)} / 5`} />
       </div>
       <div className="mt-4 space-y-2">
@@ -421,7 +421,7 @@ function ReportGate({
     >
       <h3 className="text-[20px] font-bold text-sx-ink">Get the full comparison as a PDF.</h3>
       {unlocked ? (
-        <p className="mt-3 text-[15px] text-sx-body" role="status">
+        <p className="mt-3 text-[16px] text-sx-body" role="status">
           Thank you &mdash; we&rsquo;ll email your full comparison shortly.
         </p>
       ) : (
@@ -431,7 +431,7 @@ function ReportGate({
           <Field label="Company" name="company" error={errors.company} />
           <div className="sm:col-span-3">
             {status === 'error' && (
-              <p role="alert" className="mb-3 text-[13px] text-red-600">
+              <p role="alert" className="mb-3 text-[14px] text-red-600">
                 Something went wrong. Please try again.
               </p>
             )}
@@ -465,7 +465,7 @@ function Field({
 }) {
   const id = `lf-report-${name}`;
   return (
-    <label htmlFor={id} className="block text-[13px] font-bold text-sx-ink">
+    <label htmlFor={id} className="block text-[14px] font-bold text-sx-ink">
       {label}
       <input
         id={id}

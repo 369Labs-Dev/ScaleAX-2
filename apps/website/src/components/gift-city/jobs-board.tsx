@@ -13,7 +13,7 @@ import {
 const { jobs } = GIFT_CITY;
 
 const FIELD =
-  'h-12 w-full rounded-sx border border-sx-border bg-sx-white px-4 text-[15px] text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink';
+  'h-12 w-full rounded-sx border border-sx-border bg-sx-white px-4 text-[16px] text-sx-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink';
 
 // GIFT City jobs board: search and three filters over the listings, with the
 // employer and job-alert panels beside it. The listings are examples and the
@@ -68,7 +68,7 @@ export function JobsBoard() {
           />
         </div>
 
-        <p className="mt-5 text-[13px] text-sx-muted" aria-live="polite">
+        <p className="mt-5 text-[14px] text-sx-muted" aria-live="polite">
           {results.length} {results.length === 1 ? 'role' : 'roles'}. Listings shown are examples to
           demonstrate the layout.
         </p>
@@ -80,13 +80,13 @@ export function JobsBoard() {
               className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-b border-sx-border py-5"
             >
               <div className="min-w-0">
-                <div className="text-[19px] font-black tracking-[-0.015em] text-sx-ink">
+                <div className="text-[18px] font-black tracking-[-0.015em] text-sx-ink">
                   {job.title}
                 </div>
                 <div className="mt-1 text-[14px] text-sx-body">
                   {job.company} &middot; {job.type}
                 </div>
-                <div className="mt-1 text-[13px] text-sx-muted">
+                <div className="mt-1 text-[14px] text-sx-muted">
                   {job.func} &middot; {job.experience} &middot; {job.posted}
                 </div>
               </div>
@@ -96,7 +96,7 @@ export function JobsBoard() {
             </li>
           ))}
           {results.length === 0 && (
-            <li className="border-b border-sx-border py-8 text-[15px] text-sx-body">
+            <li className="border-b border-sx-border py-8 text-[16px] text-sx-body">
               No roles match these filters.
             </li>
           )}
@@ -116,7 +116,7 @@ export function JobsBoard() {
           <h3 className="text-[20px] font-black tracking-[-0.015em] text-sx-white">
             {jobs.employerHeading}
           </h3>
-          <p className="mt-3 text-[15px] leading-relaxed text-white/80">{jobs.employerText}</p>
+          <p className="mt-3 text-[16px] leading-relaxed text-white/80">{jobs.employerText}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/contact" className="sx-btn sx-btn-light sx-btn-sm">
               {jobs.employerButtons[0]}
@@ -130,7 +130,7 @@ export function JobsBoard() {
           <h3 className="text-[20px] font-black tracking-[-0.015em] text-sx-ink">
             Looking for a role?
           </h3>
-          <p className="mt-3 text-[15px] leading-relaxed text-sx-body">
+          <p className="mt-3 text-[16px] leading-relaxed text-sx-body">
             Get new GIFT City roles by email.
           </p>
           <Link href="/contact" className="sx-btn sx-btn-ghost sx-btn-sm mt-6">

@@ -68,7 +68,7 @@ export function RouteSelector() {
                 {r.summary}
               </span>
               <span
-                className={`mt-auto pt-5 text-[13px] font-bold ${selected ? 'text-white' : 'text-sx-ink'}`}
+                className={`mt-auto pt-5 text-[14px] font-bold ${selected ? 'text-white' : 'text-sx-ink'}`}
               >
                 {r.weeks}
               </span>
@@ -86,7 +86,7 @@ export function RouteSelector() {
       >
         <div className="grid grid-cols-1 gap-x-14 gap-y-8 lg:grid-cols-12">
           <div className="min-w-0 lg:col-span-5">
-            <h3 className="text-[clamp(1.6rem,2.6vw,2.3rem)] font-black leading-[1.05] tracking-[-0.02em] text-sx-ink">
+            <h3 className="text-[clamp(1.5rem,2.2vw,2rem)] font-black leading-[1.05] tracking-[-0.02em] text-sx-ink">
               {route.name}
             </h3>
             <p className="mt-4 text-[16px] leading-relaxed text-sx-body">{route.summary}</p>
@@ -113,7 +113,7 @@ export function RouteSelector() {
                   className="grid gap-x-6 gap-y-1 border-b border-sx-border py-4 sm:grid-cols-[11rem_1fr]"
                 >
                   <dt className="text-[14px] font-bold text-sx-ink">{label}</dt>
-                  <dd className="text-[15px] leading-relaxed text-sx-body">{text}</dd>
+                  <dd className="text-[16px] leading-relaxed text-sx-body">{text}</dd>
                 </div>
               ))}
             </dl>
@@ -158,7 +158,7 @@ export function RouteSelector() {
                       className="flex w-full items-center justify-between gap-6 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
                     >
                       <span className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                        <span className="sx-figure text-[13px] font-bold text-sx-ink-50">
+                        <span className="sx-figure text-[14px] font-bold text-sx-ink-50">
                           {String(i + 1).padStart(2, '0')}
                         </span>
                         <span className="text-[18px] font-black tracking-[-0.015em] text-sx-ink">
@@ -179,7 +179,7 @@ export function RouteSelector() {
                     <div className="min-h-0 overflow-hidden">
                       <ul className="grid gap-x-10 gap-y-2 pb-6 sm:grid-cols-2">
                         {steps.map((step) => (
-                          <li key={step} className="text-[15px] leading-relaxed text-sx-body">
+                          <li key={step} className="text-[16px] leading-relaxed text-sx-body">
                             &middot; {step}
                           </li>
                         ))}
@@ -190,7 +190,7 @@ export function RouteSelector() {
               );
             })}
           </div>
-          <p className="mt-5 text-[13px] text-sx-muted">{ifsc.journeyNote}</p>
+          <p className="mt-5 text-[14px] text-sx-muted">{ifsc.journeyNote}</p>
         </div>
       </div>
 
@@ -198,7 +198,7 @@ export function RouteSelector() {
         <h3 className="text-[20px] font-black tracking-[-0.015em] text-sx-ink">
           {ifsc.outside[0]}
         </h3>
-        <p className="mt-2 max-w-[80ch] text-[15px] leading-relaxed text-sx-body">
+        <p className="mt-2 max-w-[80ch] text-[16px] leading-relaxed text-sx-body">
           {ifsc.outside[1]}
         </p>
       </div>

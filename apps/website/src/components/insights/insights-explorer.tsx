@@ -52,7 +52,7 @@ export function InsightsExplorer({ covers = {} }: { covers?: Record<string, stri
       </section>
 
       <section className="sx-container pb-16 pt-8 md:pb-24">
-        <p className="mb-8 text-[13px] text-sx-muted">
+        <p className="mb-8 text-[14px] text-sx-muted">
           Sample articles shown below for the Insights template.
         </p>
         <div className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
@@ -73,14 +73,14 @@ export function InsightsExplorer({ covers = {} }: { covers?: Record<string, stri
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="aspect-[16/10] w-full rounded-sx [&_img]:transition-transform [&_img]:duration-[900ms] [&_img]:ease-sx-out group-hover:[&_img]:scale-[1.05]"
               />
-              <div className="mt-5 text-[13px] font-bold text-sx-accent-ink">{article.topic}</div>
+              <div className="mt-5 text-[14px] font-bold text-sx-accent-ink">{article.topic}</div>
               <h2
                 data-no-split=""
-                className="mt-2 text-[22px] font-black leading-snug tracking-[-0.015em] text-sx-ink"
+                className="mt-2 text-[20px] font-black leading-snug tracking-[-0.015em] text-sx-ink"
               >
                 <span className="sx-link">{article.title}</span>
               </h2>
-              <div className="mt-auto pt-4 text-[13px] text-sx-muted">
+              <div className="mt-auto pt-4 text-[14px] text-sx-muted">
                 {article.readTime} &middot;{' '}
                 {new Date(article.date).toLocaleDateString('en-GB', {
                   day: 'numeric',

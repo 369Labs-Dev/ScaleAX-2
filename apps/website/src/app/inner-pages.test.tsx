@@ -14,6 +14,11 @@ import TaxLegalCompliancePage from './solutions/tax-legal-compliance/page';
 import FinanceAccountingPage from './solutions/finance-accounting/page';
 import ModelsPage from './models/page';
 import GiftCityPage from './gift-city/page';
+import GiftCityWhyPage from './gift-city/why/page';
+import GiftCityIfscPage from './gift-city/ifsc-set-up/page';
+import GiftCityFacilitiesPage from './gift-city/facilities/page';
+import GiftCityJobsPage from './gift-city/jobs/page';
+import GiftCityFaqPage from './gift-city/faq/page';
 import InsightsPage from './insights/page';
 import NewsPage from './news/page';
 import CareersPage from './careers/page';
@@ -167,8 +172,8 @@ describe('Engagement models page (B13)', () => {
   });
 });
 
-describe('GIFT City page (B14)', () => {
-  it('renders the hub: licence routes, facilities, jobs and FAQ', () => {
+describe('GIFT City pages (B14)', () => {
+  it('renders the overview with a link to each part', () => {
     render(<GiftCityPage />);
     expect(
       screen.getByRole('heading', {
@@ -176,7 +181,25 @@ describe('GIFT City page (B14)', () => {
         name: /set up, staff and settle your team in gift city/i,
       }),
     ).toBeInTheDocument();
+    for (const [name, href] of [
+      [/why gift city/i, '/gift-city/why'],
+      [/ifsc set-up/i, '/gift-city/ifsc-set-up'],
+      [/facilities/i, '/gift-city/facilities'],
+      [/^jobs/i, '/gift-city/jobs'],
+      [/^faq/i, '/gift-city/faq'],
+    ] as const) {
+      expect(screen.getByRole('link', { name })).toHaveAttribute('href', href);
+    }
+  });
+
+  it('renders why GIFT City on its own page', () => {
+    render(<GiftCityWhyPage />);
+    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
     expect(screen.getByText('One regulator, one application')).toBeInTheDocument();
+  });
+
+  it('renders the licence routes on the IFSC set-up page', () => {
+    render(<GiftCityIfscPage />);
     // Eight licence routes; the GIC is open first with its own journey.
     expect(screen.getAllByRole('tab')).toHaveLength(8);
     expect(screen.getByRole('tab', { name: /global in-house centre \(gic\)/i })).toHaveAttribute(
@@ -184,9 +207,19 @@ describe('GIFT City page (B14)', () => {
       'true',
     );
     expect(screen.getByText('Who qualifies')).toBeInTheDocument();
+  });
+
+  it('renders facilities, jobs and the FAQ on their own pages', () => {
+    const facilities = render(<GiftCityFacilitiesPage />);
     expect(screen.getByRole('heading', { name: 'ScaleAX One Desk' })).toBeInTheDocument();
+    facilities.unmount();
+
+    const jobs = render(<GiftCityJobsPage />);
     expect(screen.getByText('Treasury Analyst')).toBeInTheDocument();
     expect(screen.getByText(/listings shown are examples/i)).toBeInTheDocument();
+    jobs.unmount();
+
+    render(<GiftCityFaqPage />);
     expect(screen.getByRole('button', { name: /how long does set-up take/i })).toBeInTheDocument();
   });
 });

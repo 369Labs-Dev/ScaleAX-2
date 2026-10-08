@@ -50,19 +50,19 @@ export function TileSection({
                 aria-hidden="true"
                 className="absolute inset-x-0 -bottom-px h-px origin-left scale-x-0 bg-sx-ink transition-transform duration-700 ease-sx-out group-hover:scale-x-100"
               />
-              <div className="sx-figure text-[13px] font-bold text-sx-ink-50 transition-colors duration-300 group-hover:text-sx-ink">
+              <div className="sx-figure text-[14px] font-bold text-sx-ink-50 transition-colors duration-300 group-hover:text-sx-ink">
                 {String(i + 1).padStart(2, '0')}
               </div>
               <div className="mt-3 text-[20px] font-black leading-snug tracking-[-0.015em] text-sx-ink">
                 {item.title}
               </div>
               {item.description && (
-                <p className="mt-2 text-[15px] leading-relaxed text-sx-body">{item.description}</p>
+                <p className="mt-2 text-[16px] leading-relaxed text-sx-body">{item.description}</p>
               )}
               {item.points && (
                 <ul className="mt-3 space-y-1.5">
                   {item.points.map((point) => (
-                    <li key={point} className="text-[15px] text-sx-body">
+                    <li key={point} className="text-[16px] text-sx-body">
                       &middot; {point}
                     </li>
                   ))}

@@ -108,7 +108,6 @@ export default function TalentPage() {
       </section>
 
       <InNumbers
-        figure="man-phone"
         stats={[
           { figure: '6', label: 'Set-up steps', line: 'From hiring plan to employer brand' },
           { figure: '5', label: 'Hiring models', line: 'RPO to leadership search' },
@@ -120,7 +119,6 @@ export default function TalentPage() {
       <LifecycleStrip current="build" />
       <WhereNext page="talent" />
       <ClosingCta
-        figure="woman-seated"
         headline="Start with the right first hires."
         line="Tell us the roles you need and we'll share salary ranges and a hiring timeline."
       />

@@ -53,11 +53,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               { label: article.title },
             ]}
           />
-          <div className="mt-6 w-fit rounded-sx bg-sx-tint-yellow px-3 py-2 text-[13px] font-bold text-sx-ink">
+          <div className="mt-6 w-fit rounded-sx bg-sx-tint-yellow px-3 py-2 text-[14px] font-bold text-sx-ink">
             Sample article: shown to demonstrate the Insights template.
           </div>
           <div className="sx-eyebrow mt-10">{article.topic}</div>
-          <h1 className="mt-5 text-[clamp(2.2rem,4.6vw,4rem)] font-black leading-[1.02] tracking-[-0.022em] text-sx-ink">
+          <h1 className="mt-5 text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1.02] tracking-[-0.022em] text-sx-ink">
             {article.title}
           </h1>
           <div className="mt-7 flex flex-wrap items-center gap-3 text-[14px] font-bold text-sx-muted">
@@ -101,7 +101,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <div key={section.heading} className="mt-10">
               <h2
                 data-no-split=""
-                className="text-[26px] font-black leading-tight tracking-[-0.015em] text-sx-ink"
+                className="text-[24px] font-black leading-tight tracking-[-0.015em] text-sx-ink"
               >
                 {section.heading}
               </h2>

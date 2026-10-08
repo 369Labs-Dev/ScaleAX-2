@@ -106,10 +106,10 @@ export function MiniEstimator() {
           <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-sx-ink-70">
             Indicative annual saving
           </p>
-          <p className="mt-4 text-[56px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[84px]">
+          <p className="mt-4 text-[56px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[72px]">
             <Tick value={formatUsdCompact(estimate.annualSaving)} className="sx-figure" />
           </p>
-          <p className="mt-3 text-[17px] text-sx-ink-70">
+          <p className="mt-3 text-[18px] text-sx-ink-70">
             <Tick
               value={`${Math.round(estimate.annualSavingPct)}%`}
               className="sx-figure font-bold"
