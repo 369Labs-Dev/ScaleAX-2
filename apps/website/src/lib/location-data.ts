@@ -9,15 +9,13 @@
 // parameters × 10 cities, with source and date" — owner "Research"; item
 // 10: role-level talent data; item 11: "why this city" / trade-off copy).
 // None of those figures exist in the brief. Every score below is therefore
-// an explicitly-flagged PLACEHOLDER (`PLACEHOLDER_DATA_NOTICE`), directionally
+// a PLACEHOLDER, directionally
 // sketched from well-known, non-confidential facts about each city (e.g.
 // Bengaluru's talent depth and traffic, GIFT City's IFSC status, Delhi's air
 // quality) so the tool is genuinely testable and differentiates cities
-// sensibly — never presented as ScaleAX's real benchmark research. The UI
-// surfaces this notice; nothing here should be read as sourced data.
-
-export const PLACEHOLDER_DATA_NOTICE =
-  'City scores are illustrative placeholders pending confirmed benchmark data from ScaleAX Research (see Appendix 1, items 9-11). They are not a site-selection study.';
+// sensibly. Nothing here should be read as sourced data. The on-page notice
+// that said so was removed at the client's request (October 2026); the
+// scores still need replacing with the Research team's figures.
 
 export type IndustryId =
   | 'semiconductors'

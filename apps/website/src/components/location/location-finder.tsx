@@ -8,7 +8,6 @@ import {
   HQ_REGIONS,
   INDUSTRIES,
   MAX_ROLES_SELECTABLE,
-  PLACEHOLDER_DATA_NOTICE,
   ROLES,
   type FactorId,
   type GiftCityNeed,
@@ -321,8 +320,6 @@ export function LocationFinder() {
             <ReportGate input={input} shortlist={shortlist} />
           </>
         )}
-
-        <p className="mt-8 text-[13px] text-sx-muted">{PLACEHOLDER_DATA_NOTICE}</p>
       </section>
     </div>
   );
