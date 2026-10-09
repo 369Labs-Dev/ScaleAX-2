@@ -9,6 +9,7 @@ import { ClosingCta } from '@/components/closing-cta';
 import { Reveal } from '@/components/motion/reveal';
 import { RouteSelector } from './route-selector';
 import { JobsBoard } from './jobs-board';
+import { WhyExplorer } from './why-explorer';
 
 const { why, ifsc, facilities, faq, closing } = GIFT_CITY;
 
@@ -96,12 +97,7 @@ export function GiftCityParts({ current, heading }: { current: string; heading?:
 }
 
 export function WhySection() {
-  return (
-    <TileSection
-      columns={2}
-      items={why.items.map(([title, description]) => ({ title, description }))}
-    />
-  );
+  return <WhyExplorer />;
 }
 
 /** Route selector, then what ScaleAX does. */

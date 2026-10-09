@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
 import { gsap, ScrollTrigger, SplitText, useGSAP } from '@/lib/gsap';
@@ -20,11 +20,15 @@ import { registerLenis } from '@/lib/smooth-scroll';
 // and nothing here hides content before JavaScript runs.
 export function ScrollFx() {
   const pathname = usePathname();
+  const lenisRef = useRef<Lenis | null>(null);
+  const firstPath = useRef(true);
+  const viaHistory = useRef(false);
 
   useEffect(() => {
     if (!motionEnabled() || !window.matchMedia('(pointer: fine)').matches) return;
     const lenis = new Lenis({ duration: 1.35, anchors: { offset: -88 } });
     registerLenis(lenis);
+    lenisRef.current = lenis;
     lenis.on('scroll', ScrollTrigger.update);
     const raf = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(raf);
@@ -32,9 +36,37 @@ export function ScrollFx() {
     return () => {
       gsap.ticker.remove(raf);
       registerLenis(null);
+      lenisRef.current = null;
       lenis.destroy();
     };
   }, []);
+
+  // A new page starts at the top. Lenis keeps its own scroll target, so
+  // without this it carries the old position over and a link clicked near
+  // the bottom of one page lands at the bottom of the next. Back and
+  // forward keep the browser's restored position, and #anchors are left to
+  // Lenis.
+  useEffect(() => {
+    const onPop = () => {
+      viaHistory.current = true;
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+  useEffect(() => {
+    if (firstPath.current) {
+      firstPath.current = false;
+      return;
+    }
+    if (viaHistory.current) {
+      viaHistory.current = false;
+      return;
+    }
+    if (window.location.hash) return;
+    const lenis = lenisRef.current;
+    if (lenis) lenis.scrollTo(0, { immediate: true, force: true });
+    else window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
 
   useGSAP(
     () => {
