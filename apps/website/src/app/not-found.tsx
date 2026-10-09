@@ -36,7 +36,7 @@ export default function NotFound() {
         </div>
         <p
           aria-hidden="true"
-          className="sx-figure mt-12 select-none text-[clamp(7rem,22vw,15rem)] font-black leading-[0.8] tracking-[-0.05em] text-sx-ink-06 lg:col-span-4 lg:mt-0 lg:text-right"
+          className="sx-figure mt-12 select-none text-[clamp(7rem,22vw,15rem)] font-bold leading-[0.8] tracking-[-0.01em] text-sx-ink-06 lg:col-span-4 lg:mt-0 lg:text-right"
         >
           404
         </p>

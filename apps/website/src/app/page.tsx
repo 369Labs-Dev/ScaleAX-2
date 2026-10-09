@@ -125,7 +125,7 @@ function ClaimBand() {
         <div className="sx-container pb-14 pt-32 md:pb-24">
           <p
             data-scrub-text=""
-            className="max-w-[18ch] text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1] tracking-[-0.032em]"
+            className="max-w-[18ch] text-[clamp(2.25rem,4.6vw,4rem)] font-bold leading-[1] tracking-[-0.01em]"
           >
             Over 2,500 centres already run from India. Yours can be live in 90 days.
           </p>
@@ -154,7 +154,7 @@ function StatRow() {
               aria-hidden="true"
               className={`mb-7 block h-1.5 w-12 ${STAT_BARS[i % STAT_BARS.length]}`}
             />
-            <span className="block text-[56px] font-black leading-none tracking-[-0.04em] text-sx-ink md:text-[72px]">
+            <span className="block text-[56px] font-bold leading-none tracking-[-0.01em] text-sx-ink md:text-[72px]">
               <CountUp value={stat.figure} className="sx-figure" />
             </span>
             <p className="mt-4 max-w-[22ch] text-[16px] font-bold leading-snug text-sx-ink-70">
@@ -294,7 +294,7 @@ function Specialists() {
               <dl className="grid grid-cols-3 gap-5 lg:col-span-5">
                 {partner.stats.map((stat) => (
                   <div key={stat.label} className="border-l border-sx-border pl-4">
-                    <dt className="text-[32px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[40px]">
+                    <dt className="text-[24px] font-bold leading-none tracking-[-0.01em] text-sx-ink sm:text-[32px] md:text-[40px] lg:text-[24px] xl:text-[32px]">
                       <CountUp value={stat.figure} className="sx-figure" />
                     </dt>
                     <dd className="mt-2 text-[14px] font-bold leading-snug text-sx-muted">
@@ -441,7 +441,7 @@ function InsightCard({
         <p className="mt-7 text-[14px] font-bold text-sx-accent-ink">
           {article.topic}, {article.readTime}
         </p>
-        <h3 className="mt-3 text-[clamp(1.5rem,2.2vw,2rem)] font-black leading-[1.08] tracking-[-0.025em] text-sx-ink">
+        <h3 className="mt-3 text-[clamp(1.5rem,2.2vw,2rem)] font-bold leading-[1.08] tracking-[-0.01em] text-sx-ink">
           {article.title}
         </h3>
         <p className="mt-4 max-w-[60ch] text-[16px] leading-relaxed text-sx-body">
@@ -465,7 +465,7 @@ function InsightCard({
         <p className="text-[14px] font-bold text-sx-accent-ink">
           {article.topic}, {article.readTime}
         </p>
-        <h3 className="mt-2 text-[18px] font-black leading-snug tracking-[-0.02em] text-sx-ink">
+        <h3 className="mt-2 text-[18px] font-bold leading-snug tracking-[-0.01em] text-sx-ink">
           {article.title}
         </h3>
         <span className="mt-4 inline-flex w-fit items-center gap-3 text-[16px] font-bold text-sx-ink">
@@ -495,7 +495,7 @@ function ClosingBand() {
         <div className="max-w-4xl">
           <h2
             data-scrub-text=""
-            className="text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1.05] tracking-[-0.035em] text-sx-white"
+            className="text-[clamp(2.25rem,4.6vw,4rem)] font-bold leading-[1.05] tracking-[-0.01em] text-sx-white"
           >
             Tell us what you want to run from India.
           </h2>

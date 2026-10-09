@@ -74,7 +74,7 @@ export function PageHero({
           {eyebrow}
         </div>
         <h1
-          className="sx-enter mt-5 max-w-[19ch] text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1.05] tracking-[-0.022em] text-sx-white"
+          className="sx-enter mt-5 max-w-[19ch] text-[clamp(2.25rem,4.6vw,4rem)] font-bold leading-[1.05] tracking-[-0.01em] text-sx-white"
           style={{ ['--sx-d' as string]: 2 }}
         >
           {title}
@@ -138,9 +138,7 @@ export function PageHero({
             className="sx-enter mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/25 pt-5"
             style={{ ['--sx-d' as string]: 5 }}
           >
-            <span className="text-[14px] font-bold uppercase tracking-[0.1em] text-white/60">
-              Jump to
-            </span>
+            <span className="text-[14px] font-bold text-white/60">Jump to</span>
             {chips.map((chip) => (
               <a
                 key={chip.href}

@@ -12,7 +12,7 @@ export function ValuesGrid() {
   return (
     <section id="values" className="sx-container scroll-mt-24 py-16 md:py-24">
       <div className="grid gap-x-14 gap-y-10 lg:grid-cols-12">
-        <SectionHeader eyebrow="HOW WE WORK" headline="Four things we hold ourselves to." />
+        <SectionHeader eyebrow="How we work" headline="Four things we hold ourselves to." />
         <Reveal stagger className={`grid gap-4 sm:grid-cols-2 ${sectionBodyClass(true)}`}>
           {ABOUT_VALUES.map((value, i) => (
             <article
@@ -22,7 +22,7 @@ export function ValuesGrid() {
               <div className="sx-figure text-[14px] font-bold text-sx-ink-50">
                 {String(i + 1).padStart(2, '0')}
               </div>
-              <h3 className="pt-10 text-[24px] font-black leading-[1.05] tracking-[-0.02em] text-sx-ink">
+              <h3 className="pt-10 text-[24px] font-bold leading-[1.05] tracking-[-0.01em] text-sx-ink">
                 {value.title}
               </h3>
               <p className="mt-3 text-[16px] leading-relaxed text-sx-body">{value.body}</p>

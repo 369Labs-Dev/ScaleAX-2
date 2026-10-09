@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             Sample article: shown to demonstrate the Insights template.
           </div>
           <div className="sx-eyebrow mt-10">{article.topic}</div>
-          <h1 className="mt-5 text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-[1.02] tracking-[-0.022em] text-sx-ink">
+          <h1 className="mt-5 text-[clamp(2.25rem,4.6vw,4rem)] font-bold leading-[1.02] tracking-[-0.01em] text-sx-ink">
             {article.title}
           </h1>
           <div className="mt-7 flex flex-wrap items-center gap-3 text-[14px] font-bold text-sx-muted">
@@ -101,7 +101,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <div key={section.heading} className="mt-10">
               <h2
                 data-no-split=""
-                className="text-[24px] font-black leading-tight tracking-[-0.015em] text-sx-ink"
+                className="text-[24px] font-bold leading-tight tracking-[-0.01em] text-sx-ink"
               >
                 {section.heading}
               </h2>
@@ -135,7 +135,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 className="group border-b border-sx-border py-7"
               >
                 <div className="sx-eyebrow">{item.topic}</div>
-                <div className="mt-4 text-[20px] font-black leading-snug tracking-[-0.015em] text-sx-ink">
+                <div className="mt-4 text-[20px] font-bold leading-snug tracking-[-0.01em] text-sx-ink">
                   <span className="sx-link">{item.title}</span>
                 </div>
               </Link>

@@ -169,7 +169,7 @@ export function CostCalculator({ variant = 'full' }: { variant?: 'full' | 'embed
               {GROUPS.map(([key, label]) => (
                 <div key={key} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
                   <div>
-                    <p className="text-[14px] font-semibold text-sx-ink">{label}</p>
+                    <p className="text-[14px] font-bold text-sx-ink">{label}</p>
                     <Range
                       min={0}
                       max={100}
@@ -260,7 +260,7 @@ export function CostCalculator({ variant = 'full' }: { variant?: 'full' | 'embed
                   <li key={c.name}>
                     <div className="flex items-baseline justify-between gap-3">
                       <p
-                        className={`font-extrabold text-sx-ink ${i === 0 ? 'text-[18px]' : 'text-[14px]'}`}
+                        className={`font-bold text-sx-ink ${i === 0 ? 'text-[18px]' : 'text-[14px]'}`}
                       >
                         {c.name}
                       </p>
@@ -387,7 +387,7 @@ function Chip({
       type="button"
       aria-pressed={selected}
       onClick={onClick}
-      className={`min-h-10 rounded-sx border px-3.5 py-2 text-[14px] font-medium transition-[background-color,color,border-color,scale] duration-200 ease-sx-out active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
+      className={`min-h-10 rounded-sx border px-3.5 py-2 text-[14px] font-normal transition-[background-color,color,border-color,scale] duration-200 ease-sx-out active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink ${
         selected
           ? 'border-sx-ink bg-sx-ink text-white'
           : 'border-sx-ink-20 bg-white text-sx-ink hover:border-sx-ink/60'
@@ -450,10 +450,8 @@ function ResultPanel({
       />
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div>
-          <p className="text-[12px] font-bold uppercase tracking-[0.12em] text-white/60">
-            Three-year saving vs. home market
-          </p>
-          <p className="sx-figure mt-3 text-[clamp(2.25rem,4.6vw,4rem)] font-black leading-none tracking-tight">
+          <p className="text-[14px] font-bold text-white/60">Three-year saving vs. home market</p>
+          <p className="sx-figure mt-3 text-[clamp(2.25rem,4.6vw,4rem)] font-bold leading-none tracking-[-0.01em]">
             <Tick value={money(result.cum)} />
           </p>
           <p className="mt-3 max-w-[34ch] text-[14px] leading-relaxed text-white/80">
@@ -470,7 +468,7 @@ function ResultPanel({
       </div>
 
       <div className="mt-10 border-t border-white/15 pt-8">
-        <div className="mb-4 flex items-center gap-5 text-[12px] font-semibold text-white/60">
+        <div className="mb-4 flex items-center gap-5 text-[12px] font-bold text-white/60">
           <span className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-sm bg-white/25" /> Home market
           </span>
@@ -513,8 +511,8 @@ function Bar({ pct, className, title }: { pct: number; className: string; title:
 function PanelStat({ label, value }: { label: string; value: string }) {
   return (
     <div className="min-w-[110px]">
-      <dt className="text-[12px] font-semibold leading-snug text-white/55">{label}</dt>
-      <dd className="sx-figure mt-1 text-[20px] font-extrabold">
+      <dt className="text-[12px] font-bold leading-snug text-white/55">{label}</dt>
+      <dd className="sx-figure mt-1 text-[20px] font-bold">
         <Tick value={value} />
       </dd>
     </div>
@@ -668,7 +666,7 @@ function TimelineCard({ result }: { result: Result }) {
             key={phase.label}
             className="grid grid-cols-[112px_minmax(0,1fr)] items-center gap-3 text-[12px]"
           >
-            <span className="font-semibold leading-snug text-sx-body">{phase.label}</span>
+            <span className="font-bold leading-snug text-sx-body">{phase.label}</span>
             <div className="relative h-5 rounded-[4px] bg-sx-ink-06">
               <div
                 className="absolute inset-y-0 rounded-[4px] bg-sx-ink transition-[left,width] duration-500 ease-sx-out"
@@ -681,7 +679,7 @@ function TimelineCard({ result }: { result: Result }) {
           </li>
         ))}
       </ul>
-      <div className="mt-2 flex justify-between text-[12px] font-semibold text-sx-muted">
+      <div className="mt-2 flex justify-between text-[12px] font-bold text-sx-muted">
         <span>Week 0</span>
         <span>Week {result.weeks}</span>
       </div>

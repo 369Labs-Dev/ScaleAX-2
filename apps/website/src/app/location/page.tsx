@@ -19,7 +19,7 @@ export default function LocationPage() {
   return (
     <>
       <PageHero
-        eyebrow="LOCATION FINDER"
+        eyebrow="Location Finder"
         title="Which Indian city suits your centre?"
         intro="Compare 10 cities on 25+ factors covering talent, cost, access and day-to-day operations. Weight them to your own priorities."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'Location Finder' }]}

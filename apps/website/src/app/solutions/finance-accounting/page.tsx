@@ -19,7 +19,7 @@ export default function FinanceAccountingPage() {
   return (
     <>
       <PageHero
-        eyebrow="SOLUTIONS · FINANCE AND ACCOUNTING"
+        eyebrow="Solutions · Finance and accounting"
         title="Books closed on time, in the format your head office uses."
         intro="We set up the finance function for your centre and run it every month: payables, receivables, bank, month-end close and reporting to your group standards."
         breadcrumb={[
@@ -34,7 +34,7 @@ export default function FinanceAccountingPage() {
       />
 
       <TileSection
-        eyebrow="FINANCE"
+        eyebrow="Finance"
         headline="Six processes, from set-up to monthly running."
         columns={3}
         items={[

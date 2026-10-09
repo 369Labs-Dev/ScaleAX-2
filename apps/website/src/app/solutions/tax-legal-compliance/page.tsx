@@ -20,7 +20,7 @@ export default function TaxLegalCompliancePage() {
   return (
     <>
       <PageHero
-        eyebrow="SOLUTIONS · TAX, LEGAL AND COMPLIANCE"
+        eyebrow="Solutions · Tax, legal and compliance"
         title="Your entity, tax and filings, handled by chartered accountants."
         intro="We set up your Indian entity, choose the right tax position and keep every filing on time. The work is done by chartered accountants and legal specialists in the ScaleAX group."
         breadcrumb={[
@@ -35,7 +35,7 @@ export default function TaxLegalCompliancePage() {
       />
 
       <TileSection
-        eyebrow="ENTITY"
+        eyebrow="Entity"
         headline="Setting up your company."
         columns={3}
         items={[
@@ -95,7 +95,7 @@ export default function TaxLegalCompliancePage() {
       />
 
       <TileSection
-        eyebrow="ONGOING COMPLIANCE"
+        eyebrow="Ongoing compliance"
         columns={3}
         items={[
           {
@@ -124,7 +124,7 @@ export default function TaxLegalCompliancePage() {
       />
 
       <ProcessSteps
-        eyebrow="HOW IT RUNS"
+        eyebrow="How it runs"
         steps={[
           { label: 'Structure', body: 'Compare entity options and tax positions.' },
           { label: 'Set up', body: 'Incorporate, register and put controls in place.' },

@@ -21,7 +21,7 @@ export default function GlobalError({
   return (
     <section className="border-b border-sx-border">
       <div className="sx-container py-24 md:py-32">
-        <div className="sx-eyebrow">SOMETHING WENT WRONG</div>
+        <div className="sx-eyebrow">Something went wrong</div>
         <h1 className="sx-h1 mt-6 max-w-[14ch] text-sx-ink">This page hit an unexpected error.</h1>
         <p className="sx-lead mt-7 max-w-[52ch]">
           Our team has been notified. You can try again, or head back to the homepage.

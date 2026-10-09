@@ -149,7 +149,7 @@ export function HeroCarousel({ slides, proof }: { slides: HeroSlide[]; proof: Pr
                       key={slide.id}
                       data-headline=""
                       aria-hidden={on ? undefined : true}
-                      className={`font-black tracking-[-0.022em] text-sx-white [grid-area:1/1] ${
+                      className={`font-bold tracking-[-0.01em] text-sx-white [grid-area:1/1] ${
                         slide.headline.length > LONG_HEADLINE
                           ? 'max-w-[30ch] text-[clamp(1.875rem,3.2vw,2.75rem)] leading-[1.08]'
                           : 'max-w-[19ch] text-[clamp(2.25rem,4.6vw,4rem)] leading-[1]'
@@ -239,7 +239,7 @@ export function HeroCarousel({ slides, proof }: { slides: HeroSlide[]; proof: Pr
             >
               {proof.map((tile) => (
                 <div key={tile.label} className="lg:border-t lg:border-white/25 lg:py-4">
-                  <dt className="text-[24px] font-black leading-none tracking-[-0.03em] text-sx-white md:text-[32px]">
+                  <dt className="text-[24px] font-bold leading-none tracking-[-0.01em] text-sx-white md:text-[32px]">
                     <CountUp value={tile.figure} className="sx-figure" />
                   </dt>
                   <dd className="mt-2 text-[14px] font-bold text-white/70">{tile.label}</dd>

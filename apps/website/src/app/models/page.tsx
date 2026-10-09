@@ -132,7 +132,7 @@ export default function ModelsPage() {
   return (
     <>
       <PageHero
-        eyebrow="ENGAGEMENT MODELS"
+        eyebrow="Engagement models"
         title="Choose how much you own, and when."
         intro="Every centre starts differently. Pick the model that fits your stage and appetite for risk, and move to another as the centre grows."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'Engagement models' }]}
@@ -161,7 +161,7 @@ export default function ModelsPage() {
                     </div>
                     <div className="sx-eyebrow">{model.tagline}</div>
                   </div>
-                  <h2 className="mt-3 text-[24px] font-black tracking-[-0.03em] text-sx-ink sm:text-[32px]">
+                  <h2 className="mt-3 text-[24px] font-bold tracking-[-0.01em] text-sx-ink sm:text-[32px]">
                     {model.name}
                   </h2>
                   <p className="mt-3 max-w-[640px] text-[16px] leading-[1.6] text-sx-body">
@@ -170,9 +170,7 @@ export default function ModelsPage() {
 
                   <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div className="rounded-sx bg-sx-bg-light p-5">
-                      <div className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-ink">
-                        You do
-                      </div>
+                      <div className="text-[14px] font-bold text-sx-ink">You do</div>
                       <ul className="mt-3 space-y-2">
                         {model.youDo.map((item) => (
                           <li
@@ -185,9 +183,7 @@ export default function ModelsPage() {
                       </ul>
                     </div>
                     <div className="rounded-sx bg-sx-bg-light p-5">
-                      <div className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-ink">
-                        We do
-                      </div>
+                      <div className="text-[14px] font-bold text-sx-ink">We do</div>
                       <ul className="mt-3 space-y-2">
                         {model.weDo.map((item) => (
                           <li
@@ -202,9 +198,7 @@ export default function ModelsPage() {
                   </div>
 
                   <div className="mt-7">
-                    <div className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-ink">
-                      Why it works
-                    </div>
+                    <div className="text-[14px] font-bold text-sx-ink">Why it works</div>
                     <ul className="mt-3 grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
                       {model.whyItWorks.map((item) => (
                         <li
@@ -225,18 +219,14 @@ export default function ModelsPage() {
                 <div className="flex flex-col justify-between gap-8 border-t border-sx-border bg-sx-bg-light p-6 sm:p-8 lg:col-span-4 lg:border-l lg:border-t-0">
                   <dl className="space-y-6">
                     <div>
-                      <dt className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-muted">
-                        Best for
-                      </dt>
-                      <dd className="mt-2 text-[16px] leading-[1.55] font-medium text-sx-ink">
+                      <dt className="text-[14px] font-bold text-sx-muted">Best for</dt>
+                      <dd className="mt-2 text-[16px] leading-[1.55] font-normal text-sx-ink">
                         {model.bestFor}
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-[14px] font-bold uppercase tracking-[0.06em] text-sx-muted">
-                        Typical length
-                      </dt>
-                      <dd className="mt-2 text-[16px] leading-[1.55] font-medium text-sx-ink">
+                      <dt className="text-[14px] font-bold text-sx-muted">Typical length</dt>
+                      <dd className="mt-2 text-[16px] leading-[1.55] font-normal text-sx-ink">
                         {model.typicalLength}
                       </dd>
                     </div>
@@ -259,7 +249,7 @@ export default function ModelsPage() {
 
       <ComparisonTable
         id="compare"
-        eyebrow="COMPARE"
+        eyebrow="Compare"
         headline="How the four models compare."
         columns={['BOT', 'Assisted set-up', 'Managed seats', 'Employer of Record']}
         rows={[

@@ -53,7 +53,7 @@ export function TileSection({
               <div className="sx-figure text-[14px] font-bold text-sx-ink-50 transition-colors duration-300 group-hover:text-sx-ink">
                 {String(i + 1).padStart(2, '0')}
               </div>
-              <div className="mt-3 text-[20px] font-black leading-snug tracking-[-0.015em] text-sx-ink">
+              <div className="mt-3 text-[20px] font-bold leading-snug tracking-[-0.01em] text-sx-ink">
                 {item.title}
               </div>
               {item.description && (

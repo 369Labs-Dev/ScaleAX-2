@@ -19,7 +19,7 @@ export default function HrPayrollPage() {
   return (
     <>
       <PageHero
-        eyebrow="SOLUTIONS · HR AND PAYROLL"
+        eyebrow="Solutions · HR and payroll"
         title="People operations that run on time, every month."
         intro="We set up your HR system, policies and payroll before the first person joins, then run payroll, statutory filings and HR support every month."
         breadcrumb={[
@@ -34,7 +34,7 @@ export default function HrPayrollPage() {
       />
 
       <TileSection
-        eyebrow="SET-UP"
+        eyebrow="Set-up"
         headline="Your HR foundation."
         columns={3}
         items={[
@@ -69,7 +69,7 @@ export default function HrPayrollPage() {
       />
 
       <TileSection
-        eyebrow="ONGOING SERVICES"
+        eyebrow="Ongoing services"
         columns={3}
         items={[
           {

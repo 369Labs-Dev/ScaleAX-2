@@ -21,7 +21,7 @@ export default function RunPage() {
   return (
     <>
       <PageHero
-        eyebrow="HOW WE WORK · RUN"
+        eyebrow="How we work · Run"
         title="Your centre, run day to day by people who know it."
         intro="Once the centre is open, we run the operations behind it: people, money and premises. Every process has a named owner, agreed service levels and a monthly report. Your leaders focus on the work the centre was set up to do."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'How we work' }, { label: 'Run' }]}
@@ -33,7 +33,7 @@ export default function RunPage() {
       />
 
       <TileSection
-        eyebrow="OUR PRINCIPLES"
+        eyebrow="Our principles"
         headline="Four rules for every service we run."
         columns={4}
         items={[
@@ -60,7 +60,7 @@ export default function RunPage() {
       />
 
       <TileSection
-        eyebrow="WHAT WE RUN"
+        eyebrow="What we run"
         headline="Nine services in three groups."
         columns={3}
         items={[
@@ -109,7 +109,7 @@ export default function RunPage() {
       />
 
       <TileSection
-        eyebrow="REVIEWS"
+        eyebrow="Reviews"
         headline="Four review cycles keep everyone aligned."
         columns={4}
         items={[

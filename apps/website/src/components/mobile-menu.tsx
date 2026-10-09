@@ -106,7 +106,7 @@ export function MobileMenu() {
           <div className="sx-container flex h-[76px] shrink-0 items-center justify-between">
             <Link
               href="/"
-              className="text-[20px] font-black tracking-[-0.03em] text-sx-ink"
+              className="text-[20px] font-bold tracking-[-0.01em] text-sx-ink"
               onClick={close}
             >
               ScaleAX
@@ -139,7 +139,7 @@ export function MobileMenu() {
                     aria-expanded={isExpanded}
                     aria-controls={`mobile-group-${group.id}`}
                     onClick={() => setExpanded(isExpanded ? null : group.id)}
-                    className="flex w-full items-center justify-between py-5 text-left text-[20px] font-black tracking-[-0.02em] text-sx-ink"
+                    className="flex w-full items-center justify-between py-5 text-left text-[20px] font-bold tracking-[-0.01em] text-sx-ink"
                   >
                     {group.label}
                     <ChevronDown
@@ -206,7 +206,7 @@ function BigLink({
     <Link
       href={href}
       onClick={onClick}
-      className="block border-b border-sx-border py-5 text-[20px] font-black tracking-[-0.02em] text-sx-ink"
+      className="block border-b border-sx-border py-5 text-[20px] font-bold tracking-[-0.01em] text-sx-ink"
     >
       {children}
     </Link>

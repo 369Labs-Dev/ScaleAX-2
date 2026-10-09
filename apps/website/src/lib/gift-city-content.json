@@ -4,14 +4,14 @@
     "searchDesc": "Set up a GIC, treasury centre or other IFSC unit in GIFT City, find local services for your team, and browse GIFT City jobs. ScaleAX is based in GIFT City."
   },
   "banner": {
-    "label": "GIFT CITY · IFSC",
+    "label": "GIFT City · IFSC",
     "heading": "Set up, staff and settle your team in GIFT City.",
     "text": "GIFT City in Gandhinagar is home to India's International Financial Services Centre (IFSC), which has its own regulator, the International Financial Services Centres Authority (IFSCA). ScaleAX is based here. We take you from choosing the right licence to hiring your team and getting them settled.",
     "buttons": ["Find your licence route", "See open jobs"],
     "jump": ["IFSC set-up", "Facilities", "Jobs", "FAQ"]
   },
   "why": {
-    "label": "WHY GIFT CITY IFSC",
+    "label": "Why GIFT City IFSC",
     "heading": "One regulator, foreign-currency operations and a tax regime built for international business.",
     "items": [
       [
@@ -33,7 +33,7 @@
     ]
   },
   "ifsc": {
-    "label": "IFSC SET-UP",
+    "label": "IFSC set-up",
     "heading": "Which IFSC licence fits what you want to run?",
     "text": "Most global capability centres in GIFT City use one of the first three routes. Pick the one closest to your plan; we confirm the exact route in a scoping call.",
     "routes": [
@@ -685,7 +685,7 @@
     ]
   },
   "facilities": {
-    "label": "FACILITIES AND SERVICES",
+    "label": "Facilities and services",
     "heading": "Everything your team needs around the office.",
     "text": "GIFT City's offices and homes are built. What makes a team stay is getting here easily, services that work after hours, and reasons to spend time here. Find service providers by category below, or let ScaleAX run them for you through one desk.",
     "categories": [
@@ -740,7 +740,7 @@
     ]
   },
   "jobs": {
-    "label": "JOBS IN GIFT CITY",
+    "label": "Jobs in GIFT City",
     "heading": "Open roles at GIFT City employers.",
     "text": "Roles at IFSC units, capability centres and service firms in GIFT City, including ScaleAX clients. Apply directly, or sign up for job alerts.",
     "filters": [

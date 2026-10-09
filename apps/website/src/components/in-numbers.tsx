@@ -80,7 +80,7 @@ function Stat({ stat, index }: { stat: NumberStat; index: number }) {
   return (
     <>
       <span aria-hidden="true" className={`mb-7 block h-1.5 w-12 ${BARS[index % BARS.length]}`} />
-      <div className="text-[40px] font-black leading-[1.05] tracking-[-0.035em] text-sx-ink">
+      <div className="text-[40px] font-bold leading-[1.05] tracking-[-0.01em] text-sx-ink">
         <CountUp value={stat.figure} className="sx-figure" />
       </div>
       <div className="mt-4 text-[16px] font-bold text-sx-ink">{stat.label}</div>

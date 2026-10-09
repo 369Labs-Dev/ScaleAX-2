@@ -74,7 +74,7 @@ export function GiftCityParts({ current, heading }: { current: string; heading?:
                 i < 2 ? 'lg:col-span-3' : 'lg:col-span-2'
               } ${i === links.length - 1 && links.length % 2 === 1 ? 'sm:col-span-2' : ''}`}
             >
-              <span className="text-[22px] font-black leading-[1.12] tracking-[-0.015em] text-sx-ink">
+              <span className="text-[22px] font-bold leading-[1.12] tracking-[-0.01em] text-sx-ink">
                 {link.label}
               </span>
               <span className="mt-3 text-[16px] leading-relaxed text-sx-body">{link.summary}</span>
@@ -113,7 +113,7 @@ export function IfscSection() {
           <RouteSelector />
         </div>
 
-        <h3 className="mt-16 text-[24px] font-black tracking-[-0.02em] text-sx-ink md:mt-20">
+        <h3 className="mt-16 text-[24px] font-bold tracking-[-0.01em] text-sx-ink md:mt-20">
           {ifsc.helpHeading}
         </h3>
         <Reveal
@@ -125,7 +125,7 @@ export function IfscSection() {
               <div className="sx-figure text-[14px] font-bold text-sx-ink-50">
                 {String(i + 1).padStart(2, '0')}
               </div>
-              <div className="mt-3 text-[20px] font-black leading-snug tracking-[-0.015em] text-sx-ink">
+              <div className="mt-3 text-[20px] font-bold leading-snug tracking-[-0.01em] text-sx-ink">
                 {title}
               </div>
               <p className="mt-2 text-[16px] leading-relaxed text-sx-body">{text}</p>
@@ -148,7 +148,7 @@ export function FacilitiesSection() {
               key={title}
               className="row-span-3 grid grid-rows-subgrid gap-0 rounded-sx border border-sx-border bg-sx-white p-7"
             >
-              <h3 className="text-[20px] font-black leading-[1.12] tracking-[-0.015em] text-sx-ink">
+              <h3 className="text-[20px] font-bold leading-[1.12] tracking-[-0.01em] text-sx-ink">
                 {title}
               </h3>
               <p className="mt-3 text-[16px] leading-relaxed text-sx-body">{text}</p>
@@ -168,7 +168,7 @@ export function FacilitiesSection() {
         <div className="mt-12 rounded-sx bg-sx-ink-deep p-7 text-sx-white md:mt-16 md:p-12">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <h3 className="text-[clamp(1.5rem,2.2vw,2rem)] font-black leading-[1.04] tracking-[-0.02em] text-sx-white">
+              <h3 className="text-[clamp(1.5rem,2.2vw,2rem)] font-bold leading-[1.04] tracking-[-0.01em] text-sx-white">
                 {facilities.deskHeading}
               </h3>
               <p className="mt-4 text-[18px] leading-relaxed text-white/80">
@@ -197,7 +197,7 @@ export function FacilitiesSection() {
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-6 rounded-sx bg-sx-tint-blue p-7 md:p-9">
           <div>
-            <h3 className="text-[20px] font-black tracking-[-0.015em] text-sx-ink">
+            <h3 className="text-[20px] font-bold tracking-[-0.01em] text-sx-ink">
               {facilities.listCta[0]}
             </h3>
             <p className="mt-2 text-[16px] text-sx-body">{facilities.listCta[1]}</p>

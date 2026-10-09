@@ -38,7 +38,7 @@ export function PartnerFirms() {
                 </div>
               </div>
               <div className="lg:col-span-5">
-                <h3 className="text-[32px] font-black leading-none tracking-[-0.02em] text-sx-ink">
+                <h3 className="text-[32px] font-bold leading-none tracking-[-0.01em] text-sx-ink">
                   {firm.name}
                 </h3>
                 <p className="mt-4 text-[18px] leading-relaxed text-sx-body">{firm.description}</p>
@@ -47,7 +47,7 @@ export function PartnerFirms() {
                 {firm.stats.map((stat) => (
                   <li
                     key={stat}
-                    className="border-l-0 text-[18px] font-black tracking-[-0.015em] text-sx-ink"
+                    className="border-l-0 text-[18px] font-bold tracking-[-0.01em] text-sx-ink"
                   >
                     <CountUp value={stat} className="sx-figure" />
                   </li>
@@ -55,9 +55,7 @@ export function PartnerFirms() {
               </ul>
               {clientsOf(firm.name).length > 0 && (
                 <div className="lg:col-span-9 lg:col-start-4">
-                  <div className="text-[12px] font-bold uppercase tracking-[0.1em] text-sx-muted">
-                    Clients
-                  </div>
+                  <div className="text-[14px] font-bold text-sx-muted">Clients</div>
                   <ul className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-5">
                     {clientsOf(firm.name).map((client) => (
                       <li key={client.name}>

@@ -20,7 +20,7 @@ export default function TalentPage() {
   return (
     <>
       <PageHero
-        eyebrow="SOLUTIONS · TALENT"
+        eyebrow="Solutions · Talent"
         title="Hire the right people first, then keep hiring well."
         intro="We plan who you need and when, hire your leaders first, and then build the team. As the centre grows, we keep hiring through the model that suits each role."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'Solutions' }, { label: 'Talent' }]}
@@ -31,7 +31,7 @@ export default function TalentPage() {
       />
 
       <TileSection
-        eyebrow="BUILD YOUR HIRING ENGINE"
+        eyebrow="Build your hiring engine"
         headline="Six things we set up before the first offer."
         columns={3}
         items={[
@@ -65,7 +65,7 @@ export default function TalentPage() {
       />
 
       <TileSection
-        eyebrow="HIRING MODELS"
+        eyebrow="Hiring models"
         headline="Pick the model for each role."
         columns={3}
         items={[
@@ -92,7 +92,7 @@ export default function TalentPage() {
       />
 
       <ProcessSteps
-        eyebrow="PEOPLE LIFECYCLE"
+        eyebrow="People lifecycle"
         steps={[
           { label: 'Attract', body: 'Employer brand, careers page and campaigns.' },
           { label: 'Source and screen', body: 'Direct search, referrals, campuses and partners.' },

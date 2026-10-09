@@ -103,10 +103,8 @@ export function MiniEstimator() {
         aria-live="polite"
       >
         <div>
-          <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-sx-ink-70">
-            Indicative annual saving
-          </p>
-          <p className="mt-4 text-[56px] font-black leading-none tracking-[-0.035em] text-sx-ink md:text-[72px]">
+          <p className="text-[14px] font-bold text-sx-ink-70">Indicative annual saving</p>
+          <p className="mt-4 text-[56px] font-bold leading-none tracking-[-0.01em] text-sx-ink md:text-[72px]">
             <Tick value={formatUsdCompact(estimate.annualSaving)} className="sx-figure" />
           </p>
           <p className="mt-3 text-[18px] text-sx-ink-70">
@@ -163,7 +161,7 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <dt className="text-[12px] font-bold text-sx-ink-70">{label}</dt>
-      <dd className="mt-1 text-[20px] font-black tracking-[-0.02em]">
+      <dd className="mt-1 text-[20px] font-bold tracking-[-0.01em]">
         <Tick value={value} className="sx-figure" />
       </dd>
     </div>

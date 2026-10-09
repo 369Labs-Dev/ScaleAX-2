@@ -18,7 +18,7 @@ export default function InsightsPage() {
   return (
     <>
       <PageHero
-        eyebrow="INSIGHTS"
+        eyebrow="Insights"
         title="Notes from the work."
         intro="Analysis and practical guidance on setting up and running a GCC in India."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'Insights' }]}

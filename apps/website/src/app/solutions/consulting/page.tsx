@@ -19,7 +19,7 @@ export default function ConsultingPage() {
   return (
     <>
       <PageHero
-        eyebrow="SOLUTIONS · CONSULTING"
+        eyebrow="Solutions · Consulting"
         title="Advice before you commit, and after you open."
         intro="Our consulting team helps you decide whether, where and how to build a centre in India, and how to get more from one you already run. The advice comes from people who have run finance, operations and teams, and who will build the centre if you go ahead."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'Solutions' }, { label: 'Consulting' }]}
@@ -30,7 +30,7 @@ export default function ConsultingPage() {
       />
 
       <TileSection
-        eyebrow="WHAT WE OFFER"
+        eyebrow="What we offer"
         headline="Three types of work."
         columns={3}
         items={[
@@ -53,7 +53,7 @@ export default function ConsultingPage() {
       />
 
       <TileSection
-        eyebrow="FOCUS AREAS"
+        eyebrow="Focus areas"
         columns={3}
         items={[
           {

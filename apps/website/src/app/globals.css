@@ -106,7 +106,7 @@
   /* Archivo is a variable face: "bold" and "black" land on calmer weights
      than the old 700/900 so display type reads confident, not shouty. */
   --font-weight-bold: 600;
-  --font-weight-black: 650;
+  --font-weight-black: 600;
 }
 
 @layer base {
@@ -140,15 +140,15 @@
     text-wrap: balance;
   }
   h1 {
-    letter-spacing: -0.022em;
-    font-weight: 650;
+    letter-spacing: -0.01em;
+    font-weight: 600;
   }
   h2 {
-    letter-spacing: -0.02em;
-    font-weight: 650;
+    letter-spacing: -0.01em;
+    font-weight: 600;
   }
   h3 {
-    letter-spacing: -0.015em;
+    letter-spacing: -0.01em;
   }
 
   ::selection {
@@ -332,10 +332,8 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
     color: var(--sx-ink-50);
   }
   .sx-eyebrow::before {
@@ -346,28 +344,30 @@
     background: var(--sx-accent);
   }
 
-  /* Type scale. One family (Inter) and a fixed set of sizes:
+  /* Type rules. Two weights only (400 and 600), no capitalised labels, and
+     one letter-spacing for headings (-0.01em); everything else is unspaced.
+     One family (Inter) and a fixed set of sizes:
      text 12 / 14 / 16 / 18 / 20 / 24 / 32 / 40 / 56 / 72 px, and three fluid
      heading sizes: display clamp(2.25rem, 4.6vw, 4rem), section
      clamp(1.875rem, 3.2vw, 2.75rem) and sub-heading
      clamp(1.5rem, 2.2vw, 2rem). Use these rather than new one-off sizes. */
   .sx-h1 {
     font-size: clamp(2.25rem, 4.6vw, 4rem);
-    font-weight: 650;
+    font-weight: 600;
     line-height: 1.05;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.01em;
   }
   .sx-h2 {
     font-size: clamp(1.875rem, 3.2vw, 2.75rem);
-    font-weight: 650;
+    font-weight: 600;
     line-height: 1.1;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.01em;
   }
   .sx-h3 {
     font-size: clamp(1.25rem, 1.8vw, 1.5rem);
     font-weight: 600;
     line-height: 1.15;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.01em;
   }
   .sx-lead {
     color: var(--sx-ink-70);
@@ -410,7 +410,7 @@
 
   .sx-figure {
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.01em;
   }
 
   /* Image slot: a real photograph when the file exists in public/images,
@@ -439,8 +439,6 @@
     max-width: calc(100% - 32px);
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     line-height: 1.45;
   }
   .sx-slot-label[data-pos='top'] {

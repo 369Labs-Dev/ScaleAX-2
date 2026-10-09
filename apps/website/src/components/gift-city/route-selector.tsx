@@ -55,11 +55,11 @@ export function RouteSelector() {
               }`}
             >
               <span
-                className={`text-[12px] font-bold uppercase tracking-[0.1em] ${selected ? 'text-white/65' : 'text-sx-muted'}`}
+                className={`text-[14px] font-bold ${selected ? 'text-white/65' : 'text-sx-muted'}`}
               >
                 {r.forWho}
               </span>
-              <span className="mt-3 text-[18px] font-black leading-[1.15] tracking-[-0.015em]">
+              <span className="mt-3 text-[18px] font-bold leading-[1.15] tracking-[-0.01em]">
                 {r.name}
               </span>
               <span
@@ -86,7 +86,7 @@ export function RouteSelector() {
       >
         <div className="grid grid-cols-1 gap-x-14 gap-y-8 lg:grid-cols-12">
           <div className="min-w-0 lg:col-span-5">
-            <h3 className="text-[clamp(1.5rem,2.2vw,2rem)] font-black leading-[1.05] tracking-[-0.02em] text-sx-ink">
+            <h3 className="text-[clamp(1.5rem,2.2vw,2rem)] font-bold leading-[1.05] tracking-[-0.01em] text-sx-ink">
               {route.name}
             </h3>
             <p className="mt-4 text-[16px] leading-relaxed text-sx-body">{route.summary}</p>
@@ -122,7 +122,7 @@ export function RouteSelector() {
 
         <div className="mt-10 border-t border-sx-border pt-8">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <h4 className="text-[20px] font-black tracking-[-0.015em] text-sx-ink">
+            <h4 className="text-[20px] font-bold tracking-[-0.01em] text-sx-ink">
               {ifsc.journeyHeading}
             </h4>
             <span className="text-[14px] font-bold text-sx-ink">{route.weeks}</span>
@@ -161,7 +161,7 @@ export function RouteSelector() {
                         <span className="sx-figure text-[14px] font-bold text-sx-ink-50">
                           {String(i + 1).padStart(2, '0')}
                         </span>
-                        <span className="text-[18px] font-black tracking-[-0.015em] text-sx-ink">
+                        <span className="text-[18px] font-bold tracking-[-0.01em] text-sx-ink">
                           {stage}
                         </span>
                         <span className="text-[14px] text-sx-muted">{time}</span>
@@ -195,9 +195,7 @@ export function RouteSelector() {
       </div>
 
       <div className="mt-6 rounded-sx bg-sx-tint-yellow p-6 md:p-8">
-        <h3 className="text-[20px] font-black tracking-[-0.015em] text-sx-ink">
-          {ifsc.outside[0]}
-        </h3>
+        <h3 className="text-[20px] font-bold tracking-[-0.01em] text-sx-ink">{ifsc.outside[0]}</h3>
         <p className="mt-2 max-w-[80ch] text-[16px] leading-relaxed text-sx-body">
           {ifsc.outside[1]}
         </p>

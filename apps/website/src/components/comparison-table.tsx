@@ -28,7 +28,7 @@ export function ComparisonTable({
         <div className="max-w-[820px]">
           {eyebrow && <div className="sx-eyebrow">{eyebrow}</div>}
           {headline && (
-            <h2 className="mt-5 text-[clamp(1.875rem,3.2vw,2.75rem)] font-black leading-[1.04] tracking-[-0.02em] text-sx-ink">
+            <h2 className="mt-5 text-[clamp(1.875rem,3.2vw,2.75rem)] font-bold leading-[1.04] tracking-[-0.01em] text-sx-ink">
               {headline}
             </h2>
           )}
@@ -43,11 +43,7 @@ export function ComparisonTable({
                 &nbsp;
               </th>
               {columns.map((col) => (
-                <th
-                  key={col}
-                  scope="col"
-                  className="px-4 py-4 text-[14px] font-bold uppercase tracking-[0.08em] text-sx-ink"
-                >
+                <th key={col} scope="col" className="px-4 py-4 text-[14px] font-bold text-sx-ink">
                   {col}
                 </th>
               ))}

@@ -19,7 +19,7 @@ export default function RealEstatePage() {
   return (
     <>
       <PageHero
-        eyebrow="SOLUTIONS · REAL ESTATE AND WORKSPACE"
+        eyebrow="Solutions · Real estate and workspace"
         title="Start in a managed office. Grow into your own."
         intro="Your first team can start in a managed DevX office within weeks while we plan your permanent space. When you are ready, Savvy Group builds an office to your standards, and we run it once you move in."
         breadcrumb={[
@@ -34,7 +34,7 @@ export default function RealEstatePage() {
       />
 
       <TileSection
-        eyebrow="OPTIONS"
+        eyebrow="Options"
         headline="Four ways to house your team."
         columns={4}
         items={[
@@ -60,7 +60,7 @@ export default function RealEstatePage() {
       />
 
       <TileSection
-        eyebrow="SET-UP SERVICES"
+        eyebrow="Set-up services"
         columns={3}
         items={[
           {
@@ -91,7 +91,7 @@ export default function RealEstatePage() {
       />
 
       <TileSection
-        eyebrow="ONGOING SERVICES"
+        eyebrow="Ongoing services"
         columns={4}
         items={[
           {
@@ -115,7 +115,7 @@ export default function RealEstatePage() {
 
       <TileSection
         id="workspace-route"
-        eyebrow="WORKSPACE ROUTE"
+        eyebrow="Workspace route"
         headline="How your office comes together, step by step."
         columns={3}
         items={[

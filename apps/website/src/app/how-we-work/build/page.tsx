@@ -21,7 +21,7 @@ export default function BuildPage() {
   return (
     <>
       <PageHero
-        eyebrow="HOW WE WORK · BUILD"
+        eyebrow="How we work · Build"
         title="From a registered company to a working office."
         intro="In the Build stage we set up everything your centre needs to open: the entity, the office, the IT, the finance and HR processes, and the first team. Eight workstreams run in parallel under one project lead, so nothing waits on a supplier you have never met."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'How we work' }, { label: 'Build' }]}
@@ -33,7 +33,7 @@ export default function BuildPage() {
       />
 
       <TileSection
-        eyebrow="WHAT WE SET UP"
+        eyebrow="What we set up"
         headline="Eight workstreams, one project lead."
         columns={4}
         items={[
@@ -75,7 +75,7 @@ export default function BuildPage() {
 
       <AccordionSection
         id="workstream-detail"
-        eyebrow="WORKSTREAM DETAIL"
+        eyebrow="Workstream detail"
         headline="Each workstream, expanded."
         defaultOpenIndex={0}
         items={[
@@ -166,7 +166,7 @@ export default function BuildPage() {
 
       <TileSection
         id="workspace-route"
-        eyebrow="WORKSPACE ROUTE"
+        eyebrow="Workspace route"
         headline="How your office comes together, step by step."
         columns={3}
         items={[
@@ -208,7 +208,7 @@ export default function BuildPage() {
       />
 
       <ProcessSteps
-        eyebrow="HOW IT RUNS"
+        eyebrow="How it runs"
         headline="Five phases to go-live."
         steps={[
           { label: 'Confirm', body: 'Scope, timeline and legal requirements confirmed.' },

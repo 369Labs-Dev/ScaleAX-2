@@ -19,7 +19,7 @@ export default function ItSecurityPage() {
   return (
     <>
       <PageHero
-        eyebrow="SOLUTIONS · IT AND SECURITY"
+        eyebrow="Solutions · IT and security"
         title="IT that meets your group's standards from the first day."
         intro="We set up the network, devices and security your centre needs, connected to your group's systems and policies, and then run IT support and security monitoring once you are live."
         breadcrumb={[
@@ -34,7 +34,7 @@ export default function ItSecurityPage() {
       />
 
       <TileSection
-        eyebrow="SET-UP"
+        eyebrow="Set-up"
         headline="Five areas ready before move-in."
         columns={3}
         items={[
@@ -65,7 +65,7 @@ export default function ItSecurityPage() {
       />
 
       <TileSection
-        eyebrow="ONGOING SERVICES"
+        eyebrow="Ongoing services"
         columns={3}
         items={[
           {

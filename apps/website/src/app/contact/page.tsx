@@ -67,7 +67,7 @@ export default function ContactPage() {
           <Reveal stagger className="grid grid-cols-1 gap-5 sm:grid-cols-3">
             {NEXT_STEPS.map((item) => (
               <div key={item.step} className="sx-card p-6">
-                <div className="sx-figure text-[20px] font-black text-sx-ink">{item.step}</div>
+                <div className="sx-figure text-[20px] font-bold text-sx-ink">{item.step}</div>
                 <div className="mt-2 text-[16px] font-bold text-sx-ink">{item.title}</div>
                 <p className="mt-2 text-[14px] leading-relaxed text-sx-body">{item.body}</p>
               </div>
@@ -79,15 +79,13 @@ export default function ContactPage() {
       {/* Secondary: direct contact details and offices. */}
       <section className="sx-container py-12 sm:py-16">
         <Reveal>
-          <h2 className="text-[20px] font-black tracking-[-0.02em] text-sx-ink">
+          <h2 className="text-[20px] font-bold tracking-[-0.01em] text-sx-ink">
             Prefer to reach us directly?
           </h2>
         </Reveal>
         <Reveal stagger className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:max-w-3xl">
           <div className="sx-card p-6">
-            <div className="text-[14px] font-bold uppercase tracking-[0.08em] text-sx-muted">
-              Email
-            </div>
+            <div className="text-[14px] font-bold text-sx-muted">Email</div>
             <a
               href="mailto:admin@scaleax.com"
               className="mt-2 inline-block text-[16px] font-bold text-sx-ink hover:underline"
@@ -96,9 +94,7 @@ export default function ContactPage() {
             </a>
           </div>
           <div className="sx-card p-6">
-            <div className="text-[14px] font-bold uppercase tracking-[0.08em] text-sx-muted">
-              LinkedIn
-            </div>
+            <div className="text-[14px] font-bold text-sx-muted">LinkedIn</div>
             <a
               href="https://www.linkedin.com"
               target="_blank"
@@ -115,12 +111,12 @@ export default function ContactPage() {
       <section className="border-t border-sx-border">
         <div className="sx-container py-12 sm:py-16">
           <Reveal>
-            <h2 className="text-[20px] font-black tracking-[-0.02em] text-sx-ink">Our locations</h2>
+            <h2 className="text-[20px] font-bold tracking-[-0.01em] text-sx-ink">Our locations</h2>
           </Reveal>
           <Reveal stagger className="mt-8 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {LOCATIONS.map((group) => (
               <div key={group.city} className="border-t border-sx-ink pt-5">
-                <h3 className="text-[18px] font-black tracking-[-0.015em] text-sx-ink">
+                <h3 className="text-[18px] font-bold tracking-[-0.01em] text-sx-ink">
                   {group.city}
                 </h3>
                 <ul className="mt-4 space-y-5">

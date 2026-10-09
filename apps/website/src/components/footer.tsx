@@ -109,7 +109,7 @@ export function Footer() {
 function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
   return (
     <div>
-      <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-white/45">{title}</p>
+      <p className="text-[14px] font-bold text-white/45">{title}</p>
       <ul className="mt-5 space-y-3 text-[16px]">
         {links.map((link) => (
           <li key={link.url}>

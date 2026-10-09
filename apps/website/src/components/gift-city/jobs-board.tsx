@@ -80,7 +80,7 @@ export function JobsBoard() {
               className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-b border-sx-border py-5"
             >
               <div className="min-w-0">
-                <div className="text-[18px] font-black tracking-[-0.015em] text-sx-ink">
+                <div className="text-[18px] font-bold tracking-[-0.01em] text-sx-ink">
                   {job.title}
                 </div>
                 <div className="mt-1 text-[14px] text-sx-body">
@@ -113,7 +113,7 @@ export function JobsBoard() {
 
       <aside className="space-y-4 lg:col-span-4">
         <div className="rounded-sx bg-sx-ink-deep p-7 text-sx-white">
-          <h3 className="text-[20px] font-black tracking-[-0.015em] text-sx-white">
+          <h3 className="text-[20px] font-bold tracking-[-0.01em] text-sx-white">
             {jobs.employerHeading}
           </h3>
           <p className="mt-3 text-[16px] leading-relaxed text-white/80">{jobs.employerText}</p>
@@ -127,7 +127,7 @@ export function JobsBoard() {
           </div>
         </div>
         <div className="rounded-sx border border-sx-border bg-sx-white p-7">
-          <h3 className="text-[20px] font-black tracking-[-0.015em] text-sx-ink">
+          <h3 className="text-[20px] font-bold tracking-[-0.01em] text-sx-ink">
             Looking for a role?
           </h3>
           <p className="mt-3 text-[16px] leading-relaxed text-sx-body">

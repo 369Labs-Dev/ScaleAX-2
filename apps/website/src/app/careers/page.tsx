@@ -17,7 +17,7 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
-        eyebrow="CAREERS"
+        eyebrow="Careers"
         title="Build India's next capability centres with us."
         intro="We're building the team behind India's Global Capability Centres, in Ahmedabad and GIFT City."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'Careers' }]}
@@ -28,7 +28,7 @@ export default function CareersPage() {
       </section>
 
       <TileSection
-        eyebrow="WHY WORK WITH US"
+        eyebrow="Why work with us"
         columns={3}
         items={[
           {

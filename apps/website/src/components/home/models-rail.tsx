@@ -119,7 +119,7 @@ export function ModelsRail({
                   <span className="sx-figure absolute left-7 top-7 text-[14px] font-bold text-white/80 md:left-10 md:top-10">
                     {String(i + 1).padStart(2, '0')} / {String(models.length).padStart(2, '0')}
                   </span>
-                  <h3 className="text-[32px] font-black leading-[1.02] tracking-[-0.03em] text-sx-white md:text-[40px]">
+                  <h3 className="text-[32px] font-bold leading-[1.02] tracking-[-0.01em] text-sx-white md:text-[40px]">
                     {model.name}
                   </h3>
                   <p className="mt-3 flex items-center justify-between gap-6 text-[18px] text-white/85">

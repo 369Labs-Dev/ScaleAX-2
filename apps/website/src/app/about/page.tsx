@@ -22,7 +22,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="ABOUT SCALEAX"
+        eyebrow="About ScaleAX"
         title="Built by operators. Designed for global companies entering India."
         intro="ScaleAX brings together strategy, workspace, talent, technology, finance and compliance under one accountable partner — helping global companies build, operate and scale their GCCs in India."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'About' }]}

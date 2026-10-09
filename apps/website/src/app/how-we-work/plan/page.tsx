@@ -20,7 +20,7 @@ export default function PlanPage() {
   return (
     <>
       <PageHero
-        eyebrow="HOW WE WORK · PLAN"
+        eyebrow="How we work · Plan"
         title="Decide where, how and at what cost before you commit."
         intro="The first stage turns an idea into a plan your board can approve. We work out what the centre will do, where it should be, how it will be run and what it will cost, then map every step to get there."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'How we work' }, { label: 'Plan' }]}
@@ -32,7 +32,7 @@ export default function PlanPage() {
       />
 
       <TileSection
-        eyebrow="WHAT WE COVER"
+        eyebrow="What we cover"
         headline="Six decisions, made with evidence."
         columns={3}
         items={[
@@ -66,7 +66,7 @@ export default function PlanPage() {
       />
 
       <TileSection
-        eyebrow="WHAT YOU RECEIVE"
+        eyebrow="What you receive"
         headline="Documents your board can act on."
         columns={3}
         items={[
@@ -102,7 +102,7 @@ export default function PlanPage() {
       />
 
       <ProcessSteps
-        eyebrow="HOW IT RUNS"
+        eyebrow="How it runs"
         headline="Four weeks from kick-off to business case."
         steps={[
           {

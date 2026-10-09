@@ -27,10 +27,8 @@ export function WhereNext({ page }: { page: string }) {
               href={card.url}
               className={`group flex min-h-[220px] flex-col border-b border-r border-sx-border p-7 transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-sx-ink md:min-h-[260px] md:p-8 ${FILLS[i % FILLS.length]}`}
             >
-              <div className="text-[12px] font-bold uppercase tracking-[0.14em] text-sx-muted">
-                {card.eyebrow}
-              </div>
-              <div className="mt-4 text-[20px] font-black leading-[1.12] tracking-[-0.02em] text-sx-ink md:text-[24px]">
+              <div className="text-[14px] font-bold text-sx-muted">{card.eyebrow}</div>
+              <div className="mt-4 text-[20px] font-bold leading-[1.12] tracking-[-0.01em] text-sx-ink md:text-[24px]">
                 {card.title}
               </div>
               <div className="mt-auto pt-8 text-[20px] text-sx-ink">

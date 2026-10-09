@@ -49,7 +49,7 @@ export function AccordionSection({
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className="group flex w-full items-center justify-between gap-6 py-6 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sx-ink"
                   >
-                    <span className="text-[20px] font-black leading-snug tracking-[-0.015em] text-sx-ink md:text-[24px]">
+                    <span className="text-[20px] font-bold leading-snug tracking-[-0.01em] text-sx-ink md:text-[24px]">
                       {item.title}
                     </span>
                     <AccordionIcon open={isOpen} />

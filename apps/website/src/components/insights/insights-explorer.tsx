@@ -76,7 +76,7 @@ export function InsightsExplorer({ covers = {} }: { covers?: Record<string, stri
               <div className="mt-5 text-[14px] font-bold text-sx-accent-ink">{article.topic}</div>
               <h2
                 data-no-split=""
-                className="mt-2 text-[20px] font-black leading-snug tracking-[-0.015em] text-sx-ink"
+                className="mt-2 text-[20px] font-bold leading-snug tracking-[-0.01em] text-sx-ink"
               >
                 <span className="sx-link">{article.title}</span>
               </h2>

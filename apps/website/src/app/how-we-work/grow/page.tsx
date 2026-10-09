@@ -20,7 +20,7 @@ export default function GrowPage() {
   return (
     <>
       <PageHero
-        eyebrow="HOW WE WORK · GROW"
+        eyebrow="How we work · Grow"
         title="Scale up, or take it over. Your choice, on your timeline."
         intro="As the centre grows, you decide how much to own. We help you add teams and functions, move from our entity to yours, or take over the whole centre through a planned handover. We also review how the centre is performing and where it can take on more."
         breadcrumb={[{ label: 'Home', url: '/' }, { label: 'How we work' }, { label: 'Grow' }]}
@@ -32,7 +32,7 @@ export default function GrowPage() {
       />
 
       <TileSection
-        eyebrow="YOUR OPTIONS"
+        eyebrow="Your options"
         headline="Three ways to take the next step."
         columns={3}
         items={[
@@ -55,7 +55,7 @@ export default function GrowPage() {
       />
 
       <ProcessSteps
-        eyebrow="BUILD-OPERATE-TRANSFER"
+        eyebrow="Build-Operate-Transfer"
         headline="How a handover works."
         steps={[
           {
@@ -92,7 +92,7 @@ export default function GrowPage() {
       />
 
       <TileSection
-        eyebrow="MATURITY"
+        eyebrow="Maturity"
         headline="Where your centre stands, and what comes next."
         columns={4}
         items={[
@@ -113,7 +113,7 @@ export default function GrowPage() {
       />
 
       <TileSection
-        eyebrow="REVIEWS WE OFFER"
+        eyebrow="Reviews we offer"
         columns={3}
         items={[
           {

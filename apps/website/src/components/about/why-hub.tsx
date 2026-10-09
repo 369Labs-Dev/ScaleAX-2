@@ -20,7 +20,7 @@ export function WhyHub() {
         />
         <div className="sx-container py-16 md:py-24">
           <Reveal className="text-center">
-            <div className="sx-eyebrow justify-center !text-white/60">WHY SCALEAX</div>
+            <div className="sx-eyebrow justify-center !text-white/60">Why ScaleAX</div>
             <h2 className="sx-h2 mt-5 text-sx-white">Why companies choose ScaleAX</h2>
           </Reveal>
 
@@ -68,7 +68,7 @@ export function WhyHub() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-sx border border-white/25 bg-white/10 lg:mx-auto">
                     <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
                   </div>
-                  <h3 className="mt-5 text-[20px] font-black leading-[1.12] tracking-[-0.015em] text-sx-white">
+                  <h3 className="mt-5 text-[20px] font-bold leading-[1.12] tracking-[-0.01em] text-sx-white">
                     {item.title}
                   </h3>
                   <p className="mt-3 text-[16px] leading-relaxed text-white/75">
